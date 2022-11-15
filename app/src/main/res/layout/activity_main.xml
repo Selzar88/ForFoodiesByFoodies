@@ -60,7 +60,7 @@
         app:layout_constraintTop_toBottomOf="@+id/logoLogin" />
 
     <EditText
-        android:id="@+id/txtUsernameReg"
+        android:id="@+id/txtUsernameLogin"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginTop="36dp"
@@ -100,7 +100,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUsernameReg"
+        app:layout_constraintTop_toBottomOf="@+id/txtUsernameLogin"
         tools:ignore="TextContrastCheck" />
 
     <TextView
