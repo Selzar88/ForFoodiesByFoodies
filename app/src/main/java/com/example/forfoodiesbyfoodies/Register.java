@@ -3,7 +3,6 @@ package com.example.forfoodiesbyfoodies;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,9 +28,9 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         mAuth = FirebaseAuth.getInstance();
-        email = findViewById(R.id.login_field);
-        password = findViewById(R.id.pass_field);
-        rePassword = findViewById(R.id.repass_field);
+        email = findViewById(R.id.txtUsernameLogin);
+        password = findViewById(R.id.txtPasswordReg2);
+        rePassword = findViewById(R.id.txtPasswordReg2);
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override

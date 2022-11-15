@@ -5,4 +5,5 @@
     <string name="logo">TODO</string>
     <string name="txtWelcome">Welcome</string>
     <string name="textView2">to</string>
+    <string name="sign_in">Sign in</string>
 </resources>

@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashActivity extends AppCompatActivity{
 
-    private static int SPLASH_SCREEN_TIMEOUT = 2400;
+    private static int SPLASH_SCREEN_TIMEOUT = 3000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
