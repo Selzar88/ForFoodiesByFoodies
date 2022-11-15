@@ -9,20 +9,22 @@
 
     <TextView
         android:id="@+id/txtRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="195dp"
+        android:layout_height="19dp"
         android:layout_marginTop="28dp"
-        android:text="@string/registerLink"
         android:clickable="true"
+        android:minHeight="48dp"
+        android:text="@string/registerLink"
+        android:textAlignment="center"
         android:textColor="#B71C1C"
         android:textSize="11sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/btnRegister" />
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnRegister"
         android:layout_width="350dp"
         android:layout_height="60dp"
         android:layout_marginTop="28dp"
@@ -30,7 +32,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtRePasswordReg" />
+        app:layout_constraintTop_toBottomOf="@+id/txtPasswordLogin" />
 
     <ImageView
         android:id="@+id/bannerLogin"
@@ -58,7 +60,7 @@
         app:layout_constraintTop_toBottomOf="@+id/logoLogin" />
 
     <EditText
-        android:id="@+id/txtUsernameLogin"
+        android:id="@+id/txtUsernameReg"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginTop="36dp"
@@ -70,7 +72,7 @@
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:padding="5dp"
-        android:text="@string/usernameLogin"
+        android:text="@string/txtUsernameLogin"
         android:textColor="#B71C1C"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
@@ -80,10 +82,10 @@
         tools:ignore="TextContrastCheck" />
 
     <EditText
-        android:id="@+id/txtRePasswordReg"
+        android:id="@+id/txtPasswordLogin"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="32dp"
         android:autofillHints=""
         android:background="@drawable/et_style"
 
@@ -96,15 +98,16 @@
         android:textColor="#B71C1C"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUsernameLogin"
+        app:layout_constraintTop_toBottomOf="@+id/txtUsernameReg"
         tools:ignore="TextContrastCheck" />
 
     <TextView
         android:id="@+id/recover"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="4dp"
         android:text="@string/passwordRec"
         android:textAlignment="center"
         android:textColor="#B71C1C"

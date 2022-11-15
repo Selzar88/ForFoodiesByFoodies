@@ -9,12 +9,14 @@
     <string name="passwordLogin">Password</string>
     <string name="passwordRec">Click here to recover your password</string>
     <string name="registerLink">Don\'t have account yet? Register</string>
-    <string name="usernameLogin">Username</string>
+    <string name="txtUsernameLogin">Username</string>
+    <string name="txtUsernameReg">Username</string>
     <string name="banner">company logo</string>
     <string name="or_sing_in_with">Or Sing in with</string>
     <string name="usernameReg">Username</string>
     <string name="or_register_with">Or Register with</string>
     <string name="btnRegister">Register</string>
+    <string name="btnLogin">Login</string>
     <string name="txtRegistration">Registration</string>
     <string name="passwordReg">Password</string>
     <string name="confirm_password">Confirm password</string>
@@ -28,7 +30,8 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-
+    <string name="txtPasswordLogin">Password</string>
+    <string name="txtRePasswordReg">confirm password</string>
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>

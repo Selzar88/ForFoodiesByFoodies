@@ -20,19 +20,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegister"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnRegister"
         android:layout_width="350dp"
         android:layout_height="60dp"
-        android:layout_marginTop="16dp"
         android:text="@string/btnRegister"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtRePasswordReg" />
+        tools:layout_editor_absoluteY="553dp" />
 
     <ImageView
         android:id="@+id/bannerLogin"
@@ -60,7 +59,7 @@
         app:layout_constraintTop_toBottomOf="@+id/logoLogin" />
 
     <EditText
-        android:id="@+id/txtUsernameLogin"
+        android:id="@+id/txtUsernameReg"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginTop="36dp"
@@ -72,37 +71,17 @@
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:padding="5dp"
-        android:text="@string/usernameReg"
+        android:text="@string/txtUsernameReg"
         android:textColor="#B71C1C"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/RegisterReg"
         tools:ignore="TextContrastCheck" />
 
     <EditText
-        android:id="@+id/txtRePasswordReg"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="124dp"
-        android:autofillHints=""
-        android:background="@drawable/et_style"
-        android:drawableLeft="@drawable/ic_baseline_password_24"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:inputType="textPersonName|textPassword"
-        android:padding="5dp"
-        android:text="@string/confirm_password"
-        android:textColor="#C62828"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUsernameLogin"
-        tools:ignore="TextContrastCheck" />
-
-    <EditText
-        android:id="@+id/txtPasswordReg2"
+        android:id="@+id/txtPasswordReg"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
@@ -118,7 +97,7 @@
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUsernameLogin"
+        app:layout_constraintTop_toBottomOf="@+id/txtUsernameReg"
         tools:ignore="TextContrastCheck" />
 
     <ImageView
@@ -170,6 +149,27 @@
             tools:layout_editor_absoluteY="665dp" />
 
     </LinearLayout>
+
+    <EditText
+        android:id="@+id/txtRePasswordReg"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="116dp"
+        android:autofillHints=""
+        android:background="@drawable/et_style"
+        android:drawableLeft="@drawable/ic_baseline_password_24"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:inputType="textPersonName|textPassword"
+        android:padding="5dp"
+        android:text="@string/confirm_password"
+        android:textColor="#C62828"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtUsernameReg"
+        tools:ignore="TextContrastCheck" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
