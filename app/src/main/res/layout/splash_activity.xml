@@ -19,7 +19,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome"
+        android:text="@string/txtWelcome"
         android:textAlignment="center"
         android:textColor="#CA3533"
         android:textSize="60sp"
