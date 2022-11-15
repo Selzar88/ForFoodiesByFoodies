@@ -10,7 +10,7 @@
         android:id="@+id/btnLogin"
         android:layout_width="350dp"
         android:layout_height="48dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="16dp"
         android:text="Register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
@@ -120,6 +120,41 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:srcCompat="@drawable/logo1" />
+
+    <LinearLayout
+        android:id="@+id/socialIcons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="641dp">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="20dp"
+            android:src="@drawable/google"
+            tools:layout_editor_absoluteX="81dp"
+            tools:layout_editor_absoluteY="665dp" />
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="20dp"
+            android:src="@drawable/facebook"
+            tools:layout_editor_absoluteX="173dp"
+            tools:layout_editor_absoluteY="665dp" />
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="20dp"
+            android:src="@drawable/twitter"
+            tools:layout_editor_absoluteX="274dp"
+            tools:layout_editor_absoluteY="665dp" />
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
