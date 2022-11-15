@@ -26,7 +26,7 @@
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="350dp"
-        android:layout_height="48dp"
+        android:layout_height="60dp"
         android:layout_marginTop="16dp"
         android:text="@string/btnRegister"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,7 +35,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtRePasswordReg" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/bannerLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -91,7 +91,7 @@
         android:drawableLeft="@drawable/ic_baseline_password_24"
         android:drawablePadding="10dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="textPersonName|textPassword"
         android:padding="5dp"
         android:text="@string/confirm_password"
         android:textColor="#C62828"
@@ -111,7 +111,7 @@
         android:drawableLeft="@drawable/ic_baseline_password_24"
         android:drawablePadding="10dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="textPersonName|textPassword"
         android:padding="5dp"
         android:text="@string/passwordReg"
         android:textColor="#B71C1C"
@@ -128,7 +128,7 @@
         android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/bannerLogin"
         app:srcCompat="@drawable/logo1" />
 
     <LinearLayout
