@@ -6,4 +6,8 @@
     <string name="txtWelcome">Welcome</string>
     <string name="textView2">to</string>
     <string name="sign_in">Sign in</string>
+    <string name="passwordLogin">Password</string>
+    <string name="passwordRec">Click here to recover your password</string>
+    <string name="registerLink">Don\'t have account yet? Register</string>
+    <string name="usernameLogin">Username</string>
 </resources>
