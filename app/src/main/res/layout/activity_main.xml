@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:text="@string/registerLink"
+        android:clickable="true"
         android:textColor="#B71C1C"
         android:textSize="11sp"
         android:textStyle="italic"
