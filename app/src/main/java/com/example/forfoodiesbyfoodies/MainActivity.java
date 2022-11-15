@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         btnLogin = (Button) findViewById(R.id.btnRegister);
         mAuth = FirebaseAuth.getInstance();
 
-
+//jakas zmina
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
