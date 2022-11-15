@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashActivity extends AppCompatActivity{
 
-    private static int SPLASH_SCREEN_TIMEOUT = 2000;
+    private static int SPLASH_SCREEN_TIMEOUT = 2400;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -30,9 +30,11 @@ public class SplashActivity extends AppCompatActivity{
         fadeOut.setDuration(2500);
         ImageView image = findViewById(R.id.imageView3);
         TextView text = findViewById(R.id.textView);
+        TextView text2 = findViewById(R.id.textView2);
 
         image.setAnimation(fadeOut);
         text.setAnimation(fadeOut);
+        text2.setAnimation(fadeOut);
 
         new Handler().postDelayed(new Runnable() {
             @Override

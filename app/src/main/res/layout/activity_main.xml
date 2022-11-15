@@ -10,9 +10,20 @@
         android:id="@+id/btnLogin"
         android:layout_width="348dp"
         android:layout_height="48dp"
+        android:layout_marginBottom="264dp"
         android:text="@string/login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="220dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baner" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
