@@ -17,55 +17,55 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private FirebaseAuth mAuth;
-    private EditText email, password, rePassword;
-    private Button btnRegister;
-    private TextView regMsg;
+//    private FirebaseAuth mAuth;
+//    private EditText email, password, rePassword;
+//    private Button btnRegister;
+//    private TextView regMsg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        mAuth = FirebaseAuth.getInstance();
-        email = findViewById(R.id.txtUsernameReg);
-        password = findViewById(R.id.txtPasswordReg);
-        rePassword = findViewById(R.id.txtRePasswordReg);
-
-        btnRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Register();
-            }
-        });
-
-
-    }
-    private void Register() {
-        String user = email.getText().toString().trim();
-        String pass = password.getText().toString().trim();
-        String rePass = rePassword.getText().toString().trim();
-
-        if(user.isEmpty()) {
-            email.setError("Email address cannot be empty!");
-        }else if(pass.isEmpty()){
-            password.setError("Password cannot be empty!");
-        }else if(rePass!= pass){
-            rePassword.setError("Passwords not match");
-            password.setError("Passwords not matched");
-        }else{
-            mAuth.createUserWithEmailAndPassword(user, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if(task.isSuccessful()){
-                        Toast.makeText(RegisterActivity.this, "You are now registered as a user", Toast.LENGTH_SHORT).show();
-                        //startActivity(new Intent(Register));
-                    } else {
-                        Toast.makeText(RegisterActivity.this, "Registration Failed", Toast.LENGTH_LONG).show();
-                    }
-                }
-            });
-        }
+//        mAuth = FirebaseAuth.getInstance();
+//        email = findViewById(R.id.txtUsernameReg);
+//        password = findViewById(R.id.txtPasswordReg);
+//        rePassword = findViewById(R.id.txtRePasswordReg);
+//
+//        btnRegister.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Register();
+//            }
+//        });
+//
+//
+//    }
+//    private void Register() {
+//        String user = email.getText().toString().trim();
+//        String pass = password.getText().toString().trim();
+//        String rePass = rePassword.getText().toString().trim();
+//
+//        if(user.isEmpty()) {
+//            email.setError("Email address cannot be empty!");
+//        }else if(pass.isEmpty()){
+//            password.setError("Password cannot be empty!");
+//        }else if(rePass!= pass){
+//            rePassword.setError("Passwords not match");
+//            password.setError("Passwords not matched");
+//        }else{
+//            mAuth.createUserWithEmailAndPassword(user, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+//                @Override
+//                public void onComplete(@NonNull Task<AuthResult> task) {
+//                    if(task.isSuccessful()){
+//                        Toast.makeText(RegisterActivity.this, "You are now registered as a user", Toast.LENGTH_SHORT).show();
+//                        //startActivity(new Intent(Register));
+//                    } else {
+//                        Toast.makeText(RegisterActivity.this, "Registration Failed", Toast.LENGTH_LONG).show();
+//                    }
+//                }
+//            });
+//        }
         // validation fo existing user requied!
 
     }
