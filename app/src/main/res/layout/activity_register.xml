@@ -6,12 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/orReg"
+        android:layout_width="80dp"
+        android:layout_height="14dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/or_register_with"
+        android:textAlignment="center"
+        android:textColor="#B71C1C"
+        android:textSize="9sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/socialIcons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin"
+        app:layout_constraintVertical_bias="1.0" />
+
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="350dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
-        android:text="Register"
+        android:text="@string/btnRegister"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:text="Registration"
+        android:text="@string/txtRegistration"
         android:textAlignment="textStart"
         android:textColor="@color/red_700"
         android:textSize="34sp"
@@ -55,21 +72,20 @@
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:padding="5dp"
-        android:text="Username"
+        android:text="@string/usernameReg"
         android:textColor="#B71C1C"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RegisterReg" />
+        app:layout_constraintTop_toBottomOf="@+id/RegisterReg"
+        tools:ignore="TextContrastCheck" />
 
     <EditText
         android:id="@+id/txtRePasswordReg"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginStart="30dp"
         android:layout_marginTop="124dp"
-        android:layout_marginEnd="31dp"
         android:autofillHints=""
         android:background="@drawable/et_style"
         android:drawableLeft="@drawable/ic_baseline_password_24"
@@ -77,21 +93,19 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:padding="5dp"
-        android:text="Confirm password"
-        android:textColor="#B71C1C"
+        android:text="@string/confirm_password"
+        android:textColor="#C62828"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUsernameLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/txtUsernameLogin"
+        tools:ignore="TextContrastCheck" />
 
     <EditText
         android:id="@+id/txtPasswordReg2"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginStart="30dp"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="31dp"
         android:autofillHints=""
         android:background="@drawable/et_style"
         android:drawableLeft="@drawable/ic_baseline_password_24"
@@ -99,12 +113,13 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:padding="5dp"
-        android:text="Password"
+        android:text="@string/passwordReg"
         android:textColor="#B71C1C"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUsernameLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/txtUsernameLogin"
+        tools:ignore="TextContrastCheck" />
 
     <ImageView
         android:id="@+id/logoLogin"
@@ -118,12 +133,16 @@
 
     <LinearLayout
         android:id="@+id/socialIcons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="412dp"
+        android:layout_height="63dp"
         android:layout_alignParentBottom="true"
+        android:layout_marginTop="0dp"
         android:gravity="center"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="641dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/orReg">
 
         <ImageView
             android:layout_width="48dp"
@@ -146,6 +165,7 @@
             android:layout_height="48dp"
             android:layout_margin="20dp"
             android:src="@drawable/twitter"
+            tools:ignore="ImageContrastCheck"
             tools:layout_editor_absoluteX="274dp"
             tools:layout_editor_absoluteY="665dp" />
 

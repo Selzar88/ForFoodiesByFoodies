@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    >
 
     <TextView
         android:id="@+id/txtRegister"
@@ -34,7 +35,7 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="company logo"
+        android:contentDescription="@string/banner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -112,19 +113,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtRegister" />
 
+    <TextView
+        android:id="@+id/orSign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/or_sing_in_with"
+        android:textAlignment="center"
+        android:textColor="#B71C1C"
+        android:textSize="9sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/socialIcons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recover"
+        app:layout_constraintVertical_bias="0.638" />
+
     <LinearLayout
         android:id="@+id/socialIcons"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="412dp"
+        android:layout_height="63dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="2dp"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recover"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="0.803">
 
         <ImageView
             android:layout_width="48dp"
@@ -147,6 +163,7 @@
             android:layout_height="48dp"
             android:layout_margin="20dp"
             android:src="@drawable/twitter"
+            tools:ignore="ImageContrastCheck"
             tools:layout_editor_absoluteX="274dp"
             tools:layout_editor_absoluteY="665dp" />
 
@@ -161,8 +178,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:srcCompat="@drawable/logo1" />
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

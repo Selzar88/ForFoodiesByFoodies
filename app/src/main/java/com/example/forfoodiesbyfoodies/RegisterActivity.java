@@ -19,7 +19,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private EditText email, password, rePassword;
-    private Button register;
+    private Button btnRegister;
     private TextView regMsg;
 
     @Override
@@ -30,9 +30,9 @@ public class RegisterActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         email = findViewById(R.id.txtUsernameLogin);
         password = findViewById(R.id.txtPasswordReg2);
-        rePassword = findViewById(R.id.txtPasswordReg2);
+        rePassword = findViewById(R.id.txtRePasswordReg);
 
-        register.setOnClickListener(new View.OnClickListener() {
+        btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Register();
