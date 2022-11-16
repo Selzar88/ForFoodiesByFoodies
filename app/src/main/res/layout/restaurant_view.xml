@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="2dp"
+    android:background="@color/red_0"
+    xmlns:tools="http://schemas.android.com/tools">
+    
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginRight="10dp"
+        android:layout_centerVertical="true"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/restaurantName"
+        android:layout_toEndOf="@+id/imageView"
+        android:textColor="@color/red_700"
+        android:textSize="20dp"
+        tools:text="Name"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/restaurantReview"
+        android:layout_toEndOf="@+id/imageView"
+        android:layout_below="@+id/restaurantName"
+        android:textColor="@color/red_700"
+        android:textSize="20dp"
+        tools:text="Review"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/restaurantRate"
+        android:layout_toEndOf="@+id/imageView"
+        android:layout_below="@+id/restaurantReview"
+        android:textColor="@color/red_700"
+        android:textSize="20dp"
+        tools:text="Rate"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/imageView"
+        android:layout_marginTop="10dp"
+        android:background="@color/red_700"/>
+
+
+
+</RelativeLayout>

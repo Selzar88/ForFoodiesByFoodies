@@ -36,6 +36,11 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="txtProfile">Profile</string>
+    <string name="menuBanner">MENU</string>
+    <string name="btnBistro">Bistro</string>
+    <string name="btnStreetFood">Streetfood</string>
+    <string name="btnRestaurants">Restaurants</string>
+    <string name="logoMenu">logoMenu</string>
 
     <string-array name="restaurants">
         <item>Gorgon</item>

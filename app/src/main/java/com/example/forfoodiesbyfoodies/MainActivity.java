@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                             //if statmant after the credentials are checked
                             if(task.isSuccessful()){
                                 Toast.makeText(MainActivity.this, "Welcome "+ user, Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(MainActivity.this, MenuActivity.class));
+                                startActivity(new Intent(MainActivity.this,MenuActivity.class));
                             }else{
                                 Toast.makeText(MainActivity.this, "Sorry user "+ user+ " is not active", Toast.LENGTH_SHORT).show();
                             }
