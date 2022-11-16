@@ -35,9 +35,9 @@ public class All_restaurant extends RecyclerView.Adapter<All_restaurant.MyViewHo
     @Override
     public void onBindViewHolder(@NonNull All_restaurant.MyViewHolder holder, int position) {
 
-        holder.tvName.setText(restaurantsView.get(position).getRestaurantName());
-        holder.tv3Letter.setText(restaurantsView.get(position).getRestaurantReview());
-        holder.tv1Letter.setText(restaurantsView.get(position).getRestaurantRate());
+        holder.restaurantName.setText(restaurantsView.get(position).getRestaurantName());
+        holder.restaurantReview.setText(restaurantsView.get(position).getRestaurantReview());
+        holder.restaurantRate.setText(restaurantsView.get(position).getRestaurantRate());
         holder.restaurantImage.setImageResource(restaurantsView.get(position).getImage());
     }
 
@@ -49,15 +49,15 @@ public class All_restaurant extends RecyclerView.Adapter<All_restaurant.MyViewHo
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
         ImageView restaurantImage;
-        TextView tvName, tv3Letter, tv1Letter;
+        TextView restaurantName, restaurantReview, restaurantRate;
 
         public MyViewHolder (@NonNull View itemView){
             super (itemView);
 
             restaurantImage = itemView.findViewById(R.id.restaurantImage);
-            tvName = itemView.findViewById(R.id.restaurantName);
-            tv3Letter = itemView.findViewById(R.id.restaurantReview);
-            tv1Letter = itemView.findViewById(R.id.restaurantRate);
+            restaurantName = itemView.findViewById(R.id.restaurantName);
+            restaurantReview = itemView.findViewById(R.id.restaurantReview);
+            restaurantRate = itemView.findViewById(R.id.restaurantRate);
         }
     }
 }
