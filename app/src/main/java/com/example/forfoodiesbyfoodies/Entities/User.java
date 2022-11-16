@@ -2,7 +2,7 @@ package com.example.forfoodiesbyfoodies.Entities;
 
 public class User {
 
-    public  String firstname, surname, email, password;
+    public  String firstname, surname, email, password, role;
 
     public User() {
     }
@@ -12,5 +12,6 @@ public class User {
         this.surname = surname;
         this.email = email;
         this.password =password ;
+        role = "user";
     }
 }
