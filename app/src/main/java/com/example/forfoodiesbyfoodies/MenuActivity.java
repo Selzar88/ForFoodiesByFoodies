@@ -21,6 +21,8 @@ public class MenuActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     DatabaseReference database;
+    MyAdapter myAdapter;
+    ArrayList<RestaurantClass> restaurantList;
 
 
     @Override
@@ -30,6 +32,7 @@ public class MenuActivity extends AppCompatActivity {
 
 
         RecyclerView recyclerView = findViewById(R.id.recycleRestaurant);
+        database = FirebaseDatabase.getInstance().getReference("RestaurantList");
 
         List<RestaurantClass> items = new ArrayList<RestaurantClass>();
         items.add(new RestaurantClass("The Ledbury","Great", "5",R.drawable.the_ledbury));
