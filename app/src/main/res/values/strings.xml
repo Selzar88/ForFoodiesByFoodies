@@ -36,4 +36,22 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="txtProfile">Profile</string>
+
+    <string-array name="restaurants">
+        <item>Gorgon</item>
+        <item>Jimi</item>
+        <item>Heston</item>
+    </string-array>
+
+    <string-array name="rate">
+        <item>chujowy</item>
+        <item>spoko</item>
+        <item>zajebisty</item>
+    </string-array>
+
+    <string-array name="review">
+        <item>niezjadlbym</item>
+        <item>zjadlbym</item>
+        <item>opierdole</item>
+    </string-array>
 </resources>
