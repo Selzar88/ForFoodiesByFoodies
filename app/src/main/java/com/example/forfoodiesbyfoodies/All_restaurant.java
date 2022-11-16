@@ -56,8 +56,8 @@ public class All_restaurant extends RecyclerView.Adapter<All_restaurant.MyViewHo
 
             restaurantImage = itemView.findViewById(R.id.restaurantImage);
             tvName = itemView.findViewById(R.id.restaurantName);
-            tv3Letter = itemView.findViewById(R.id.review);
-            tv1Letter = itemView.findViewById(R.id.rate);
+            tv3Letter = itemView.findViewById(R.id.restaurantReview);
+            tv1Letter = itemView.findViewById(R.id.restaurantRate);
         }
     }
 }
