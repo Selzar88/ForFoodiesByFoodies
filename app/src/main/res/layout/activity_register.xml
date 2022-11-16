@@ -23,19 +23,6 @@
         app:layout_constraintTop_toBottomOf="@+id/btnRegister"
         app:layout_constraintVertical_bias="1.0" />
 
-    <Button
-        android:id="@+id/btnRegister"
-        android:layout_width="344dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="27dp"
-        android:text="@string/btnRegister"
-        app:layout_constraintBottom_toTopOf="@+id/orReg"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.462"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtRePasswordReg" />
-
     <ImageView
         android:id="@+id/bannerLogin"
         android:layout_width="wrap_content"
@@ -65,13 +52,12 @@
         android:id="@+id/txtUsernameReg"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginTop="12dp"
         android:autofillHints=""
         android:background="@drawable/et_style"
         android:drawableLeft="@drawable/ic_baseline_person_24"
         android:drawablePadding="10dp"
         android:ems="10"
-        android:hint="Enter username"
+        android:hint="Enter email"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:padding="5dp"
@@ -79,28 +65,62 @@
         android:textColorHint="@color/red_300"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RegisterReg"
+        tools:ignore="TextContrastCheck"
+        tools:layout_editor_absoluteY="373dp" />
+
+    <EditText
+        android:id="@+id/txtRePasswordReg"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="13dp"
+        android:autofillHints=""
+        android:background="@drawable/et_style"
+        android:drawableLeft="@drawable/ic_baseline_password_24"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="Re-type password"
+        android:inputType="textPersonName|textPassword"
+        android:padding="5dp"
+        android:textColor="#C62828"
+        android:textColorHint="@color/red_300"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPasswordReg"
         tools:ignore="TextContrastCheck" />
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="344dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/btnRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.447"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtRePasswordReg" />
 
     <EditText
         android:id="@+id/txtPasswordReg"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="11dp"
         android:autofillHints=""
         android:background="@drawable/et_style"
         android:drawableLeft="@drawable/ic_baseline_password_24"
         android:drawablePadding="10dp"
         android:ems="10"
         android:hint="Enter password"
-        android:textColorHint="@color/red_300"
         android:inputType="textPersonName|textPassword"
         android:padding="5dp"
         android:textColor="#B71C1C"
+        android:textColorHint="@color/red_300"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtUsernameReg"
         tools:ignore="TextContrastCheck" />
@@ -157,26 +177,31 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/txtRePasswordReg"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="116dp"
-        android:autofillHints=""
-        android:background="@drawable/et_style"
-        android:drawableLeft="@drawable/ic_baseline_password_24"
-        android:drawablePadding="10dp"
+        android:id="@+id/txtSurnameReg"
+        android:layout_width="335dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginEnd="39dp"
         android:ems="10"
-        android:hint="Re-type password"
-        android:textColorHint="@color/red_300"
-        android:inputType="textPersonName|textPassword"
-        android:padding="5dp"
-        android:textColor="#C62828"
-        android:textStyle="italic"
+        android:inputType="textPersonName"
+        android:text="Surname"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUsernameReg"
-        tools:ignore="TextContrastCheck" />
+        tools:layout_editor_absoluteY="312dp" />
+
+    <EditText
+        android:id="@+id/txtFirstReg"
+        android:layout_width="329dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginEnd="39dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Surname"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="253dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,8 +3,10 @@ package com.example.forfoodiesbyfoodies;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,10 +17,13 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.regex.Pattern;
+
 public class RegisterActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    private EditText email, password, rePassword;
+    private EditText email, password, rePassword, surname, name;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +34,10 @@ public class RegisterActivity extends AppCompatActivity {
         email = findViewById(R.id.txtUsernameReg);
         password = findViewById(R.id.txtPasswordReg);
         rePassword = findViewById(R.id.txtRePasswordReg);
+        surname = findViewById(R.id.txtSurnameReg);
+        name = findViewById(R.id.txtFirstReg);
+
+
 
         Button regBut = findViewById(R.id.btnRegister);
         regBut.setOnClickListener(new View.OnClickListener() {
@@ -48,10 +57,19 @@ public class RegisterActivity extends AppCompatActivity {
         String user = email.getText().toString().trim();
         String pass = password.getText().toString().trim();
         String rePass = rePassword.getText().toString().trim();
+        String first = name.getText().toString().trim();
+        String sur = surname.getText().toString().trim();
 
-        if(user.isEmpty()) {
+        if(first.isEmpty()|| first.length()< 2){
+            name.setError("Name cannot be empty!");
+        }
+        if(sur.isEmpty()|| sur.length() < 2){
+            surname.setError("Surname cannot be empty!");
+        }
+        else if(!Patterns.EMAIL_ADDRESS.matcher(user).matches()||user.isEmpty()) {
             email.setError("Email address cannot be empty!");
-        }else if(pass.isEmpty()){
+        }
+        else if(pass.isEmpty() || pass.length()<6){
             password.setError("Password cannot be empty!");
         }
         else if (pass.equals(rePass)){
