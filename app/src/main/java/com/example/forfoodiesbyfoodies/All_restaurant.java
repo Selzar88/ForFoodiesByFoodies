@@ -27,7 +27,7 @@ public class All_restaurant extends RecyclerView.Adapter<All_restaurant.MyViewHo
     @Override
     public All_restaurant.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater= LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.recycle_view_row, parent, false);
+        View view = inflater.inflate(R.layout.restaurant_view, parent, false);
         return new All_restaurant.MyViewHolder(view);
     }
 
@@ -38,7 +38,7 @@ public class All_restaurant extends RecyclerView.Adapter<All_restaurant.MyViewHo
         holder.tvName.setText(restaurantsView.get(position).getRestaurantName());
         holder.tv3Letter.setText(restaurantsView.get(position).getRestaurantReview());
         holder.tv1Letter.setText(restaurantsView.get(position).getRestaurantRate());
-        holder.imageView.setImageResource(restaurantsView.get(position).getImage());
+        holder.restaurantImage.setImageResource(restaurantsView.get(position).getImage());
     }
 
     @Override
@@ -48,13 +48,13 @@ public class All_restaurant extends RecyclerView.Adapter<All_restaurant.MyViewHo
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        ImageView imageView;
+        ImageView restaurantImage;
         TextView tvName, tv3Letter, tv1Letter;
 
         public MyViewHolder (@NonNull View itemView){
             super (itemView);
 
-            imageView = itemView.findViewById(R.id.restaurantLogo);
+            restaurantImage = itemView.findViewById(R.id.restaurantImage);
             tvName = itemView.findViewById(R.id.restaurantName);
             tv3Letter = itemView.findViewById(R.id.review);
             tv1Letter = itemView.findViewById(R.id.rate);

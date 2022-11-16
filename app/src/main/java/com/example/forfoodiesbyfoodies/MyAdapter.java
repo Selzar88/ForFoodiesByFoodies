@@ -31,7 +31,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
         holder.restaurantName.setText(items.get(position).getRestaurantName());
         holder.restaurantReview.setText(items.get(position).getRestaurantReview());
         holder.restaurantRate.setText(items.get(position).getRestaurantRate());
-        holder.imageView.setImageResource(items.get(position).getImage());
+        holder.restaurantImage.setImageResource(items.get(position).getImage());
     }
 
     @Override

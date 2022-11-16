@@ -9,14 +9,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class MyViewHolder extends RecyclerView.ViewHolder {
 
-    ImageView imageView;
+    ImageView restaurantImage;
     TextView restaurantName, restaurantReview, restaurantRate;
 
 
     public MyViewHolder(@NonNull View itemView) {
         super(itemView);
 
-        imageView = itemView.findViewById(R.id.imageView);
+        restaurantImage = itemView.findViewById(R.id.restaurantImage);
         restaurantName = itemView.findViewById(R.id.restaurantName);
         restaurantReview = itemView.findViewById(R.id.restaurantReview);
         restaurantRate = itemView.findViewById(R.id.restaurantRate);
