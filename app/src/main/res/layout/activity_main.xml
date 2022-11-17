@@ -21,7 +21,8 @@
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRegister" />
+        app:layout_constraintTop_toBottomOf="@+id/btnRegister"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/btnRegister"
@@ -184,6 +185,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bannerLogin"
         app:srcCompat="@drawable/logo1" />
+
+    <Button
+        android:id="@+id/btnNoLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="44dp"
+        android:text="No Login"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bannerLogin" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

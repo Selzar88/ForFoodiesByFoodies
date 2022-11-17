@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText username, password;
     private Button btnLogin;
     private FirebaseAuth mAuth;
+    Button btnNoLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,17 @@ public class MainActivity extends AppCompatActivity {
         password = (EditText) findViewById(R.id.txtPasswordLogin);
         btnLogin = (Button) findViewById(R.id.btnRegister);
         mAuth = FirebaseAuth.getInstance();
+        btnNoLogin = findViewById(R.id.btnNoLogin);
+
+        Button noLogin = findViewById(R.id.btnNoLogin);
+        noLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,MenuActivity.class));
+            }
+        });
+
+
 
 //jakas zmina
         btnLogin.setOnClickListener(new View.OnClickListener() {

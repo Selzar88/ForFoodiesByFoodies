@@ -1,6 +1,5 @@
 package com.example.forfoodiesbyfoodies;
 
-import android.content.ClipData;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -23,7 +22,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.restaurant_view,parent,false));
+        return new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.recycle_item,parent,false));
     }
 
     @Override

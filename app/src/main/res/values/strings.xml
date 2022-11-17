@@ -41,6 +41,14 @@
     <string name="btnStreetFood">Streetfood</string>
     <string name="btnRestaurants">Restaurants</string>
     <string name="logoMenu">logoMenu</string>
+    <string name="new_place_adding">New Place Adding</string>
+    <string name="enter_restaurant_name">Enter restaurant name</string>
+    <string name="enter_location">Enter Location</string>
+    <string name="enter_vege_nonvege_or_both">Enter Vege/NonVege/ or both</string>
+    <string name="catering">Catering</string>
+    <string name="enter_description">Enter description</string>
+    <string name="enter_name">Enter name</string>
+    <string name="add_place">Add Place</string>
 
     <string-array name="restaurants">
         <item>Gorgon</item>

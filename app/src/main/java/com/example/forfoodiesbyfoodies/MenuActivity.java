@@ -5,7 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,6 +34,13 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
+        ImageView reg = findViewById(R.id.settingsDraw);
+        reg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MenuActivity.this,AddPlaceActivity.class));
+            }
+        });
 
         RecyclerView recyclerView = findViewById(R.id.recycleRestaurant);
         database = FirebaseDatabase.getInstance().getReference("RestaurantList");
@@ -53,6 +64,8 @@ public class MenuActivity extends AppCompatActivity {
 
 
 
-
     }
+
+
+
 }

@@ -27,7 +27,7 @@ public class All_restaurant extends RecyclerView.Adapter<All_restaurant.MyViewHo
     @Override
     public All_restaurant.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater= LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.restaurant_view, parent, false);
+        View view = inflater.inflate(R.layout.recycle_item, parent, false);
         return new All_restaurant.MyViewHolder(view);
     }
 

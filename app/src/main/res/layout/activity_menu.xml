@@ -12,82 +12,86 @@
         android:id="@+id/txtMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/monoton"
         android:text="@string/menuBanner"
         android:textColor="@color/red_700"
-        android:textSize="55sp"
+        android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.176"
+        app:layout_constraintHorizontal_bias="0.358"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
         android:contentDescription="@string/logoMenu"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo1" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnStreetFood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="22dp"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="1dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="3dp"
         android:text="@string/btnStreetFood"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/btnCatering"
         app:layout_constraintTop_toBottomOf="@+id/txtMenu" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnCatering"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="21dp"
-        android:text="@string/btnBistro"
-        app:layout_constraintStart_toEndOf="@+id/button3"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="3dp"
+        android:text="@string/catering"
+        app:layout_constraintStart_toEndOf="@+id/btnRestaurants"
         app:layout_constraintTop_toBottomOf="@+id/txtMenu" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnRestaurants"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
         android:text="@string/btnRestaurants"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <ImageView
-        android:id="@+id/btnSettings"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="13dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.951"
-        app:layout_constraintStart_toEndOf="@+id/txtMenu"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_settings_24" />
+        app:layout_constraintTop_toBottomOf="@+id/txtMenu" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleRestaurant"
-        android:layout_width="413dp"
-        android:layout_height="562dp"
+        android:layout_width="411dp"
+        android:layout_height="598dp"
         android:scrollbarSize="10dp"
         android:scrollbarStyle="outsideInset"
         android:scrollbars="vertical"
+        android:background="@drawable/rec_style"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCatering" />
+
+    <ImageView
+        android:id="@+id/settingsDraw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/txtMenu"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_menu_24" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
