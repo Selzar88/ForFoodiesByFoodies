@@ -27,6 +27,7 @@
         android:autofillHints=""
         android:background="@drawable/et_style"
         android:hint="@string/enter_name"
+        android:padding="5dp"
         android:inputType="text"
         android:minHeight="48dp"
         tools:ignore="TextContrastCheck" />
@@ -39,6 +40,7 @@
         android:autofillHints=""
         android:background="@drawable/et_style"
         android:hint="@string/enter_location"
+        android:padding="5dp"
         android:inputType="text"
         android:minHeight="48dp"
         tools:ignore="TextContrastCheck" />
@@ -51,6 +53,7 @@
         android:autofillHints=""
         android:background="@drawable/et_style"
         android:hint="@string/enter_vege_nonvege_or_both"
+        android:padding="5dp"
         android:inputType="text"
         android:minHeight="48dp"
         tools:ignore="TextContrastCheck" />
@@ -64,6 +67,7 @@
         android:autofillHints=""
         android:background="@drawable/et_style"
         android:hint="@string/enter_description"
+        android:padding="5dp"
         android:inputType="textMultiLine"
         android:minHeight="100dp"
         tools:ignore="TextContrastCheck" />
