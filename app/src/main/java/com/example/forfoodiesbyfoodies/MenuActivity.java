@@ -46,18 +46,16 @@ public class MenuActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance().getReference("RestaurantList");
 
         List<RestaurantClass> items = new ArrayList<RestaurantClass>();
-        items.add(new RestaurantClass("The Ledbury","Great", "5",R.drawable.the_ledbury));
-        items.add(new RestaurantClass("Indian Moment","Great", "4",R.drawable.indian_moment));
-        items.add(new RestaurantClass("Tapajax","Great","4", R.drawable.tapajax));
-        items.add(new RestaurantClass("Palace Spice","Great","3", R.drawable.palace_spices));
-        items.add(new RestaurantClass("The Ledbury","Great", "5",R.drawable.the_ledbury));
-        items.add(new RestaurantClass("Indian Moment","Great", "4",R.drawable.indian_moment));
-        items.add(new RestaurantClass("Tapajax","Great","4", R.drawable.tapajax));
-        items.add(new RestaurantClass("Palace Spice","Great","3", R.drawable.palace_spices));
-        items.add(new RestaurantClass("The Ledbury","Great", "5",R.drawable.the_ledbury));
-        items.add(new RestaurantClass("Indian Moment","Great", "4",R.drawable.indian_moment));
-        items.add(new RestaurantClass("Tapajax","Great","4", R.drawable.tapajax));
-        items.add(new RestaurantClass("Palace Spice","Great","3", R.drawable.palace_spices));
+        items.add(new RestaurantClass("The Ledbury","British",R.drawable.the_ledbury,
+                R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_half_24,R.drawable.ic_baseline_read_more_24));
+        items.add(new RestaurantClass("Indian Moment","Great",R.drawable.indian_moment,
+                R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_half_24,R.drawable.ic_baseline_read_more_24));
+        items.add(new RestaurantClass("Tapajax","Great",R.drawable.tapajax,
+                R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_half_24,R.drawable.ic_baseline_read_more_24));
+        items.add(new RestaurantClass("Palace Spice","Great",R.drawable.palace_spices,
+                R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_half_24,R.drawable.ic_baseline_read_more_24));
+        items.add(new RestaurantClass("Palace Spice","Great",R.drawable.palace_spices,
+                R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_half_24,R.drawable.ic_baseline_read_more_24));
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new MyAdapter(getApplicationContext(),items));
@@ -65,6 +63,7 @@ public class MenuActivity extends AppCompatActivity {
 
 
     }
+
 
 
 

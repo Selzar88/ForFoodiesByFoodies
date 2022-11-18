@@ -49,6 +49,7 @@
     <string name="enter_description">Enter description</string>
     <string name="enter_name">Enter name</string>
     <string name="add_place">Add Place</string>
+    <string name="details">DETAILS</string>
 
     <string-array name="restaurants">
         <item>Gorgon</item>

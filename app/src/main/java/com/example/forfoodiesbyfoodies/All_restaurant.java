@@ -36,9 +36,16 @@ public class All_restaurant extends RecyclerView.Adapter<All_restaurant.MyViewHo
     public void onBindViewHolder(@NonNull All_restaurant.MyViewHolder holder, int position) {
 
         holder.restaurantName.setText(restaurantsView.get(position).getRestaurantName());
-        holder.restaurantReview.setText(restaurantsView.get(position).getRestaurantReview());
-        holder.restaurantRate.setText(restaurantsView.get(position).getRestaurantRate());
+        holder.restaurantType.setText(restaurantsView.get(position).getRestaurantType());
         holder.restaurantImage.setImageResource(restaurantsView.get(position).getImage());
+        holder.imageViewStar1.setImageResource(restaurantsView.get(position).getStar1());
+        holder.imageViewStar2.setImageResource(restaurantsView.get(position).getStar2());
+        holder.imageViewStar3.setImageResource(restaurantsView.get(position).getStar3());
+        holder.imageViewStar4.setImageResource(restaurantsView.get(position).getStar4());
+        holder.imageViewStar4.setImageResource(restaurantsView.get(position).getStar5());
+        holder.imageStarHalf.setImageResource(restaurantsView.get(position).getStarHalf());
+        holder.btnReadMore.setImageResource(restaurantsView.get(position).getStarHalf());
+
     }
 
     @Override
@@ -48,16 +55,22 @@ public class All_restaurant extends RecyclerView.Adapter<All_restaurant.MyViewHo
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        ImageView restaurantImage;
-        TextView restaurantName, restaurantReview, restaurantRate;
+        ImageView restaurantImage, imageViewStar1, imageViewStar2, imageViewStar3, imageViewStar4, imageStarHalf,btnReadMore;
+        TextView restaurantName, restaurantType;
 
         public MyViewHolder (@NonNull View itemView){
             super (itemView);
 
             restaurantImage = itemView.findViewById(R.id.restaurantImage);
             restaurantName = itemView.findViewById(R.id.restaurantName);
-            restaurantReview = itemView.findViewById(R.id.restaurantReview);
-            restaurantRate = itemView.findViewById(R.id.restaurantRate);
+            restaurantType = itemView.findViewById(R.id.restaurantType);
+            imageViewStar1 = itemView.findViewById(R.id.imageViewStar1);
+            imageViewStar2 = itemView.findViewById(R.id.imageViewStar2);
+            imageViewStar3 = itemView.findViewById(R.id.imageViewStar3);
+            imageViewStar4 = itemView.findViewById(R.id.imageViewStar4);
+            imageStarHalf = itemView.findViewById(R.id.imageStarHalf);
+            btnReadMore = itemView.findViewById(R.id.btnReadMore);
+
         }
     }
 }
