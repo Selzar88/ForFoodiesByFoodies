@@ -1,6 +1,5 @@
 package com.example.forfoodiesbyfoodies;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,15 +9,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +23,7 @@ public class MenuActivity extends AppCompatActivity {
     MyAdapter myAdapter;
     ArrayList<RestaurantClass> restaurantList;
 
-    Button profil;
+    Button profile;
 
 
     @Override
@@ -64,14 +58,18 @@ public class MenuActivity extends AppCompatActivity {
         recyclerView.setAdapter(new MyAdapter(getApplicationContext(),items));
 
 
-        profil = findViewById(R.id.btnRestaurants);
-        profil.setOnClickListener(new View.OnClickListener() {
+
+        profile = findViewById(R.id.btnRestaurants);
+        profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MenuActivity.this,ProfileActivity.class));
 
             }
         });
+
+
+
 
     }
 

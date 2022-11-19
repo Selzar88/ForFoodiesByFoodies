@@ -1,21 +1,24 @@
 package com.example.forfoodiesbyfoodies;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
     Context context;
     List<RestaurantClass> items;
+    private ArrayList<RestaurantClass> restaurantsList;
+    private RecyclerViewClickListener listener;
 
 
 
@@ -23,7 +26,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
     public MyAdapter(Context context, List<RestaurantClass> items) {
         this.context = context;
         this.items = items;
+
     }
+
+
+
 
     @NonNull
     @Override
@@ -43,12 +50,22 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
         holder.imageViewStar4.setImageResource(items.get(position).getStar5());
         holder.imageStarHalf.setImageResource(items.get(position).getStarHalf());
         holder.btnReadMore.setImageResource(items.get(position).getBtnReadMore());
+
     }
 
     @Override
-    public int getItemCount() {
-        return items.size();
+    public int getItemCount() {return items.size();}
+
+    public interface RecyclerViewClickListener{
+        void onClick(View v, int position);
     }
+
+
+
+
+
+
+
 
 
 }

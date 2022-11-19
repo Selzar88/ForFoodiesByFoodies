@@ -1,6 +1,7 @@
 package com.example.forfoodiesbyfoodies;
 
 import android.content.Intent;
+import android.location.GnssAntennaInfo;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -8,15 +9,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class MyViewHolder extends RecyclerView.ViewHolder {
+public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     ImageView restaurantImage, imageViewStar1, imageViewStar2, imageViewStar3, imageViewStar4, imageStarHalf, btnReadMore;
-    TextView restaurantName, restaurantType ;
-
+    TextView restaurantName, restaurantType;
 
 
     public MyViewHolder(@NonNull View itemView) {
         super(itemView);
+
+        itemView.setOnClickListener(this);
+
 
         restaurantImage = itemView.findViewById(R.id.restaurantImage);
         restaurantName = itemView.findViewById(R.id.restaurantName);
@@ -29,8 +32,16 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
         btnReadMore = itemView.findViewById(R.id.btnReadMore);
 
 
+
+
     }
 
+    @Override
+    public void onClick(View v) {
+    }
 
+    public interface RecycleViewOnClickListener {
+        void onPositionClicked(int position);
+    }
 
 }
