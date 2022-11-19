@@ -99,10 +99,6 @@ public class AddPlaceActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
-        super.onPointerCaptureChanged(hasCapture);
-    }
 
     private void AddPlace() {
 

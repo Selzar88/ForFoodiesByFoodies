@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.example.forfoodiesbyfoodies.Entities.FoodPlace;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -19,9 +20,10 @@ import java.util.List;
 public class MenuActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    DatabaseReference database;
+    DatabaseReference restaurant, street, catering;
     MyAdapter myAdapter;
-    ArrayList<RestaurantClass> restaurantList;
+//    DatabaseReference reference;
+    ArrayList<FoodPlace> restaurantList;
 
     Button profile;
 
@@ -30,6 +32,9 @@ public class MenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
+
+
 
         ImageView reg = findViewById(R.id.settingsDraw);
         reg.setOnClickListener(new View.OnClickListener() {
@@ -40,19 +45,38 @@ public class MenuActivity extends AppCompatActivity {
         });
 
         RecyclerView recyclerView = findViewById(R.id.recycleRestaurant);
-        database = FirebaseDatabase.getInstance().getReference("RestaurantList");
+        restaurant = FirebaseDatabase.getInstance().getReference("Restaurant");
+        street = FirebaseDatabase.getInstance().getReference("Street");
+        catering = FirebaseDatabase.getInstance().getReference("Catering");
 
-        List<RestaurantClass> items = new ArrayList<RestaurantClass>();
-        items.add(new RestaurantClass("The Ledbury","British",R.drawable.the_ledbury,
-                R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_half_24,R.drawable.ic_baseline_read_more_24));
-        items.add(new RestaurantClass("Indian Moment","Great",R.drawable.indian_moment,
-                R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_half_24,R.drawable.ic_baseline_read_more_24));
-        items.add(new RestaurantClass("Tapajax","Great",R.drawable.tapajax,
-                R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_half_24,R.drawable.ic_baseline_read_more_24));
-        items.add(new RestaurantClass("Palace Spice","Great",R.drawable.palace_spices,
-                R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_half_24,R.drawable.ic_baseline_read_more_24));
-        items.add(new RestaurantClass("Palace Spice","Great",R.drawable.palace_spices,
-                R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_half_24,R.drawable.ic_baseline_read_more_24));
+
+
+        ArrayList<FoodPlace> items = new ArrayList<FoodPlace>();
+
+
+        for (int i=0; i < 10; i++){
+
+
+
+            FoodPlace o1 = new FoodPlace("name","desc","local",true,2);
+
+            items.add(o1);
+        }
+
+
+
+
+
+//        items.add(new RestaurantClass("The Ledbury","British",R.drawable.the_ledbury,
+//                R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_half_24,R.drawable.ic_baseline_read_more_24));
+//        items.add(new RestaurantClass("Indian Moment","Great",R.drawable.indian_moment,
+//                R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_half_24,R.drawable.ic_baseline_read_more_24));
+//        items.add(new RestaurantClass("Tapajax","Great",R.drawable.tapajax,
+//                R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_half_24,R.drawable.ic_baseline_read_more_24));
+//        items.add(new RestaurantClass("Palace Spice","Great",R.drawable.palace_spices,
+//                R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_half_24,R.drawable.ic_baseline_read_more_24));
+//        items.add(new RestaurantClass("Palace Spice","Great",R.drawable.palace_spices,
+//                R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_half_24,R.drawable.ic_baseline_read_more_24));
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new MyAdapter(getApplicationContext(),items));
