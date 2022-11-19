@@ -90,9 +90,9 @@
         android:layout_below="@+id/imageStarHalf"
         android:layout_alignParentEnd="true"
         android:layout_gravity="right"
-        android:layout_marginStart="93dp"
-        android:layout_marginTop="-54dp"
-        android:layout_marginEnd="9dp"
+        android:layout_marginStart="95dp"
+        android:layout_marginTop="-55dp"
+        android:layout_marginEnd="7dp"
         android:layout_toEndOf="@+id/imageStarHalf"
         app:srcCompat="@drawable/ic_baseline_read_more_24" />
 

@@ -82,7 +82,7 @@ public class AddPlaceActivity extends AppCompatActivity {
                         // Get the url of the image from data
                         Uri selectedImageUri = data.getData();
                         if (null != selectedImageUri) {
-                            // update the preview image in the layout
+                            ImageView imageView = findViewById(R.id.imageRestaurantImage);
                             imageRestaurantImage.setImageURI(selectedImageUri);
                         }
                     }
@@ -99,10 +99,6 @@ public class AddPlaceActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
-        super.onPointerCaptureChanged(hasCapture);
-    }
 
     private void AddPlace() {
 
