@@ -122,7 +122,7 @@ public class AddPlaceActivity extends AppCompatActivity {
 
             FoodPlace foodPlace = new FoodPlace(placeName, placeDesc, placeLoc, isVegan, 0);
 
-            FirebaseDatabase.getInstance().getReference("Restaurant").child(FirebaseAuth.getInstance().getUid()).setValue(foodPlace);
+            FirebaseDatabase.getInstance().getReference("Restaurant").push().setValue(foodPlace);
             Toast.makeText(AddPlaceActivity.this, "New food Place added", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(AddPlaceActivity.this, MenuActivity.class));
 
