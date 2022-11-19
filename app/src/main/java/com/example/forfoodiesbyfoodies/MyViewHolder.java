@@ -31,9 +31,6 @@ public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClic
         imageStarHalf = itemView.findViewById(R.id.imageStarHalf);
         btnReadMore = itemView.findViewById(R.id.btnReadMore);
 
-
-
-
     }
 
     @Override
