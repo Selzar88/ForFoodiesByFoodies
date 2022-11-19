@@ -36,14 +36,14 @@ import java.util.UUID;
 
 public class AddPlaceActivity extends AppCompatActivity {
 
-//    Button btnBrowseImage;
-//    Button btnUpload;
+    Button btnBrowseImage;
+    Button btnUpload;
 //    Button btnAddPlace;
 //    EditText editTextResName, editTextResLocation, editTextTypeOfFood, editTextResDescription;
-//    ImageView imageRestaurantImage;
-//    public Uri imageUri;
-//    private FirebaseStorage storage;
-//    private StorageReference storageReference;
+    ImageView imageRestaurantImage;
+    public Uri imageUri;
+    private FirebaseStorage storage;
+    private StorageReference storageReference;
 //    List<All_restaurant> Restaurants;
 //
     private FirebaseAuth mAth;
@@ -96,96 +96,65 @@ public class AddPlaceActivity extends AppCompatActivity {
         }
 
 
-//        imageRestaurantImage = findViewById(R.id.imageRestaurantImage);
-//        btnBrowseImage = findViewById(R.id.btnBrowseImage);
-//        btnUpload = findViewById(R.id.btnUpload);
-//        btnAddPlace = findViewById(R.id.btnAddPlace);
-////
-//        storage = FirebaseStorage.getInstance();
-//        storageReference = storage.getReference();
+        imageRestaurantImage = findViewById(R.id.imageRestaurantImage);
+        btnBrowseImage = findViewById(R.id.btnBrowseImage);
+        btnUpload = findViewById(R.id.btnUpload);
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
 //
 //        //image browser
-//        btnBrowseImage.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                chosePicture();
-//            }
-//        });
+        btnBrowseImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                chosePicture();
+            }
+        });
 //
 //        //image upload
-//        btnUpload.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                uploadPicture();
-//            }
-//        });
-//
-//        // Add all data to firebase
-//        btnAddPlace.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                AddPlace();
-//            }
-//        });
-//
-//
-//
-//    }
-//
-//    private void chosePicture() {
-//
-//        Intent intent = new Intent();
-//        intent.setType("image/");
-//        intent.setAction(Intent.ACTION_GET_CONTENT);
-//        startActivityForResult(intent, 1);
-//    }
-//
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (requestCode == 1 && resultCode == RESULT_OK && data != null && data.getData() != null) {
-//            imageUri = data.getData();
-//            imageRestaurantImage.setImageURI(imageUri);
-//            uploadPicture();
-//
-//        }
-//    }
-//
-//    private void uploadPicture() {
-//
-//        final ProgressDialog pd = new ProgressDialog(this);
-//        pd.setTitle("Uploading Image...");
-//        pd.show();
-//
-//        final String randomKey = UUID.randomUUID().toString();
-//        StorageReference restaurants = storageReference.child("Restaurants/" + randomKey);
-//
-//        restaurants.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-//                    @Override
-//                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-//                        pd.dismiss();
-//                        Snackbar.make(findViewById(android.R.id.content), "Image Uploaded", Snackbar.LENGTH_LONG).show();
-//                    }
-//                })
-//                .addOnFailureListener(new OnFailureListener() {
-//                    @Override
-//                    public void onFailure(@NonNull Exception exception) {
-//                        pd.dismiss();
-//                        Toast.makeText(getApplicationContext(), "Failed to upload", Toast.LENGTH_LONG).show();
-//                    }
-//                })
-//                .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-//                    @Override
-//                    public void onProgress(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
-//                        double progressPercent = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
-//                        pd.setMessage("Progress: " + (int) progressPercent + "%");
-//                    }
-//                });
-//
-//
-//    }
-//
+        btnUpload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                uploadPicture();
+            }
+        });
+    }
 
+    private void uploadPicture() {
 
+        final ProgressDialog pd = new ProgressDialog(this);
+        pd.setTitle("Uploading Image...");
+        pd.show();
+
+        final String randomKey = UUID.randomUUID().toString();
+        StorageReference restaurants = storageReference.child("Restaurants/" + randomKey);
+
+        restaurants.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        pd.dismiss();
+                        Snackbar.make(findViewById(android.R.id.content), "Image Uploaded", Snackbar.LENGTH_LONG).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        pd.dismiss();
+                        Toast.makeText(getApplicationContext(), "Failed to upload", Toast.LENGTH_LONG).show();
+                    }
+                })
+                .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onProgress(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
+                        double progressPercent = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
+                        pd.setMessage("Progress: " + (int) progressPercent + "%");
+                    }
+                });
+    }
+    private void chosePicture() {
+
+        Intent intent = new Intent();
+        intent.setType("image/");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intent, 1);
     }
 }
