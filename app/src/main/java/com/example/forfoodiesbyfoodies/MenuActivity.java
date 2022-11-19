@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,6 +28,8 @@ public class MenuActivity extends AppCompatActivity {
     DatabaseReference database;
     MyAdapter myAdapter;
     ArrayList<RestaurantClass> restaurantList;
+
+    Button profil;
 
 
     @Override
@@ -61,8 +64,17 @@ public class MenuActivity extends AppCompatActivity {
         recyclerView.setAdapter(new MyAdapter(getApplicationContext(),items));
 
 
+        profil = findViewById(R.id.btnRestaurants);
+        profil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MenuActivity.this,ProfileActivity.class));
+
+            }
+        });
 
     }
+
 
 
 

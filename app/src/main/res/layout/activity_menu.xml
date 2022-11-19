@@ -64,7 +64,7 @@
         android:layout_height="48dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="8dp"
-        android:text="@string/btnRestaurants"
+        android:text="profile"
         android:textSize="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtMenu" />
