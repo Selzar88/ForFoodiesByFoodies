@@ -11,12 +11,14 @@ public class FoodPlace {
     String location;
     String description;
     String rate;
+    String vegan;
 
-    public FoodPlace(String name, String location, String description, String rate) {
+    public FoodPlace(String name, String location, String description, String rate, String vegan) {
         this.name = name;
         this.location = location;
         this.description = description;
         this.rate = rate;
+        this.vegan = vegan;
     }
 
     public FoodPlace() {

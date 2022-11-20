@@ -31,28 +31,28 @@ public class MenuActivity extends AppCompatActivity {
         btnRestaurant = findViewById(R.id.btnRestaurant);
         dataPlaces = FirebaseDatabase.getInstance().getReference();
 
-        insert= findViewById(R.id.rbuton);
-        name= findViewById(R.id.rname);
-        local = findViewById(R.id.rlocal);
-        descr = findViewById(R.id.rdesc);
-        rate = findViewById(R.id.rrate);
+//        insert= findViewById(R.id.rbuton);
+//        name= findViewById(R.id.rname);
+//        local = findViewById(R.id.rlocal);
+//        descr = findViewById(R.id.rdesc);
+//        rate = findViewById(R.id.rrate);
 
 
-        insert.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String lname= name.getText().toString();
-                String lloacl = local.getText().toString();
-                String ldes = descr.getText().toString();
-                String lrate = rate.getText().toString();
-                String id = dataPlaces.push().getKey();
-
-
-                FoodPlace foodPlace = new FoodPlace(lname,ldes,lloacl,lrate);
-                dataPlaces.child("place").child(id).setValue(foodPlace);
-
-            }
-        });
+//        insert.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                String lname= name.getText().toString();
+//                String lloacl = local.getText().toString();
+//                String ldes = descr.getText().toString();
+//                String lrate = rate.getText().toString();
+//                String id = dataPlaces.push().getKey();
+//
+//
+//                FoodPlace foodPlace = new FoodPlace(lname,ldes,lloacl,lrate,"vegan friendly");
+//                dataPlaces.child("place").child(id).setValue(foodPlace);
+//
+//            }
+//        });
 
 
         btnRestaurant.setOnClickListener(new View.OnClickListener() {
@@ -64,13 +64,13 @@ public class MenuActivity extends AppCompatActivity {
 
 
 
-//        ImageView reg = findViewById(R.id.settingsDraw);
-//        reg.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startActivity(new Intent(MenuActivity.this,AddPlaceActivity.class));
-//            }
-//        });
+        ImageView reg = findViewById(R.id.settingsDraw);
+        reg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MenuActivity.this,AddPlaceActivity.class));
+            }
+        });
 
         btnProfile = findViewById(R.id.btnprofile);
         btnProfile.setOnClickListener(new View.OnClickListener() {
