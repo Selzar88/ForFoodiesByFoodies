@@ -35,53 +35,55 @@
 
     <Button
         android:id="@+id/btnStreetFood"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="5dp"
+        android:layout_width="119dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="134dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="158dp"
         android:text="@string/btnStreetFood"
         android:textSize="12dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.535"
-        app:layout_constraintStart_toEndOf="@+id/btnCatering"
-        app:layout_constraintTop_toBottomOf="@+id/txtMenu" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnprofile" />
+
+    <Button
+        android:id="@+id/btnRestaurant"
+        android:layout_width="166dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="54dp"
+        android:layout_marginEnd="111dp"
+        android:text="Resttaurant"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCatering" />
 
     <Button
         android:id="@+id/btnCatering"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="105dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="159dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="147dp"
         android:text="@string/catering"
         android:textSize="12dp"
-        app:layout_constraintStart_toEndOf="@+id/btnRestaurants"
-        app:layout_constraintTop_toBottomOf="@+id/txtMenu" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnStreetFood" />
 
     <Button
-        android:id="@+id/btnRestaurants"
-        android:layout_width="135dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="8dp"
+        android:id="@+id/btnprofile"
+        android:layout_width="93dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="159dp"
+        android:layout_marginTop="62dp"
+        android:layout_marginEnd="159dp"
         android:text="profile"
         android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtMenu" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycleRestaurant"
-        android:layout_width="411dp"
-        android:layout_height="598dp"
-        android:scrollbarSize="10dp"
-        android:scrollbarStyle="outsideInset"
-        android:scrollbars="vertical"
-        android:background="@drawable/rec_style"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCatering" />
 
     <ImageView
         android:id="@+id/settingsDraw"
@@ -94,6 +96,76 @@
         app:layout_constraintStart_toEndOf="@+id/txtMenu"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_menu_24" />
+
+    <Button
+        android:id="@+id/rbuton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="145dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="172dp"
+        android:layout_marginBottom="28dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rrate" />
+
+    <EditText
+        android:id="@+id/rname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="77dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="124dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRestaurant" />
+
+    <EditText
+        android:id="@+id/rlocal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="121dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rname" />
+
+    <EditText
+        android:id="@+id/rdesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="82dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="119dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rlocal" />
+
+    <EditText
+        android:id="@+id/rrate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="117dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rdesc" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

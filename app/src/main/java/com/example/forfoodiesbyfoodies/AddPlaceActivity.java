@@ -91,39 +91,39 @@ public class AddPlaceActivity extends AppCompatActivity {
         });
 
 
-        add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AddPlace();
-            }
-        });
-    }
+//        add.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                AddPlace();
+//            }
+//        });
+//    }
 
 
-    private void AddPlace() {
-
-        String placeName = name.getText().toString().trim();
-        String placeLoc = localisation.getText().toString().trim();
-        String placeDesc = description.getText().toString().trim();
-        Boolean isVegan = vegan.isChecked();
-
-        if (placeName.isEmpty() || placeName.length() < 4) {
-            Toast.makeText(getApplicationContext(), "Entry too short", Toast.LENGTH_LONG).show();
-        } else if (placeLoc.isEmpty() || placeLoc.length() < 7) {
-            Toast.makeText(getApplicationContext(), "Entry too short, provide at least full post code", Toast.LENGTH_LONG).show();
-        } else if (placeDesc.isEmpty() || placeDesc.length() < 30) {
-            Toast.makeText(getApplicationContext(), "Entry too short, enter vegetarian, non-vegetarian or both", Toast.LENGTH_LONG).show();
-        } else {
-            // tu powinna  byc jeszcze jakas validacja czy to istnieje, albo wybor czy to knajpa czy catering
-
-            FoodPlace foodPlace = new FoodPlace(placeName, placeDesc, placeLoc, isVegan, 0);
-
-            FirebaseDatabase.getInstance().getReference("Restaurant").push().setValue(foodPlace);
-            Toast.makeText(AddPlaceActivity.this, "New food Place added", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(AddPlaceActivity.this, MenuActivity.class));
-
-
-        }
+//    private void AddPlace() {
+//
+//        String placeName = name.getText().toString().trim();
+//        String placeLoc = localisation.getText().toString().trim();
+//        String placeDesc = description.getText().toString().trim();
+//        Boolean isVegan = vegan.isChecked();
+//
+//        if (placeName.isEmpty() || placeName.length() < 4) {
+//            Toast.makeText(getApplicationContext(), "Entry too short", Toast.LENGTH_LONG).show();
+//        } else if (placeLoc.isEmpty() || placeLoc.length() < 7) {
+//            Toast.makeText(getApplicationContext(), "Entry too short, provide at least full post code", Toast.LENGTH_LONG).show();
+//        } else if (placeDesc.isEmpty() || placeDesc.length() < 30) {
+//            Toast.makeText(getApplicationContext(), "Entry too short, enter vegetarian, non-vegetarian or both", Toast.LENGTH_LONG).show();
+//        } else {
+//            // tu powinna  byc jeszcze jakas validacja czy to istnieje, albo wybor czy to knajpa czy catering
+//
+//            FoodPlace foodPlace = new FoodPlace(placeName, placeDesc, placeLoc, isVegan, 0);
+//
+//            FirebaseDatabase.getInstance().getReference("Restaurant").push().setValue(foodPlace);
+//            Toast.makeText(AddPlaceActivity.this, "New food Place added", Toast.LENGTH_SHORT).show();
+//            startActivity(new Intent(AddPlaceActivity.this, MenuActivity.class));
+//
+//
+//        }
 
 
     }
