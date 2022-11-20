@@ -16,9 +16,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MenuActivity extends AppCompatActivity {
 
-    Button btnProfile, btnRestaurant, btnCatering, btnStreetinsert, insert;
+    Button btnProfile, btnRestaurant;
     DatabaseReference dataPlaces;
-    TextView name, local, descr, rate;
 
 
     @SuppressLint("MissingInflatedId")
@@ -27,33 +26,8 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-
         btnRestaurant = findViewById(R.id.btnRestaurant);
         dataPlaces = FirebaseDatabase.getInstance().getReference();
-
-//        insert= findViewById(R.id.rbuton);
-//        name= findViewById(R.id.rname);
-//        local = findViewById(R.id.rlocal);
-//        descr = findViewById(R.id.rdesc);
-//        rate = findViewById(R.id.rrate);
-
-
-//        insert.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                String lname= name.getText().toString();
-//                String lloacl = local.getText().toString();
-//                String ldes = descr.getText().toString();
-//                String lrate = rate.getText().toString();
-//                String id = dataPlaces.push().getKey();
-//
-//
-//                FoodPlace foodPlace = new FoodPlace(lname,ldes,lloacl,lrate,"vegan friendly");
-//                dataPlaces.child("place").child(id).setValue(foodPlace);
-//
-//            }
-//        });
-
 
         btnRestaurant.setOnClickListener(new View.OnClickListener() {
             @Override
