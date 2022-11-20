@@ -25,7 +25,10 @@ public class FoodPlacesList extends AppCompatActivity implements RecycleViewInte
     ArrayList<FoodPlace> list;
     DatabaseReference databaseReference;
     MyAdapter adapter;
+
+
     String place= "place";
+
 
 
 

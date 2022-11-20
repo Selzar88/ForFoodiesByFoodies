@@ -37,6 +37,10 @@ public class AddPlaceActivity extends AppCompatActivity {
     private ImageView imageRestaurantView;
     int SELECT_PICTURE = 200;
 
+    Intent x= getIntent();
+//    String place = x.getStringExtra("PLACE");
+    String place = "test";
+
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,7 +128,7 @@ public class AddPlaceActivity extends AppCompatActivity {
 
             FoodPlace foodPlace = new FoodPlace(placeName, placeLoc, placeDesc,"5",Vfriends );
 
-            FirebaseDatabase.getInstance().getReference("place").push().setValue(foodPlace);
+            FirebaseDatabase.getInstance().getReference(place).push().setValue(foodPlace);
             Toast.makeText(AddPlaceActivity.this, "New food Place added", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(AddPlaceActivity.this, MenuActivity.class));
 

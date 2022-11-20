@@ -71,7 +71,9 @@ public class MenuActivity extends AppCompatActivity {
         reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MenuActivity.this,AddPlaceActivity.class));
+                Intent add = new Intent(getApplicationContext(),AddPlaceActivity.class);
+                add.putExtra("PLACE","place");
+                startActivity(add);
             }
         });
 
