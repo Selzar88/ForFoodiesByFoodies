@@ -19,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class FoodPlacesList extends AppCompatActivity {
+public class FoodPlacesList extends AppCompatActivity implements RecycleViewInterface {
 
     RecyclerView recyclerView;
     ArrayList<FoodPlace> list;
@@ -38,7 +38,7 @@ public class FoodPlacesList extends AppCompatActivity {
         databaseReference= FirebaseDatabase.getInstance().getReference(place);
         list = new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new MyAdapter(this, list);
+        adapter = new MyAdapter(this, list,this);
         recyclerView.setAdapter(adapter);
 
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -56,6 +56,14 @@ public class FoodPlacesList extends AppCompatActivity {
 
             }
         });
+
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        Intent intent = new Intent(FoodPlacesList.this, DetailsView.class);
+
+        startActivity(intent);
 
     }
 }

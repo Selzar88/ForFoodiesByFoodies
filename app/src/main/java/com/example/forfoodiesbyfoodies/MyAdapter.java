@@ -14,20 +14,21 @@ import com.example.forfoodiesbyfoodies.Entities.FoodPlace;
 import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
-
+    private final RecycleViewInterface recycleViewInterface;
     Context context;
     ArrayList<FoodPlace> list;
 
-    public MyAdapter(Context context, ArrayList<FoodPlace> list) {
+    public MyAdapter(Context context, ArrayList<FoodPlace> list,RecycleViewInterface recycleViewInterface) {
         this.context = context;
         this.list = list;
+        this.recycleViewInterface = recycleViewInterface;
     }
 
     @NonNull
     @Override
     public MyAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v =LayoutInflater.from(context).inflate(R.layout.place_single,parent,false);
-        return new MyViewHolder(v);
+        return new MyViewHolder(v,recycleViewInterface);
     }
 
     @Override
@@ -48,13 +49,27 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView name, location, descripsion, rate, vegan;
-        public MyViewHolder(@NonNull View itemView){
+        public MyViewHolder(@NonNull View itemView, RecycleViewInterface recycleViewInterface){
             super(itemView);
             name =itemView.findViewById(R.id.placeName);
             location=itemView.findViewById(R.id.placeLocation);
             descripsion= itemView.findViewById(R.id.placeDescriprion);
             rate= itemView.findViewById(R.id.placeRate);
             vegan =itemView.findViewById(R.id.placeVegan);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(recycleViewInterface != null){
+                        int position = getAdapterPosition();
+
+                        if(position != RecyclerView.NO_POSITION){
+                            recycleViewInterface.onItemClick(position);
+                        }
+
+                    }
+                }
+            });
         }
 
 
