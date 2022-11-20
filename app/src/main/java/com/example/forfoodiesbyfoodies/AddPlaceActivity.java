@@ -2,6 +2,7 @@ package com.example.forfoodiesbyfoodies;
 
 import static com.example.forfoodiesbyfoodies.R.id.veganFriendly;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,6 +13,9 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TableLayout;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -36,18 +40,22 @@ public class AddPlaceActivity extends AppCompatActivity {
     private Button add;
     private ImageView imageRestaurantView;
     int SELECT_PICTURE = 200;
+    private RadioGroup radioGroup;
+    private RadioButton restaurant, caterning, street;
 
     Intent x= getIntent();
 //    String place = x.getStringExtra("PLACE");
-    String place = "test";
+    String place;
 
 
 
+    @SuppressLint("MissingInflatedId")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_place);
 
 
+        radioGroup = findViewById(R.id.radioGroup);
         name = findViewById(R.id.editTextResName);
         localisation = findViewById(R.id.editTextResLocation);
         description = findViewById(R.id.editTextResDescription);
@@ -110,25 +118,48 @@ public class AddPlaceActivity extends AppCompatActivity {
         String placeLoc = localisation.getText().toString().trim();
         String placeDesc = description.getText().toString().trim();
         Boolean isVegan = vegan.isChecked();
-
         String Vfriends="";
 
         if(isVegan==true) {
             Vfriends = "Vegan Friendly";
         }
+        String option;
+
+//        int radioID = radioGroup.getCheckedRadioButtonId();
+//        radioButton = findViewById(radioID);
+//        option = (String) radioButton.getText();
+          restaurant = findViewById(R.id.checkRestaurant);
+          caterning =findViewById(R.id.checkCatering);
+          street = findViewById(R.id.checkStreetFood);
+
+        if (restaurant.isChecked()){
+            option = "Restaurant";
+        }else if (caterning.isChecked()){
+            option = "Catering";
+        }else if(street.isChecked()){
+            option= "StreetFood";
+        }else{
+            option= "empty";
+            Toast.makeText(getApplicationContext(), "Choose the food place type", Toast.LENGTH_LONG).show();
+        }
+
+
 
         if (placeName.isEmpty() || placeName.length() < 4) {
             Toast.makeText(getApplicationContext(), "Entry too short", Toast.LENGTH_LONG).show();
         } else if (placeLoc.isEmpty() || placeLoc.length() < 7) {
             Toast.makeText(getApplicationContext(), "Entry too short, provide at least full post code", Toast.LENGTH_LONG).show();
         } else if (placeDesc.isEmpty() || placeDesc.length() < 30) {
-            Toast.makeText(getApplicationContext(), "Entry too short, enter vegetarian, non-vegetarian or both", Toast.LENGTH_LONG).show();
-        } else {
+            Toast.makeText(getApplicationContext(), "Entry too short, please provide more details about the place", Toast.LENGTH_LONG).show();
+        } else if (option.equals("empty")) {
+        Toast.makeText(getApplicationContext(), "Choose the food place type", Toast.LENGTH_LONG).show();
+         }
+        else {
             // tu powinna  byc jeszcze jakas validacja czy to istnieje, albo wybor czy to knajpa czy catering
 
             FoodPlace foodPlace = new FoodPlace(placeName, placeLoc, placeDesc,"5",Vfriends );
 
-            FirebaseDatabase.getInstance().getReference(place).push().setValue(foodPlace);
+            FirebaseDatabase.getInstance().getReference(option).push().setValue(foodPlace);
             Toast.makeText(AddPlaceActivity.this, "New food Place added", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(AddPlaceActivity.this, MenuActivity.class));
 

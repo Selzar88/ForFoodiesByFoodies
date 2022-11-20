@@ -18,7 +18,31 @@
         android:textSize="30sp"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Restaurant"
+        android:id="@+id/checkRestaurant"
+        android:layout_marginLeft="20dp"/>
 
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Catering"
+        android:layout_marginLeft="40dp"
+        android:id="@+id/checkCatering"/>
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="StreetFood"
+        android:layout_marginLeft="40dp"
+        android:id="@+id/checkStreetFood"/>
+    </RadioGroup>
 
 
     <EditText
