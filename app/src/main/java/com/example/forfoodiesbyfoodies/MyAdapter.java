@@ -36,7 +36,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
            FoodPlace foodPlace = list.get(position);
            holder.name.setText(foodPlace.getName());
            holder.location.setText(foodPlace.getLocation());
-           holder.descripsion.setText(foodPlace.getDescription());
+           holder.description.setText(foodPlace.getDescription());
            holder.rate.setText(foodPlace.getRate());
            holder.vegan.setText(foodPlace.getVegan());
     }
@@ -48,12 +48,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView name, location, descripsion, rate, vegan;
+        TextView name, location, description, rate, vegan;
         public MyViewHolder(@NonNull View itemView, RecycleViewInterface recycleViewInterface){
             super(itemView);
             name =itemView.findViewById(R.id.placeName);
             location=itemView.findViewById(R.id.placeLocation);
-            descripsion= itemView.findViewById(R.id.placeDescriprion);
+            description = itemView.findViewById(R.id.placeDescriprion);
             rate= itemView.findViewById(R.id.placeRate);
             vegan =itemView.findViewById(R.id.placeVegan);
 
