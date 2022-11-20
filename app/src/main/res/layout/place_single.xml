@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="300dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="12dp"
     app:cardCornerRadius="12dp"
@@ -29,6 +29,7 @@
                 android:id="@+id/placeName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="55dp"
                 android:textSize="24dp" />
 
         </LinearLayout>
@@ -48,6 +49,7 @@
                 android:id="@+id/placeLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
                 android:textSize="24dp" />
 
 
@@ -68,6 +70,7 @@
                 android:id="@+id/placeDescriprion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="2mm"
                 android:textSize="24dp" />
 
         </LinearLayout>
@@ -87,6 +90,7 @@
                 android:id="@+id/placeRate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="12mm"
                 android:textSize="24dp" />
 
         </LinearLayout>
@@ -101,6 +105,7 @@
                 android:id="@+id/placeVegan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15mm"
                 android:textSize="24dp" />
 
         </LinearLayout>

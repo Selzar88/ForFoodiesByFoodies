@@ -106,6 +106,7 @@ public class AddPlaceActivity extends AppCompatActivity {
         String placeLoc = localisation.getText().toString().trim();
         String placeDesc = description.getText().toString().trim();
         Boolean isVegan = vegan.isChecked();
+
         String Vfriends="";
 
         if(isVegan==true) {
@@ -121,7 +122,7 @@ public class AddPlaceActivity extends AppCompatActivity {
         } else {
             // tu powinna  byc jeszcze jakas validacja czy to istnieje, albo wybor czy to knajpa czy catering
 
-            FoodPlace foodPlace = new FoodPlace(placeName, placeDesc, placeLoc,"5",Vfriends );
+            FoodPlace foodPlace = new FoodPlace(placeName, placeLoc, placeDesc,"5",Vfriends );
 
             FirebaseDatabase.getInstance().getReference("place").push().setValue(foodPlace);
             Toast.makeText(AddPlaceActivity.this, "New food Place added", Toast.LENGTH_SHORT).show();

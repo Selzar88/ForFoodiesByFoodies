@@ -37,6 +37,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
            holder.location.setText(foodPlace.getLocation());
            holder.descripsion.setText(foodPlace.getDescription());
            holder.rate.setText(foodPlace.getRate());
+           holder.vegan.setText(foodPlace.getVegan());
     }
 
     @Override
@@ -46,13 +47,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView name, location, descripsion, rate;
+        TextView name, location, descripsion, rate, vegan;
         public MyViewHolder(@NonNull View itemView){
             super(itemView);
             name =itemView.findViewById(R.id.placeName);
             location=itemView.findViewById(R.id.placeLocation);
             descripsion= itemView.findViewById(R.id.placeDescriprion);
             rate= itemView.findViewById(R.id.placeRate);
+            vegan =itemView.findViewById(R.id.placeVegan);
         }
 
 

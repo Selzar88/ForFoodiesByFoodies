@@ -39,4 +39,6 @@ public class FoodPlace {
     public String getRate() {
         return rate;
     }
+
+    public String getVegan() {return  vegan;}
 }
