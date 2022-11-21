@@ -10,6 +10,20 @@
     tools:context=".MenuActivity">
 
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleview"
+        android:layout_width="414dp"
+        android:layout_height="600dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/et_style"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/txtMenu"
@@ -37,35 +51,19 @@
         app:srcCompat="@drawable/logo1" />
 
 
-
-    <Button
-        android:id="@+id/btnRestaurant"
-        android:layout_width="166dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="54dp"
-        android:layout_marginEnd="111dp"
-        android:text="Resttaurant"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnprofile" />
-
-
     <Button
         android:id="@+id/btnprofile"
         android:layout_width="93dp"
         android:layout_height="39dp"
         android:layout_marginStart="159dp"
-        android:layout_marginTop="62dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="159dp"
         android:text="profile"
         android:textSize="12dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtMenu" />
-
-
 
     <ImageView
         android:id="@+id/settingsDraw"
@@ -80,6 +78,7 @@
         app:srcCompat="@drawable/ic_baseline_menu_24" />
 
     <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
