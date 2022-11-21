@@ -69,7 +69,14 @@ public class AddPlaceActivity extends AppCompatActivity {
 
         btnBrowseImage.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v){
+                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(intent, 3 );
+            }
+
+
+
+            {
                 imageChooser();
             }
 
@@ -82,11 +89,14 @@ public class AddPlaceActivity extends AppCompatActivity {
                 // with the returned requestCode
                 startActivityForResult(Intent.createChooser(i, "Select Picture"), SELECT_PICTURE);
             }
+
+
+
             public void onActivityResult(int requestCode, int resultCode, Intent data) {
                 AddPlaceActivity.super.onActivityResult(requestCode, resultCode, data);
 
 
-                if (resultCode == RESULT_OK) {
+                if (resultCode == RESULT_OK && data != null) {
 
                     // compare the resultCode with the
                     // SELECT_PICTURE constant

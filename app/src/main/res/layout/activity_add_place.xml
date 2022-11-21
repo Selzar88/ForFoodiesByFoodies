@@ -10,13 +10,13 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="6dp"
-        android:text="@string/new_place_adding"
-        android:textAlignment="center"
         android:fontFamily="@font/monoton"
+        android:padding="6dp"
+        android:text="@string/add_place1"
+        android:textAlignment="center"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         android:textColor="@color/red_700"
-        android:textSize="30sp"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+        android:textSize="30sp" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
