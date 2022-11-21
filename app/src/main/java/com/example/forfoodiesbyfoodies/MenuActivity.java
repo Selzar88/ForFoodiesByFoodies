@@ -53,6 +53,38 @@ public class MenuActivity extends AppCompatActivity implements RecycleViewInterf
         ImageView imageView = findViewById(R.id.settingsDrawer);
         registerForContextMenu(imageView);
 
+        DropDownMenu();
+
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    FoodPlace foodPlace =dataSnapshot.getValue(FoodPlace.class);
+                    list.add(foodPlace);
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+}
+
+    @Override
+    public void onItemClick(int position) {
+        Intent intent = new Intent(MenuActivity.this, DetailsView.class);
+        startActivity(intent);
+
+    }
+
+    public void DropDownMenu(){
+        ImageView imageView = findViewById(R.id.settingsDrawer);
+        registerForContextMenu(imageView);
+
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,30 +117,5 @@ public class MenuActivity extends AppCompatActivity implements RecycleViewInterf
                 popupMenu.show();
             }
         });
-
-
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
-                    FoodPlace foodPlace =dataSnapshot.getValue(FoodPlace.class);
-                    list.add(foodPlace);
-                }
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-}
-
-    @Override
-    public void onItemClick(int position) {
-        Intent intent = new Intent(MenuActivity.this, DetailsView.class);
-        startActivity(intent);
-
     }
 }
