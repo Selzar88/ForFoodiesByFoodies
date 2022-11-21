@@ -103,27 +103,7 @@ public class MenuActivity extends AppCompatActivity implements RecycleViewInterf
             }
         });
 
-
-        btnProfile = findViewById(R.id.btnprofile);
-        btnProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MenuActivity.this,ProfileActivity.class));
-
-            }
-        });
-
-
-
-    }
-    //Context menu
-    /*@Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        super.onCreateContextMenu(menu, v, menuInfo);
-        getMenuInflater().inflate(R.menu.popup_menu, menu);
-    }*/
-
-
+}
 
     @Override
     public void onItemClick(int position) {
