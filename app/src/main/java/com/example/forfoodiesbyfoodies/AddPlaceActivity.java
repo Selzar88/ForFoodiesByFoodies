@@ -43,13 +43,8 @@ public class AddPlaceActivity extends AppCompatActivity {
     private RadioGroup radioGroup;
     private RadioButton restaurant, caterning, street;
 
-    Intent x= getIntent();
-//    String place = x.getStringExtra("PLACE");
-    String place;
 
 
-
-    @SuppressLint("MissingInflatedId")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_place);
@@ -94,7 +89,6 @@ public class AddPlaceActivity extends AppCompatActivity {
                         // Get the url of the image from data
                         Uri selectedImageUri = data.getData();
                         if (null != selectedImageUri) {
-                            ImageView imageView = findViewById(R.id.imageRestaurantImage);
                             imageRestaurantImage.setImageURI(selectedImageUri);
                         }
                     }
@@ -125,9 +119,6 @@ public class AddPlaceActivity extends AppCompatActivity {
         }
         String option;
 
-//        int radioID = radioGroup.getCheckedRadioButtonId();
-//        radioButton = findViewById(radioID);
-//        option = (String) radioButton.getText();
           restaurant = findViewById(R.id.checkRestaurant);
           caterning =findViewById(R.id.checkCatering);
           street = findViewById(R.id.checkStreetFood);
