@@ -60,7 +60,7 @@ public class MenuActivity extends AppCompatActivity {
         btnCatering.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this, RvRestaurants.class);
+                Intent intent = new Intent(MenuActivity.this, RvCatering.class);
                 intent.putExtra("place",1);
                 startActivity(intent);
             }

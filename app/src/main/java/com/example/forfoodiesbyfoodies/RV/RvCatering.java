@@ -13,7 +13,6 @@ import com.example.forfoodiesbyfoodies.DetailsView;
 import com.example.forfoodiesbyfoodies.Entities.FoodPlace;
 import com.example.forfoodiesbyfoodies.MyAdapter;
 import com.example.forfoodiesbyfoodies.R;
-import com.example.forfoodiesbyfoodies.RecycleViewInterface;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,8 +22,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class RvCatering extends AppCompatActivity implements RecycleViewInterface {
-
-
 
 
     DatabaseReference dataPlaces;
