@@ -1,26 +1,19 @@
-package com.example.forfoodiesbyfoodies;
+package com.example.forfoodiesbyfoodies.RV;
 
-import static androidx.core.content.ContextCompat.startActivity;
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.ContextMenu;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.PopupMenu;
-import android.widget.TextView;
-import android.widget.Toast;
-
+import com.example.forfoodiesbyfoodies.DetailsView;
 import com.example.forfoodiesbyfoodies.Entities.FoodPlace;
+import com.example.forfoodiesbyfoodies.MyAdapter;
+import com.example.forfoodiesbyfoodies.R;
+import com.example.forfoodiesbyfoodies.RecycleViewInterface;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,8 +22,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class RvRestaurants extends AppCompatActivity implements RecycleViewInterface
-{
+public class RvStreetFood extends AppCompatActivity implements RecycleViewInterface {
+
+
 
 
     DatabaseReference dataPlaces;
@@ -38,17 +32,17 @@ public class RvRestaurants extends AppCompatActivity implements RecycleViewInter
     ArrayList<FoodPlace> list;
     DatabaseReference databaseReference;
     MyAdapter adapter;
-    String place= "Restaurant";
+    String place= "StreetFood";
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.rv_restaurants);
+        setContentView(R.layout.rv_street_food);
 
 
         dataPlaces = FirebaseDatabase.getInstance().getReference();
-        recyclerView=findViewById(R.id.recycle_restaurants);
+        recyclerView=findViewById(R.id.recycle_street_food);
         databaseReference= FirebaseDatabase.getInstance().getReference(place);
         list = new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -73,11 +67,12 @@ public class RvRestaurants extends AppCompatActivity implements RecycleViewInter
         });
 
 
+
     }
 
     @Override
     public void onItemClick(int position) {
-        Intent intent = new Intent(RvRestaurants.this, DetailsView.class);
+        Intent intent = new Intent(RvStreetFood.this, DetailsView.class);
         startActivity(intent);
 
     }

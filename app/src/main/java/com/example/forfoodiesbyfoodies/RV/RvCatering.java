@@ -1,4 +1,4 @@
-package com.example.forfoodiesbyfoodies;
+package com.example.forfoodiesbyfoodies.RV;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -9,7 +9,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.forfoodiesbyfoodies.DetailsView;
 import com.example.forfoodiesbyfoodies.Entities.FoodPlace;
+import com.example.forfoodiesbyfoodies.MyAdapter;
+import com.example.forfoodiesbyfoodies.R;
+import com.example.forfoodiesbyfoodies.RecycleViewInterface;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -18,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class RvStreetFood extends AppCompatActivity implements RecycleViewInterface {
+public class RvCatering extends AppCompatActivity implements RecycleViewInterface {
 
 
 
@@ -28,17 +32,17 @@ public class RvStreetFood extends AppCompatActivity implements RecycleViewInterf
     ArrayList<FoodPlace> list;
     DatabaseReference databaseReference;
     MyAdapter adapter;
-    String place= "StreetFood";
+    String place= "Catering";
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.rv_street_food);
+        setContentView(R.layout.rv_catering);
 
 
         dataPlaces = FirebaseDatabase.getInstance().getReference();
-        recyclerView=findViewById(R.id.recycle_street_food);
+        recyclerView=findViewById(R.id.recycle_catering);
         databaseReference= FirebaseDatabase.getInstance().getReference(place);
         list = new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -68,7 +72,7 @@ public class RvStreetFood extends AppCompatActivity implements RecycleViewInterf
 
     @Override
     public void onItemClick(int position) {
-        Intent intent = new Intent(RvStreetFood.this, DetailsView.class);
+        Intent intent = new Intent(RvCatering.this, DetailsView.class);
         startActivity(intent);
 
     }

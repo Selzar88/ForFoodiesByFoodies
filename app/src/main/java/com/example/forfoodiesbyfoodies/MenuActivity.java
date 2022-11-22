@@ -1,29 +1,22 @@
 package com.example.forfoodiesbyfoodies;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.ContextMenu;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.forfoodiesbyfoodies.Entities.FoodPlace;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+import com.example.forfoodiesbyfoodies.RV.RvCatering;
+import com.example.forfoodiesbyfoodies.RV.RvRestaurants;
+import com.example.forfoodiesbyfoodies.RV.RvStreetFood;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -67,7 +60,9 @@ public class MenuActivity extends AppCompatActivity {
         btnCatering.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MenuActivity.this, RvCatering.class));
+                Intent intent = new Intent(MenuActivity.this, RvRestaurants.class);
+                intent.putExtra("place",1);
+                startActivity(intent);
             }
         });
 
