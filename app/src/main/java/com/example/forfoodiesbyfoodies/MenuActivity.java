@@ -71,6 +71,30 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
+        TextView txtRestaurants = findViewById(R.id.txtRestaurantMenu);
+        txtRestaurants.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MenuActivity.this, RvRestaurants.class));
+            }
+        });
+
+        TextView txtStreetFood = findViewById(R.id.txtStreetFoodMenu);
+        txtStreetFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MenuActivity.this, RvStreetFood.class));
+            }
+        });
+
+        TextView txtCatering = findViewById(R.id.txtCateringMenu);
+        txtCatering.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MenuActivity.this, RvCatering.class));
+            }
+        });
+
 
         DropDownMenu();
 }
