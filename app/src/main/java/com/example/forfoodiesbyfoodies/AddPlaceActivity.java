@@ -62,49 +62,6 @@ public class AddPlaceActivity extends AppCompatActivity {
         imageRestaurantImage = findViewById(R.id.imageRestaurantImage);
 
 
-        btnBrowseImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(intent, 3 );
-            }
-
-
-
-            {
-                imageChooser();
-            }
-
-            private void imageChooser() {
-                Intent i = new Intent();
-                i.setType("image/*");
-                i.setAction(Intent.ACTION_GET_CONTENT);
-
-                // pass the constant to compare it
-                // with the returned requestCode
-                startActivityForResult(Intent.createChooser(i, "Select Picture"), SELECT_PICTURE);
-            }
-
-
-
-            public void onActivityResult(int requestCode, int resultCode, Intent data) {
-                AddPlaceActivity.super.onActivityResult(requestCode, resultCode, data);
-
-
-                if (resultCode == RESULT_OK && data != null) {
-
-                    // compare the resultCode with the
-                    // SELECT_PICTURE constant
-                    if (requestCode == SELECT_PICTURE) {
-                        // Get the url of the image from data
-                        Uri selectedImageUri = data.getData();
-                        if (null != selectedImageUri) {
-                            imageRestaurantImage.setImageURI(selectedImageUri);
-                        }
-                    }
-                }
-            }
-        });
 
 
         add.setOnClickListener(new View.OnClickListener() {
