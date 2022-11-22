@@ -14,9 +14,9 @@ import android.widget.CalendarView;
 public class MakeBooking extends AppCompatActivity {
     Button book;
     CalendarView calendarView;
+    String date;
 
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,14 +27,15 @@ public class MakeBooking extends AppCompatActivity {
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
-            public void onSelectedDayChange(@NonNull CalendarView calendarView, int i, int i1, int i2) {
-
+            public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int day) {
+                date = year+"-"+month+"-"+day+"%"+year+"%";
             }
         });
         book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String data ="2022-11-25%2022%";
+
+                String data= "chuj";
                 Uri uri = Uri.parse("https://www.opentable.com/s/?covers=2&dateTime" + data + "3A00&metroId=72&regionIds=5316&pinnedRids%5B0%5D=87967&enableSimpleCuisines=true&includeTicketedAvailability=true&pageType=0 ");
                 startActivity(new Intent(Intent.ACTION_VIEW, uri));
             }
