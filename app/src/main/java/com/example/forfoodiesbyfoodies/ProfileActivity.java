@@ -86,11 +86,9 @@ public class ProfileActivity extends AppCompatActivity {
         sub = findViewById(R.id.editSub);
         edit = findViewById(R.id.editUser);
         edit.setOnClickListener(new View.OnClickListener() {
-
             // enable profile edit
             @Override
             public void onClick(View view) {
-
 
 
                 if (flag == 1) {
@@ -98,9 +96,7 @@ public class ProfileActivity extends AppCompatActivity {
                     surname.setEnabled(true);
                     password.setEnabled(true);
                     sub.setVisibility(View.VISIBLE);
-//                    if(Urole=="admin"){
-//                        role.setEnabled(true);
-//                    }
+//
                     flag = 0;
                 } else {
                     username.setEnabled(false);
@@ -124,6 +120,8 @@ public class ProfileActivity extends AppCompatActivity {
                         surname.getText().toString().trim(),
                         email.getText().toString().trim(),
                         password.getText().toString().trim());
+
+
 
                 username.setEnabled(false);
                 surname.setEnabled(false);

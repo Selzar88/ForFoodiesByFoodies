@@ -75,6 +75,7 @@ public class RegisterActivity extends AppCompatActivity {
             password.setError("Password cannot be empty!");
         }
         else if (pass.equals(rePass)){
+
             mAuth.createUserWithEmailAndPassword(mail, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {

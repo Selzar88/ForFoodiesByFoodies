@@ -17,13 +17,19 @@
         android:theme="@style/Theme.ForFoodiesByFoodies"
         tools:targetApi="31">
         <activity
+            android:name=".RvUsers"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".MakeBooking"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".RV.RvCatering"
             android:exported="false">
@@ -31,8 +37,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
-
         <activity
             android:name=".RV.RvStreetFood"
             android:exported="false">
@@ -40,7 +44,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".RV.RvRestaurants"
             android:exported="false">
