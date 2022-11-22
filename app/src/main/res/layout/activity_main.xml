@@ -151,6 +151,7 @@
         app:layout_constraintVertical_bias="0.803">
 
         <ImageView
+            android:id="@+id/googleLogin"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_margin="20dp"
@@ -159,6 +160,7 @@
             tools:layout_editor_absoluteY="665dp" />
 
         <ImageView
+            android:id="@+id/facebookLogin"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_margin="20dp"
@@ -167,6 +169,7 @@
             tools:layout_editor_absoluteY="665dp" />
 
         <ImageView
+            android:id="@+id/twitterLogin"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_margin="20dp"
