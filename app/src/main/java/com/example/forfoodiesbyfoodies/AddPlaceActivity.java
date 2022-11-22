@@ -113,18 +113,11 @@ public class AddPlaceActivity extends AppCompatActivity {
 
     // Override onActivityResult method
     @Override
-    protected void onActivityResult(int requestCode,
-                                    int resultCode,
-                                    Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        super.onActivityResult(requestCode,
-                resultCode,
-                data);
+        super.onActivityResult(requestCode, resultCode, data);
 
-        // checking request code and result code
-        // if request code is PICK_IMAGE_REQUEST and
-        // resultCode is RESULT_OK
-        // then set image in the image view
+        //Checking for request code
         if (requestCode == PICK_IMAGE_REQUEST
                 && resultCode == RESULT_OK
                 && data != null
@@ -133,8 +126,7 @@ public class AddPlaceActivity extends AppCompatActivity {
             // Get the Uri of data
             filePath = data.getData();
             try {
-
-                // Setting image on image view using Bitmap
+                // Setting image bitmap
                 Bitmap bitmap = MediaStore
                         .Images
                         .Media
@@ -143,7 +135,7 @@ public class AddPlaceActivity extends AppCompatActivity {
                                 filePath);
                 imageRestaurantImage.setImageBitmap(bitmap);
             } catch (IOException e) {
-                // Log the exception
+                // exception
                 e.printStackTrace();
             }
         }
@@ -153,37 +145,33 @@ public class AddPlaceActivity extends AppCompatActivity {
     private void uploadImage() {
         if (filePath != null) {
 
-            // Code for showing progressDialog while uploading
+            // progress popup
             ProgressDialog progressDialog
                     = new ProgressDialog(this);
             progressDialog.setTitle("Uploading...");
             progressDialog.show();
 
-            // Defining the child of storageReference
+            // child for storageReference
 
-            StorageReference ref = storageReference
-                    .child(
-                            "images/"
-                                    + UUID.randomUUID().toString());
+            StorageReference ref = storageReference.child("images/" + UUID.randomUUID().toString());
 
             // adding listeners on upload
             // or failure of image
-            ref.putFile(filePath)
-                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                                @Override
-                                public void onSuccess(
-                                        UploadTask.TaskSnapshot taskSnapshot) {
+            ref.putFile(filePath).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(
+                                UploadTask.TaskSnapshot taskSnapshot) {
 
-                                    // Image uploaded successfully
-                                    // Dismiss dialog
-                                    progressDialog.dismiss();
-                                    Toast
-                                            .makeText(AddPlaceActivity.this,
-                                                    "Image Uploaded!!",
-                                                    Toast.LENGTH_SHORT)
-                                            .show();
-                                }
-                            })
+                            // Image uploaded successfully
+                            // Dismiss dialog
+                            progressDialog.dismiss();
+                            Toast
+                                    .makeText(AddPlaceActivity.this,
+                                            "Image Uploaded!!",
+                                            Toast.LENGTH_SHORT)
+                                    .show();
+                        }
+                    })
 
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
