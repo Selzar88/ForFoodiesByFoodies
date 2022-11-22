@@ -28,7 +28,7 @@ public class MakeBooking extends AppCompatActivity {
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int day) {
-                data = year+"-"+month+"-"+day+"%"+year+"%";
+                data = year+"-"+(month+1)+"-"+day;
             }
         });
         book.setOnClickListener(new View.OnClickListener() {
@@ -36,7 +36,7 @@ public class MakeBooking extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                Uri uri = Uri.parse("https://www.opentable.com/s/?covers=2&dateTime" + data + "3A00&metroId=72&regionIds=5316&pinnedRids%5B0%5D=87967&enableSimpleCuisines=true&includeTicketedAvailability=true&pageType=0 ");
+                Uri uri = Uri.parse("https://www.opentable.com/s?dateTime="+data+"T19%3A00%3A00&covers=2&metroId=3143&regionIds%5B0%5D=4461&neighborhoodIds%5B0%5D=&term=&originCorrelationId=5cc77d6b-e9b7-4a31-bb7b-133d7c495ca8");
                 startActivity(new Intent(Intent.ACTION_VIEW, uri));
             }
         });
