@@ -31,7 +31,6 @@ public class RvCatering extends AppCompatActivity implements RecycleViewInterfac
     MyAdapter adapter;
     String place= "Catering";
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
