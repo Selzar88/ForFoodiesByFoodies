@@ -45,13 +45,40 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleViewDetails"
-        android:layout_width="409dp"
-        android:layout_height="650dp"
+        android:layout_width="406dp"
+        android:layout_height="467dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/make_booking" />
+
+    <Button
+        android:id="@+id/make_booking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="301dp"
+        android:layout_marginEnd="16dp"
+        android:text="Make booking"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.745"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="265dp"
+        android:layout_height="119dp"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="2dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/make_booking"
+        app:layout_constraintEnd_toStartOf="@+id/make_booking"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bannerDetails" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
