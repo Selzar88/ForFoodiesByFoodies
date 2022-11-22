@@ -9,6 +9,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -26,15 +27,15 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class MenuActivity extends AppCompatActivity implements RecycleViewInterface {
+public class MenuActivity extends AppCompatActivity {
 
-    Button btnProfile;
     DatabaseReference dataPlaces;
     RecyclerView recyclerView;
     ArrayList<FoodPlace> list;
     DatabaseReference databaseReference;
     MyAdapter adapter;
     String place= "place";
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -43,43 +44,40 @@ public class MenuActivity extends AppCompatActivity implements RecycleViewInterf
         setContentView(R.layout.activity_menu);
 
 
-        dataPlaces = FirebaseDatabase.getInstance().getReference();
-        recyclerView=findViewById(R.id.recycleview);
-        databaseReference= FirebaseDatabase.getInstance().getReference(place);
-        list = new ArrayList<>();
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new MyAdapter(this, list,this);
-        recyclerView.setAdapter(adapter);
         ImageView imageView = findViewById(R.id.settingsDrawer);
         registerForContextMenu(imageView);
 
-        DropDownMenu();
-
-
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        ImageView btnRestaurants = findViewById(R.id.btnRestaurants);
+        btnRestaurants.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
-                    FoodPlace foodPlace =dataSnapshot.getValue(FoodPlace.class);
-                    list.add(foodPlace);
-                }
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
+            public void onClick(View v) {
+                startActivity(new Intent(MenuActivity.this, RvRestaurants.class));
             }
         });
 
+        ImageView btnStreetFood = findViewById(R.id.btnStreetFood);
+        btnStreetFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MenuActivity.this, RvStreetFood.class));
+            }
+        });
+
+        ImageView btnCatering = findViewById(R.id.btnCatering);
+        btnCatering.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MenuActivity.this, RvCatering.class));
+            }
+        });
+
+
+        DropDownMenu();
 }
 
-    @Override
-    public void onItemClick(int position) {
-        Intent intent = new Intent(MenuActivity.this, DetailsView.class);
-        startActivity(intent);
 
-    }
+
+
 
     public void DropDownMenu(){
         ImageView imageView = findViewById(R.id.settingsDrawer);

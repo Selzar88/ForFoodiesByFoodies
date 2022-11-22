@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         btnNoLogin = findViewById(R.id.btnNoLogin);
 
+
+
         Button noLogin = findViewById(R.id.btnNoLogin);
         noLogin.setOnClickListener(new View.OnClickListener() {
             @Override

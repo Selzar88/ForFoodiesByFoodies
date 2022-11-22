@@ -55,6 +55,10 @@
     <string name="tabCatering">Catering</string>
     <string name="contextmenu">contextMenu</string>
     <string name="add_place1">Add Place</string>
+    <string name="txt_restaurants">Restaurants</string>
+    <string name="txt_street_food">Street Food</string>
+    <string name="txt_catering">Catering</string>
+    <string name="banner_rv_street_food">STREET FOOD</string>
 
     <string-array name="restaurants">
         <item>Gorgon</item>

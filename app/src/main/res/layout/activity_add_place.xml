@@ -97,44 +97,58 @@
         android:layout_height="wrap_content"
         android:text="Vegan Friendly" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-
 
     <ImageView
         android:id="@+id/imageRestaurantImage"
-        android:layout_width="320dp"
-        android:layout_height="200dp"
+        android:layout_width="293dp"
+        android:layout_height="260dp"
         android:layout_centerVertical="true"
-        android:background="@drawable/et_style"
         android:layout_gravity="center_horizontal"
         android:layout_marginLeft="5dp"
-        android:layout_marginTop="13dp" />
-
-    <Button
-        android:id="@+id/btnBrowseImage"
-        android:layout_width="177dp"
-        android:layout_height="40dp"
-        android:layout_gravity="center_horizontal"
         android:layout_marginTop="13dp"
-        android:text="Browse Image" />
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/et_style" />
 
-    <Button
-        android:id="@+id/btnUpload"
-        android:layout_width="184dp"
-        android:layout_height="40dp"
-        android:layout_gravity="center_horizontal"
-        android:text="Upload" />
+    <LinearLayout
+        android:id="@+id/layout_button"
+        android:layout_width="400dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/btnBrowseImage"
+            android:layout_width="160dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="5dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:text="Browse Image" />
+
+        <Button
+            android:id="@+id/btnUpload"
+            android:layout_width="160dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="5dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:text="Upload" />
+    </LinearLayout>
+
 
     <Button
         android:id="@+id/btnAddPlace"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="5dp"
         android:text="Add to database" />
 
 
