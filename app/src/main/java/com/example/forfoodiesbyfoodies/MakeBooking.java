@@ -34,7 +34,8 @@ public class MakeBooking extends AppCompatActivity {
         book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                                                                                // \/(czas)
+
+
                 Uri uri = Uri.parse("https://www.opentable.com/s?dateTime="+data+"T19%3A00%3A00&covers=2&metroId=3143&regionIds%5B0%5D=4461&neighborhoodIds%5B0%5D=&term=&originCorrelationId=5cc77d6b-e9b7-4a31-bb7b-133d7c495ca8");
                 startActivity(new Intent(Intent.ACTION_VIEW, uri));
             }

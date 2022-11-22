@@ -12,13 +12,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
-    //encapsulacja zeby nie dalo sie dostac z zewnatrz klasy do danych
+    //encapsulacja zeby nie dalo sie dostac z zewnatrz klasy do danychr
+    // !!!ROB KOMENTY PO ANGIELSKU NIE BEDZIEMY MUSIELI ICH ZMIENIAC DO SNIPOW!!!
     private EditText username, password;
     private Button btnLogin;
     private FirebaseAuth mAuth;
@@ -34,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
         btnLogin = (Button) findViewById(R.id.btnRegister);
         mAuth = FirebaseAuth.getInstance();
         btnNoLogin = findViewById(R.id.btnNoLogin);
+
+
 
 
 

@@ -24,8 +24,6 @@ import java.util.ArrayList;
 public class RvCatering extends AppCompatActivity implements RecycleViewInterface {
 
 
-
-
     DatabaseReference dataPlaces;
     RecyclerView recyclerView;
     ArrayList<FoodPlace> list;
