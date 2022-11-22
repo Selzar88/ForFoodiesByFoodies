@@ -1,5 +1,6 @@
 package com.example.forfoodiesbyfoodies;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -8,10 +9,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CalendarView;
 
 public class MakeBooking extends AppCompatActivity {
     Button book;
-    Ca
+    CalendarView calendarView;
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -20,7 +23,14 @@ public class MakeBooking extends AppCompatActivity {
         setContentView(R.layout.activity_make_booking);
 
         book = findViewById(R.id.book);
+        calendarView=findViewById(R.id.calendarView);
 
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView calendarView, int i, int i1, int i2) {
+
+            }
+        });
         book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
