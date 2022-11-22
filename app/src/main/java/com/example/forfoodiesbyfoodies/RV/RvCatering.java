@@ -13,7 +13,6 @@ import com.example.forfoodiesbyfoodies.DetailsView;
 import com.example.forfoodiesbyfoodies.Entities.FoodPlace;
 import com.example.forfoodiesbyfoodies.MyAdapter;
 import com.example.forfoodiesbyfoodies.R;
-import com.example.forfoodiesbyfoodies.RecycleViewInterface;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,7 +33,6 @@ public class RvCatering extends AppCompatActivity implements RecycleViewInterfac
     MyAdapter adapter;
     String place= "Catering";
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

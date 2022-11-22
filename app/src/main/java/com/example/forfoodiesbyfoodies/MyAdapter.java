@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.forfoodiesbyfoodies.Entities.FoodPlace;
+import com.example.forfoodiesbyfoodies.RV.RecycleViewInterface;
 
 import java.util.ArrayList;
 

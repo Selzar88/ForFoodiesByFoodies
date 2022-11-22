@@ -31,6 +31,7 @@ public class ProfileActivity extends AppCompatActivity {
     private Button sub;
     private int flag = 1;
 
+
     private String UserID;
 
 
@@ -90,16 +91,22 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+
+
                 if (flag == 1) {
                     username.setEnabled(true);
                     surname.setEnabled(true);
                     password.setEnabled(true);
                     sub.setVisibility(View.VISIBLE);
+//                    if(Urole=="admin"){
+//                        role.setEnabled(true);
+//                    }
                     flag = 0;
                 } else {
                     username.setEnabled(false);
                     surname.setEnabled(false);
                     password.setEnabled(false);
+                    role.setEnabled(false);
                     sub.setVisibility(View.INVISIBLE);
                     flag = 1;
                 }
