@@ -33,6 +33,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+
            FoodPlace foodPlace = list.get(position);
            holder.name.setText(foodPlace.getName());
            holder.location.setText(foodPlace.getLocation());

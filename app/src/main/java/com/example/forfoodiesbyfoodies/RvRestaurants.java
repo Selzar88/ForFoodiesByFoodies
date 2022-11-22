@@ -38,7 +38,7 @@ public class RvRestaurants extends AppCompatActivity implements RecycleViewInter
     ArrayList<FoodPlace> list;
     DatabaseReference databaseReference;
     MyAdapter adapter;
-    String place= "place";
+    String place= "Restaurant";
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -72,21 +72,6 @@ public class RvRestaurants extends AppCompatActivity implements RecycleViewInter
             }
         });
 
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
-                    FoodPlace foodPlace =dataSnapshot.getValue(FoodPlace.class);
-                    list.add(foodPlace);
-                }
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
 
     }
 
