@@ -27,7 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    private FirebaseUser user;
+    private FirebaseUser FBprofile;
     private DatabaseReference reference;
     private Button sub;
     private int flag = 1;
@@ -44,9 +44,9 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
 
-        user = FirebaseAuth.getInstance().getCurrentUser();
+        FBprofile = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Users");
-        UserID = user.getUid();
+        UserID = FBprofile.getUid();
 
 
 
@@ -147,23 +147,26 @@ public class ProfileActivity extends AppCompatActivity {
     private boolean updateUser(String newname, String newsurname, String newemail, String newpassword) {
 
 
-        user = FirebaseAuth.getInstance().getCurrentUser();
-        UserID = user.getUid();
+        FBprofile = FirebaseAuth.getInstance().getCurrentUser();
+        UserID = FBprofile.getUid();
         DatabaseReference updateReferance = FirebaseDatabase.getInstance().getReference("Users").child(UserID);
-        updateReferance.setValue(user);
+
+        //new object with user data
         User user = new User(newname, newsurname, newemail, newpassword);
+        updateReferance.setValue(user);
+        FBprofile.updatePassword(newpassword);
         Toast.makeText(getApplicationContext(), "Account " + newemail + "updated!", Toast.LENGTH_LONG).show();
         return true;
     }
 
-    private boolean deleteUser(String id) {
-        //nahh cannot be current !!!!!!!!!!!!!!
-        user = FirebaseAuth.getInstance().getCurrentUser();
-        UserID = user.getUid();
-        DatabaseReference deleteReferance = FirebaseDatabase.getInstance().getReference("Users").child(UserID);
-        deleteReferance.removeValue();
-        return true;
-    }
+//    private boolean deleteUser(String id) {
+//        //nahh cannot be current !!!!!!!!!!!!!!
+//        FBprofile = FirebaseAuth.getInstance().getCurrentUser();
+//        UserID = FBprofile.getUid();
+//        DatabaseReference deleteReferance = FirebaseDatabase.getInstance().getReference("Users").child(UserID);
+//        deleteReferance.removeValue();
+//        return true;
+//    }
 
     public void DropDownMenu() {
         ImageView imageView = findViewById(R.id.settingsDraweProfile);
