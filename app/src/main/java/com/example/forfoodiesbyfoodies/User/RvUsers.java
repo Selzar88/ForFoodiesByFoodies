@@ -24,11 +24,10 @@ import java.util.ArrayList;
 public class RvUsers extends AppCompatActivity implements RecycleViewInterface {
     private DatabaseReference dataPlaces;
     private RecyclerView recyclerView;
-    private ArrayList<User> list;
+    private ArrayList<User> userlist;
     private DatabaseReference databaseReference;
     private UserAdapter adapter;
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,16 +37,16 @@ public class RvUsers extends AppCompatActivity implements RecycleViewInterface {
         recyclerView=findViewById(R.id.recycle_users);
         databaseReference= FirebaseDatabase.getInstance().getReference("Users");
 
-        list = new ArrayList<>();
+        userlist = new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new UserAdapter(this, list,this);
+        adapter = new UserAdapter(this, userlist,this);
         recyclerView.setAdapter(adapter);
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
                     User user =dataSnapshot.getValue(User.class);
-                    list.add(user);
+                    userlist.add(user);
                 }
                 adapter.notifyDataSetChanged();
             }

@@ -20,11 +20,11 @@ import java.util.ArrayList;
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder>{
     private final RecycleViewInterface recycleViewInterface;
     private Context context;
-    private ArrayList<User> list;
+    private ArrayList<User> userlist;
 
     public UserAdapter(Context context, ArrayList<User> list,RecycleViewInterface recycleViewInterface) {
         this.context = context;
-        this.list = list;
+        this.userlist = list;
         this.recycleViewInterface = recycleViewInterface;
     }
 
@@ -38,8 +38,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
-        User user = list.get(position);
-        holder.name.setText(user.getFirstname());
+        User user = userlist.get(position);
+        holder.firstname.setText(user.getFirstname());
         holder.surname.setText(user.getSurname());
         holder.email.setText(user.getEmail());
         holder.role.setText(user.getRole());
@@ -48,19 +48,18 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return userlist.size();
     }
 
     public static class UserViewHolder extends RecyclerView.ViewHolder {
 
-        TextView name, surname, email, role;
+        TextView firstname, surname, email, role, password;
         public UserViewHolder(@NonNull View itemView, RecycleViewInterface recycleViewInterface){
             super(itemView);
-            name =itemView.findViewById(R.id.userProfileName);
+            firstname =itemView.findViewById(R.id.userProfileName);
             surname=itemView.findViewById(R.id.profileSurname);
             email = itemView.findViewById(R.id.userProfileEmail);
-            role= itemView.findViewById(R.id.userRole);
-
+            role= itemView.findViewById(R.id.userProfileRole);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
