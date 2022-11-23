@@ -25,11 +25,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Name"
+                android:text="User:"
                 android:textSize="12dp" />
 
             <TextView
-                android:id="@+id/userProfileName"
+                android:id="@+id/commentName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="55dp"
@@ -46,11 +46,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Surname"
+                android:text="Comment:"
                 android:textSize="12dp" />
 
             <TextView
-                android:id="@+id/profileSurname"
+                android:id="@+id/commentContent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="35dp"
@@ -59,54 +59,8 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Email"
-                android:textSize="12dp" />
-
-            <TextView
-                android:id="@+id/userProfileEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="2mm"
-                android:textSize="12dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Role"
-                android:textSize="12dp" />
-
-            <TextView
-                android:id="@+id/userProfileRole"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="12mm"
-                android:textSize="12dp" />
-
-        </LinearLayout>
 
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/userProfileImage"
-        android:layout_width="69dp"
-        android:layout_height="58dp"
-        android:layout_marginLeft="5dp"
-        tools:srcCompat="@tools:sample/avatars" />
 </androidx.cardview.widget.CardView>

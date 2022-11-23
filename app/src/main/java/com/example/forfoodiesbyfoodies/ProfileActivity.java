@@ -128,7 +128,8 @@ public class ProfileActivity extends AppCompatActivity {
                 updateUser(username.getText().toString().trim(),
                         surname.getText().toString().trim(),
                         email.getText().toString().trim(),
-                        password.getText().toString().trim());
+                        password.getText().toString().trim(),
+                        role.getText().toString().trim());
 
 
 
@@ -144,7 +145,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     }
 
-    private boolean updateUser(String newname, String newsurname, String newemail, String newpassword) {
+    private boolean updateUser(String newname, String newsurname, String newemail, String newpassword, String role) {
 
 
         FBprofile = FirebaseAuth.getInstance().getCurrentUser();
@@ -152,7 +153,7 @@ public class ProfileActivity extends AppCompatActivity {
         DatabaseReference updateReferance = FirebaseDatabase.getInstance().getReference("Users").child(UserID);
 
         //new object with user data
-        User user = new User(newname, newsurname, newemail, newpassword);
+        User user = new User(newname, newsurname, newemail, newpassword, role);
         updateReferance.setValue(user);
         FBprofile.updatePassword(newpassword);
         Toast.makeText(getApplicationContext(), "Account " + newemail + "updated!", Toast.LENGTH_LONG).show();

@@ -7,12 +7,12 @@ public class User {
     public User() {
     }
 
-    public User(String firstname, String surname, String email, String password ) {
+    public User(String firstname, String surname, String email, String password,String role ) {
         this.firstname = firstname;
         this.surname = surname;
         this.email = email;
         this.password =password ;
-        role="user";
+        this.role = role;
     }
 
     public String getFirstname() {

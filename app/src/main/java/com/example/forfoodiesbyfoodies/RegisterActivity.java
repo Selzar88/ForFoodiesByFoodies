@@ -64,6 +64,7 @@ public class RegisterActivity extends AppCompatActivity {
         String rePass = rePassword.getText().toString().trim();
         String first = name.getText().toString().trim();
         String sur = surname.getText().toString().trim();
+        String role = "user";
 
         if(first.isEmpty()|| first.length()< 2){
             name.setError("Name cannot be empty!");
@@ -85,7 +86,7 @@ public class RegisterActivity extends AppCompatActivity {
                     if(task.isSuccessful()){
 
                         //creating object with user data
-                        User user = new User(first, sur, mail, pass);
+                        User user = new User(first, sur, mail, pass, role);
 
                         FirebaseDatabase.getInstance().getReference("Users")
                                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
