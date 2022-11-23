@@ -150,7 +150,7 @@ public class ProfileActivity extends AppCompatActivity {
         user = FirebaseAuth.getInstance().getCurrentUser();
         UserID = user.getUid();
         DatabaseReference updateReferance = FirebaseDatabase.getInstance().getReference("Users").child(UserID);
-
+        updateReferance.setValue(user);
         User user = new User(newname, newsurname, newemail, newpassword);
         Toast.makeText(getApplicationContext(), "Account " + newemail + "updated!", Toast.LENGTH_LONG).show();
         return true;
