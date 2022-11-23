@@ -27,10 +27,13 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText email, password, rePassword, surname, name;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+
 
         mAuth = FirebaseAuth.getInstance();
         email = findViewById(R.id.txtUsernameReg);
@@ -80,6 +83,8 @@ public class RegisterActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
+
+                        //creating object with user data
                         User user = new User(first, sur, mail, pass);
 
                         FirebaseDatabase.getInstance().getReference("Users")

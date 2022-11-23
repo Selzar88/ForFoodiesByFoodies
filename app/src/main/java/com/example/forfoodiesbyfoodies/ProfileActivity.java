@@ -36,6 +36,7 @@ public class ProfileActivity extends AppCompatActivity {
     private String UserID;
 
 
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,8 @@ public class ProfileActivity extends AppCompatActivity {
         user = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Users");
         UserID = user.getUid();
+
+
 
 
         final TextView username = (TextView) findViewById(R.id.userName);
@@ -61,21 +64,25 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 User userProfile = snapshot.getValue(User.class);
-                if (userProfile != null) {
-                    String fullname = userProfile.firstname;
-                    String surn = userProfile.surname;
-                    String mail = userProfile.email;
-                    String Urole = userProfile.role;
-                    String pass = userProfile.password;
 
-                    //assign FB to textboxes
-                    username.setText(fullname);
-                    surname.setText(surn);
-                    email.setText(mail);
-                    password.setText(pass);
-                    role.setText(Urole);
+
+                    if (userProfile != null) {
+                        String fullname = userProfile.firstname;
+                        String surn = userProfile.surname;
+                        String mail = userProfile.email;
+                        String Urole = userProfile.role;
+                        String pass = userProfile.password;
+
+
+                        //assign FB to textboxes
+                        username.setText(fullname);
+                        surname.setText(surn);
+                        email.setText(mail);
+                        password.setText(pass);
+                        role.setText(Urole);
+                    }
                 }
-            }
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -92,25 +99,26 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                if (flag == 1) {
-                    username.setEnabled(true);
-                    surname.setEnabled(true);
-                    password.setEnabled(true);
-                    sub.setVisibility(View.VISIBLE);
+                    if (flag == 1) {
+                        username.setEnabled(true);
+                        surname.setEnabled(true);
+                        password.setEnabled(true);
+                        sub.setVisibility(View.VISIBLE);
 //
-                    flag = 0;
-                } else {
-                    username.setEnabled(false);
-                    surname.setEnabled(false);
-                    password.setEnabled(false);
-                    role.setEnabled(false);
-                    sub.setVisibility(View.INVISIBLE);
-                    flag = 1;
+                        flag = 0;
+                    } else {
+                        username.setEnabled(false);
+                        surname.setEnabled(false);
+                        password.setEnabled(false);
+                        role.setEnabled(false);
+                        sub.setVisibility(View.INVISIBLE);
+                        flag = 1;
+                    }
+
+                    int flag = 1;
+
                 }
 
-                int flag = 1;
-
-            }
         });
 
         sub.setOnClickListener(new View.OnClickListener() {
@@ -141,11 +149,8 @@ public class ProfileActivity extends AppCompatActivity {
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         UserID = user.getUid();
-        DatabaseReference updateReference = FirebaseDatabase.getInstance().getReference("Users").child(UserID);
-
 
         User user = new User(newname, newsurname, newemail, newpassword);
-        updateReference.setValue(user);
         Toast.makeText(getApplicationContext(), "Account " + newemail + "updated!", Toast.LENGTH_LONG).show();
         return true;
     }

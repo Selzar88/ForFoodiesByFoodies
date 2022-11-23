@@ -1,7 +1,9 @@
 package com.example.forfoodiesbyfoodies;
 
+import static com.example.forfoodiesbyfoodies.R.id.checkRestaurant;
 import static com.example.forfoodiesbyfoodies.R.id.veganFriendly;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -52,6 +54,8 @@ public class AddPlaceActivity extends AppCompatActivity {
     private FirebaseStorage storage;
     private StorageReference storageReference;
     private DatabaseReference fDatabaseRef;
+    private String admin;
+    private String UserID;
 
 
 
@@ -59,8 +63,12 @@ public class AddPlaceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_place);
 
+        //admin ID
+        admin ="5j3GcPJV9gaJSKRYT77xxYvAWw63";
+        UserID =  FirebaseAuth.getInstance().getCurrentUser().getUid();
 
 
+        restaurant = findViewById(checkRestaurant);
         radioGroup = findViewById(R.id.radioGroup);
         name = findViewById(R.id.editTextResName);
         localisation = findViewById(R.id.editTextResLocation);
@@ -72,10 +80,13 @@ public class AddPlaceActivity extends AppCompatActivity {
         btnUpload = findViewById(R.id.btnUpload);
         imageRestaurantImage = findViewById(R.id.imageRestaurantImage);
 
+        //only admin can add restaurants
+        if (admin.equals(UserID)){
+            restaurant.setEnabled(true);
+        }
+
         storageReference = FirebaseStorage.getInstance().getReference("images");
         fDatabaseRef = FirebaseDatabase.getInstance().getReference("images");
-
-
 
 
         // get the Firebase  storage reference
@@ -245,7 +256,6 @@ public class AddPlaceActivity extends AppCompatActivity {
             }
             String option;
 
-            restaurant = findViewById(R.id.checkRestaurant);
             caterning = findViewById(R.id.checkCatering);
             street = findViewById(R.id.checkStreetFood);
 
