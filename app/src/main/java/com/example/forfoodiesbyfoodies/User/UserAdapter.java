@@ -33,11 +33,11 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     @Override
     public UserAdapter.UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.single_user,parent,false);
-        return new UserAdapter.UserViewHolder(v,recycleViewInterface);
+        return new UserViewHolder(v,recycleViewInterface);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull UserAdapter.UserViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
         User user = list.get(position);
         holder.name.setText(user.getFirstname());
         holder.surname.setText(user.getSurname());
@@ -57,7 +57,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         public UserViewHolder(@NonNull View itemView, RecycleViewInterface recycleViewInterface){
             super(itemView);
             name =itemView.findViewById(R.id.userProfileName);
-            surname=itemView.findViewById(R.id.userProfilSurname);
+            surname=itemView.findViewById(R.id.profileSurname);
             email = itemView.findViewById(R.id.userProfileEmail);
             role= itemView.findViewById(R.id.userRole);
 

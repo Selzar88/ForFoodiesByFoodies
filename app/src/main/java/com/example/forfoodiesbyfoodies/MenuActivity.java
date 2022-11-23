@@ -16,6 +16,7 @@ import com.example.forfoodiesbyfoodies.Entities.FoodPlace;
 import com.example.forfoodiesbyfoodies.RV.RvCatering;
 import com.example.forfoodiesbyfoodies.RV.RvRestaurants;
 import com.example.forfoodiesbyfoodies.RV.RvStreetFood;
+import com.example.forfoodiesbyfoodies.User.RvUsers;
 import com.google.firebase.database.DatabaseReference;
 
 import java.util.ArrayList;
@@ -116,7 +117,7 @@ public class MenuActivity extends AppCompatActivity {
                                 startActivity(intent1);
                                 return true;
                             case R.id.btnUserList:
-                                Intent intent2 = new Intent(MenuActivity.this, UserList.class);
+                                Intent intent2 = new Intent(MenuActivity.this, RvUsers.class);
                                 startActivity(intent2);
                                 return true;
                             case R.id.btnAddPlace:
@@ -127,6 +128,7 @@ public class MenuActivity extends AppCompatActivity {
                                 Intent intent4 = new Intent(MenuActivity.this, MainActivity.class);
                                 startActivity(intent4);
                                 return true;
+
                         }
                         return false;
                     }

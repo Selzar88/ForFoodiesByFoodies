@@ -50,9 +50,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
-//jakas zmina
+//jakas zmiena
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

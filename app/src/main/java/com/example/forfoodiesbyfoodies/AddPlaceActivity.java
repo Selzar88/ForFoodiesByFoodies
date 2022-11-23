@@ -1,15 +1,16 @@
 package com.example.forfoodiesbyfoodies;
 
-import static com.example.forfoodiesbyfoodies.R.id.btnAddPlace;
 import static com.example.forfoodiesbyfoodies.R.id.veganFriendly;
 
 import android.app.ProgressDialog;
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -24,6 +25,7 @@ import com.example.forfoodiesbyfoodies.Entities.FoodPlace;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
@@ -47,13 +49,16 @@ public class AddPlaceActivity extends AppCompatActivity {
     private Uri filePath;
     private RadioGroup radioGroup;
     private RadioButton restaurant, caterning, street;
-    FirebaseStorage storage;
-    StorageReference storageReference;
+    private FirebaseStorage storage;
+    private StorageReference storageReference;
+    private DatabaseReference fDatabaseRef;
+
 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_place);
+
 
 
         radioGroup = findViewById(R.id.radioGroup);
@@ -66,6 +71,10 @@ public class AddPlaceActivity extends AppCompatActivity {
         btnBrowseImage = findViewById(R.id.btnBrowseImage);
         btnUpload = findViewById(R.id.btnUpload);
         imageRestaurantImage = findViewById(R.id.imageRestaurantImage);
+
+        storageReference = FirebaseStorage.getInstance().getReference("images");
+        fDatabaseRef = FirebaseDatabase.getInstance().getReference("images");
+
 
 
 
@@ -139,12 +148,27 @@ public class AddPlaceActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
+
+    }
+
+    private String getFileExtension(Uri filePath){
+        ContentResolver cR = getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+        return mime.getExtensionFromMimeType(cR.getType(filePath));
+    }
+
+    private void uploadFile(){
+        if(filePath !=null){
+            StorageReference fileRef = storageReference.child(System.currentTimeMillis() + "." + getFileExtension(filePath));
+        }
+        else {
+            Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
+        }
     }
 
     // UploadImage method
     private void uploadImage() {
         if (filePath != null) {
-
             // progress popup
             ProgressDialog progressDialog
                     = new ProgressDialog(this);
@@ -161,7 +185,6 @@ public class AddPlaceActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(
                                 UploadTask.TaskSnapshot taskSnapshot) {
-
                             // Image uploaded successfully
                             // Dismiss dialog
                             progressDialog.dismiss();
@@ -211,6 +234,10 @@ public class AddPlaceActivity extends AppCompatActivity {
             String placeLoc = localisation.getText().toString().trim();
             String placeDesc = description.getText().toString().trim();
             Boolean isVegan = vegan.isChecked();
+
+
+
+
             String Vfriends = "";
 
             if (isVegan == true) {
@@ -245,7 +272,7 @@ public class AddPlaceActivity extends AppCompatActivity {
             } else {
                 // tu powinna  byc jeszcze jakas validacja czy to istnieje, albo wybor czy to knajpa czy catering
 
-                FoodPlace foodPlace = new FoodPlace(placeName, placeLoc, placeDesc, "5", Vfriends);
+                FoodPlace foodPlace = new FoodPlace(placeName, placeLoc, placeDesc, "5", Vfriends, filePath);
 
                 FirebaseDatabase.getInstance().getReference(option).push().setValue(foodPlace);
                 Toast.makeText(AddPlaceActivity.this, "New food Place added", Toast.LENGTH_SHORT).show();

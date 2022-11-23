@@ -1,6 +1,7 @@
 package com.example.forfoodiesbyfoodies.Entities;
 
-import android.media.Image;
+import android.net.Uri;
+
 
 import com.google.firebase.database.IgnoreExtraProperties;
 
@@ -12,13 +13,23 @@ public class FoodPlace {
     String description;
     String rate;
     String vegan;
+    String filePath;
 
-    public FoodPlace(String name, String location, String description, String rate, String vegan) {
+
+
+
+
+
+
+    public FoodPlace(String name, String location, String description, String rate, String vegan, Uri filePath) {
         this.name = name;
         this.location = location;
         this.description = description;
         this.rate = rate;
         this.vegan = vegan;
+        this.filePath = String.valueOf(filePath);
+
+
     }
 
     public FoodPlace() {
@@ -41,4 +52,8 @@ public class FoodPlace {
     }
 
     public String getVegan() {return  vegan;}
+
+    public String getFilePath() {return  filePath;}
+
+
 }
