@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 String pass = password.getText().toString().trim();
 
                 if(user.isEmpty()||pass.isEmpty())
-                    Toast.makeText(MainActivity.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
                 else{
                     mAuth.signInWithEmailAndPassword(user,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(MainActivity.this, "Welcome "+ user, Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(MainActivity.this,MenuActivity.class));
                             }else{
-                                Toast.makeText(MainActivity.this, "Sorry user "+ user+ " is not active", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, "Wrong credentials, Try again", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
