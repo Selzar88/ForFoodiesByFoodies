@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     //encapsulacja zeby nie dalo sie dostac z zewnatrz klasy do danychr
     // !!!ROB KOMENTY PO ANGIELSKU NIE BEDZIEMY MUSIELI ICH ZMIENIAC DO SNIPOW!!!
     private EditText username, password;
+    private TextView recover;
     private Button btnLogin;
     private FirebaseAuth mAuth;
     Button btnNoLogin;
@@ -36,9 +37,15 @@ public class MainActivity extends AppCompatActivity {
         btnLogin = (Button) findViewById(R.id.btnRegister);
         mAuth = FirebaseAuth.getInstance();
         btnNoLogin = findViewById(R.id.btnNoLogin);
+        recover = findViewById(R.id.recover);
 
 
-
+        recover.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, PasswordRecovery.class));
+            }
+        });
 
 
         Button noLogin = findViewById(R.id.btnNoLogin);

@@ -51,15 +51,15 @@
         android:id="@+id/editTextResName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
         android:layout_marginLeft="5dp"
+        android:layout_marginTop="13dp"
         android:layout_marginRight="5dp"
         android:autofillHints=""
         android:background="@drawable/et_style"
         android:hint="@string/enter_name"
-        android:padding="5dp"
         android:inputType="text"
         android:minHeight="48dp"
+        android:padding="5dp"
         tools:ignore="TextContrastCheck" />
 
     <EditText
