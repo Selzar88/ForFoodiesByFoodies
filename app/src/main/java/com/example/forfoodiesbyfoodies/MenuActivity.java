@@ -6,11 +6,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.forfoodiesbyfoodies.Entities.FoodPlace;
 import com.example.forfoodiesbyfoodies.User.RvUsers;
@@ -26,6 +29,7 @@ public class MenuActivity extends AppCompatActivity {
     DatabaseReference databaseReference;
     MyAdapter adapter;
     String place= "place";
+    private boolean doubleBackToExitPressedOnce;
 
 
     @SuppressLint("MissingInflatedId")
@@ -101,7 +105,11 @@ public class MenuActivity extends AppCompatActivity {
 
 
         DropDownMenu();
-}
+
+        boolean doubleBackToExitPressedOnce = false;
+
+
+    }
 
 
 
@@ -142,7 +150,33 @@ public class MenuActivity extends AppCompatActivity {
                     }
                 });
                 popupMenu.show();
+                onBackPressed();
             }
         });
+
+
     }
+
+
+    //Confirm back button pressing
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "      Are you want to log out?\nPlease click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 2000);
+    }
+
+
 }
