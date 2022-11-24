@@ -9,11 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.forfoodiesbyfoodies.DetailsView;
 import com.example.forfoodiesbyfoodies.Entities.Comment;
-import com.example.forfoodiesbyfoodies.Entities.User;
 import com.example.forfoodiesbyfoodies.R;
-import com.example.forfoodiesbyfoodies.RV.RecycleViewInterface;
+import com.example.forfoodiesbyfoodies.RecycleViewInterface;
 
 import java.util.ArrayList;
 

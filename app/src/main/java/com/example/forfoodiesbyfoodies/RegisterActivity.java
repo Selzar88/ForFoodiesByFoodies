@@ -44,6 +44,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
 
+
         Button regBut = findViewById(R.id.btnRegister);
         regBut.setOnClickListener(new View.OnClickListener() {
             @Override

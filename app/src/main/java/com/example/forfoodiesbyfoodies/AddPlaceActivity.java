@@ -296,7 +296,7 @@ public class AddPlaceActivity extends AppCompatActivity {
 
                 FoodPlace foodPlace = new FoodPlace(placeName, placeLoc, placeDesc, "5", Vfriends, url);
 
-                FirebaseDatabase.getInstance().getReference(option).push().setValue(foodPlace);
+                FirebaseDatabase.getInstance().getReference(option).child(placeName).setValue(foodPlace);
                 Toast.makeText(AddPlaceActivity.this, "New food Place added", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(AddPlaceActivity.this, MenuActivity.class));
 

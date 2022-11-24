@@ -1,4 +1,4 @@
-package com.example.forfoodiesbyfoodies.RV;
+package com.example.forfoodiesbyfoodies;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,10 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.forfoodiesbyfoodies.DetailsView;
 import com.example.forfoodiesbyfoodies.Entities.FoodPlace;
-import com.example.forfoodiesbyfoodies.MyAdapter;
-import com.example.forfoodiesbyfoodies.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,7 +27,8 @@ public class RvRestaurants extends AppCompatActivity implements RecycleViewInter
     ArrayList<FoodPlace> list;
     DatabaseReference databaseReference;
     MyAdapter adapter;
-    String place= "Restaurant";
+    String place;
+
 
 
     @Override
@@ -38,6 +36,12 @@ public class RvRestaurants extends AppCompatActivity implements RecycleViewInter
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rv_restaurants);
 
+        Bundle x=getIntent().getExtras();
+        if (x!=null) {
+            place = x.getString("name");
+        } else{
+            place="Restaurant";
+        }
 
         dataPlaces = FirebaseDatabase.getInstance().getReference();
         recyclerView=findViewById(R.id.recycle_restaurants);

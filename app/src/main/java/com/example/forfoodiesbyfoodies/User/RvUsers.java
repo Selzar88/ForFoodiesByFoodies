@@ -5,18 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.forfoodiesbyfoodies.DetailsView;
-import com.example.forfoodiesbyfoodies.Entities.FoodPlace;
 import com.example.forfoodiesbyfoodies.Entities.User;
-import com.example.forfoodiesbyfoodies.MyAdapter;
 import com.example.forfoodiesbyfoodies.R;
-import com.example.forfoodiesbyfoodies.RV.RecycleViewInterface;
-import com.example.forfoodiesbyfoodies.RV.RvCatering;
-import com.example.forfoodiesbyfoodies.UserDetailsView;
+import com.example.forfoodiesbyfoodies.RecycleViewInterface;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -38,18 +31,18 @@ public class RvUsers extends AppCompatActivity implements RecycleViewInterface {
         setContentView(R.layout.activity_rv_users);
 
         dataPlaces = FirebaseDatabase.getInstance().getReference();
-        recyclerView = findViewById(R.id.recycle_users);
-        databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+        recyclerView=findViewById(R.id.recycle_users);
+        databaseReference= FirebaseDatabase.getInstance().getReference("Users");
 
         userlist = new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new UserAdapter(this, userlist, this);
+        adapter = new UserAdapter(this, userlist,this);
         recyclerView.setAdapter(adapter);
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    User user = dataSnapshot.getValue(User.class);
+                for(DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    User user =dataSnapshot.getValue(User.class);
                     userlist.add(user);
                 }
                 adapter.notifyDataSetChanged();
@@ -65,9 +58,6 @@ public class RvUsers extends AppCompatActivity implements RecycleViewInterface {
 
     @Override
     public void onItemClick(int position) {
-        Intent intent = new Intent(RvUsers.this, UserDetailsView.class);
-        startActivity(intent);
+
     }
-
 }
-
