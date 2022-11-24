@@ -74,7 +74,18 @@ public class RvRestaurants extends AppCompatActivity implements RecycleViewInter
     @Override
     public void onItemClick(int position) {
         Intent intent = new Intent(RvRestaurants.this, DetailsView.class);
-//        intent.putExtra("id",)
+        FoodPlace x = list.get(position);
+        String name = x.getName();
+        String desc = x.getDescription();
+        String rate = x.getRate();
+        String vegan =x.getVegan();
+        String location = x.getLocation();
+
+        intent.putExtra("name", name);
+        intent.putExtra("desc", desc);
+        intent.putExtra("rate", rate);
+        intent.putExtra("vegan", vegan);
+        intent.putExtra("location", location);
         startActivity(intent);
 
 
