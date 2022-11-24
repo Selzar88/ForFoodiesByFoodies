@@ -35,7 +35,6 @@ public class PasswordRecovery extends AppCompatActivity {
         setContentView(R.layout.password_recovery);
 
 
-
         EditText email = findViewById(R.id.emailRecover);
         Button btnRecover = findViewById(R.id.btnRecover);
 
@@ -55,7 +54,6 @@ public class PasswordRecovery extends AppCompatActivity {
         });
 
     }
-
     private void resetPassword(String email) {
         authEmail = FirebaseAuth.getInstance();
         authEmail.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -67,7 +65,6 @@ public class PasswordRecovery extends AppCompatActivity {
                 Intent intent = new Intent(PasswordRecovery.this, MainActivity.class);
                 startActivity(intent);
             }
-
         });
     }
 }
