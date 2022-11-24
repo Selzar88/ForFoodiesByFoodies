@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".DetailsView">
 
+    <EditText
+        android:id="@+id/editTextTextMultiLine"
+        android:layout_width="400dp"
+        android:layout_height="110dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="6dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/make_booking" />
+
     <TextView
         android:id="@+id/bannerDetails"
         android:layout_width="wrap_content"
@@ -45,95 +59,69 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleViewDetails"
-        android:layout_width="414dp"
-        android:layout_height="196dp"
+        android:layout_width="408dp"
+        android:layout_height="268dp"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="12dp"
         android:layout_marginEnd="2dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AddCommentBtn" />
 
-    <EditText
-        android:id="@+id/editTextTextMultiLine"
-        android:layout_width="400dp"
-        android:layout_height="110dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="6dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
+    <Button
+        android:id="@+id/make_booking"
+        android:layout_width="399dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="10dp"
+        android:text="Make booking"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="347dp" />
+        app:layout_constraintTop_toBottomOf="@+id/bannerDetails" />
 
     <Button
         android:id="@+id/AddCommentBtn"
         android:layout_width="148dp"
         android:layout_height="48dp"
         android:layout_marginStart="262dp"
-        android:layout_marginTop="12dp"
         android:layout_marginEnd="1dp"
         android:text="Add Comment"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine" />
 
-    <Button
-        android:id="@+id/make_booking"
-        android:layout_width="399dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="10dp"
-        android:text="Make booking"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/DetailsPlaceDescription" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="204dp"
-        android:layout_height="131dp"
-        app:layout_constraintTop_toBottomOf="@+id/bannerDetails"
-        tools:layout_editor_absoluteX="0dp"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
-
     <TextView
         android:id="@+id/DetailsPlaceName"
-        android:layout_width="171dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="9dp"
-        android:text="DetailsPlaceName"
-        android:textSize="48px"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/bannerDetails" />
-
-    <TextView
-        android:id="@+id/DetailsPlaceDescription"
-        android:layout_width="373dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="22dp"
-        android:text="trhfghfghfhfghfghfgh  hfgh fgh fgh fh fhg fgh fghf gh sedfsdfsdf sdfsd fsdfsdf sfsdfsdfsdfsdfs"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="31dp"
+        android:text="N"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/recycleViewDetails" />
 
     <TextView
         android:id="@+id/DetailsPlaceLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="32dp"
-        android:text="Location"
-        android:textSize="48px"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="31dp"
+        android:text="L"
+        app:layout_constraintStart_toEndOf="@+id/DetailsPlaceName"
+        app:layout_constraintTop_toBottomOf="@+id/recycleViewDetails" />
+
+    <TextView
+        android:id="@+id/DetailsPlaceDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="81dp"
+        android:text="D"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/DetailsPlaceName" />
+        app:layout_constraintStart_toEndOf="@+id/DetailsPlaceLocation"
+        app:layout_constraintTop_toBottomOf="@+id/recycleViewDetails" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

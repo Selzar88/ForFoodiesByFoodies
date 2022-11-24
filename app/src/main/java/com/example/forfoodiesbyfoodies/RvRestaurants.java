@@ -81,13 +81,12 @@ public class RvRestaurants extends AppCompatActivity implements RecycleViewInter
         String vegan =x.getVegan();
         String location = x.getLocation();
 
-        intent.putExtra("name", "name");
-        intent.putExtra("desc", "desc");
-        intent.putExtra("rate", "rate");
-        intent.putExtra("vegan", "vegan");
-        intent.putExtra("location", "location");
+        intent.putExtra("name", name);
+        intent.putExtra("desc", desc);
+        intent.putExtra("rate", rate);
+        intent.putExtra("vegan", vegan);
+        intent.putExtra("location", location);
         startActivity(intent);
-
 
     }
 }
