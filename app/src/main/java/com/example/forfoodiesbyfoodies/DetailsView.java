@@ -30,7 +30,8 @@ public class DetailsView extends AppCompatActivity implements RecycleViewInterfa
     private ArrayList<Comment> commentlist;
     private DatabaseReference databaseReference;
     private CommentAdapter adapter;
-    private TextView commenttext;
+    private TextView commenttext, Placename, Placelocation, Placedesc;
+    private String name, desc, location;
 
     private Button bookking, Btncomment;
 
@@ -38,6 +39,26 @@ public class DetailsView extends AppCompatActivity implements RecycleViewInterfa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_view);
+
+
+        Placename = findViewById(R.id.DetailsPlaceName);
+        Placelocation = findViewById(R.id.DetailsPlaceLocation);
+        Placedesc= findViewById(R.id.DetailsPlaceDescription);
+
+        Bundle data = getIntent().getExtras();
+        if (data!=null) {
+             name= data.getString("name");
+             desc= data.getString("desc");
+             location= data.getString("location");
+        } else{
+            name= "name";
+            desc= "desc";
+            location= "location";
+        }
+
+        Placename.setText(name);
+        Placedesc.setText(desc);
+        Placelocation.setText(location);
 
         commenttext = findViewById(R.id.editTextTextMultiLine);
         Btncomment = findViewById(R.id.AddCommentBtn);

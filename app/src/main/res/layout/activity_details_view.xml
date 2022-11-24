@@ -60,7 +60,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleViewDetails"
         android:layout_width="408dp"
-        android:layout_height="400dp"
+        android:layout_height="268dp"
         android:layout_marginStart="2dp"
         android:layout_marginEnd="2dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -91,5 +91,37 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine" />
+
+    <TextView
+        android:id="@+id/DetailsPlaceName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="31dp"
+        android:text="N"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycleViewDetails" />
+
+    <TextView
+        android:id="@+id/DetailsPlaceLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="31dp"
+        android:text="L"
+        app:layout_constraintStart_toEndOf="@+id/DetailsPlaceName"
+        app:layout_constraintTop_toBottomOf="@+id/recycleViewDetails" />
+
+    <TextView
+        android:id="@+id/DetailsPlaceDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="81dp"
+        android:text="D"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/DetailsPlaceLocation"
+        app:layout_constraintTop_toBottomOf="@+id/recycleViewDetails" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
