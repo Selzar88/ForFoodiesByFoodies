@@ -6,7 +6,7 @@
 
 
     <TextView
-        android:id="@+id/rv_restaurants"
+        android:id="@+id/banner"
         android:layout_width="wrap_content"
         android:layout_height="65dp"
         android:layout_gravity="right"
