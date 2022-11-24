@@ -38,7 +38,6 @@ public class DetailsView extends AppCompatActivity implements RecycleViewInterfa
 
     private Button bookking, Btncomment;
 
-    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,9 +54,12 @@ public class DetailsView extends AppCompatActivity implements RecycleViewInterfa
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new CommentAdapter(this, commentlist,this);
         recyclerView.setAdapter(adapter);
+
+
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                commentlist.clear();
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
                     Comment comment =dataSnapshot.getValue(Comment.class);
                     commentlist.add(comment);
@@ -71,18 +73,7 @@ public class DetailsView extends AppCompatActivity implements RecycleViewInterfa
             }
         });
 
-        Btncomment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String useremail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
 
-                Comment comment = new Comment(useremail, commenttext.getText().toString().trim());
-
-                FirebaseDatabase.getInstance().getReference("Comments").push().setValue(comment);
-                Toast.makeText(DetailsView.this, "New comment added", Toast.LENGTH_SHORT).show();
-
-            }
-        });
 
 
 
@@ -92,6 +83,18 @@ public class DetailsView extends AppCompatActivity implements RecycleViewInterfa
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(DetailsView.this,MakeBooking.class));
+            }
+        });
+
+        Btncomment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String commention = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+                Comment comment = new Comment(commention, commenttext.getText().toString());
+
+                FirebaseDatabase.getInstance().getReference("Comments").push().setValue(comment);
+                Toast.makeText(DetailsView.this, "New comment added", Toast.LENGTH_SHORT).show();
+
             }
         });
     }

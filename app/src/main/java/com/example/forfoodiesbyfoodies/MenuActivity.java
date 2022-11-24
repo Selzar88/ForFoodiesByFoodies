@@ -62,7 +62,7 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MenuActivity.this, RvCatering.class);
-                intent.putExtra("place",1);
+                intent.putExtra("name","Restaurant");
                 startActivity(intent);
             }
         });
