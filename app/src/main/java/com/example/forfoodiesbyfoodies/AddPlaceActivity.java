@@ -1,6 +1,7 @@
 package com.example.forfoodiesbyfoodies;
 
 import static com.example.forfoodiesbyfoodies.R.id.checkRestaurant;
+import static com.example.forfoodiesbyfoodies.R.id.imageView;
 import static com.example.forfoodiesbyfoodies.R.id.veganFriendly;
 
 import android.annotation.SuppressLint;
@@ -8,6 +9,7 @@ import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -22,6 +24,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.forfoodiesbyfoodies.Entities.FoodPlace;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -33,6 +36,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 import java.util.UUID;
@@ -44,6 +48,7 @@ public class AddPlaceActivity extends AppCompatActivity {
     private ImageView imageRestaurantImage;
     private FirebaseAuth mAth;
     private EditText name, localisation, description;
+
     private CheckBox vegan;
     private Button add;
     private ImageView imageRestaurantView;
@@ -56,7 +61,7 @@ public class AddPlaceActivity extends AppCompatActivity {
     private DatabaseReference fDatabaseRef;
     private String admin;
     private String UserID;
-
+    private String url;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +84,8 @@ public class AddPlaceActivity extends AppCompatActivity {
         btnBrowseImage = findViewById(R.id.btnBrowseImage);
         btnUpload = findViewById(R.id.btnUpload);
         imageRestaurantImage = findViewById(R.id.imageRestaurantImage);
+
+
 
         //only admin can add restaurants
         if (admin.equals(UserID)){
@@ -106,15 +113,10 @@ public class AddPlaceActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 uploadImage();
+                //AddPlace();
             }
         });
 
-        add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AddPlace();
-            }
-        });
     }
 
     // Select Image method
@@ -124,28 +126,29 @@ public class AddPlaceActivity extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(
-                Intent.createChooser(
+        startActivityForResult(intent, PICK_IMAGE_REQUEST);
+
+
+
+                /*Intent.createChooser(
                         intent,
                         "Select Image from here..."),
-                PICK_IMAGE_REQUEST);
+                PICK_IMAGE_REQUEST);*/
     }
 
     // Override onActivityResult method
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
         super.onActivityResult(requestCode, resultCode, data);
 
         //Checking for request code
-        if (requestCode == PICK_IMAGE_REQUEST
-                && resultCode == RESULT_OK
-                && data != null
-                && data.getData() != null) {
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
 
             // Get the Uri of data
             filePath = data.getData();
-            try {
+            Picasso.get().load(filePath).into(imageRestaurantImage);
+            /*try {
                 // Setting image bitmap
                 Bitmap bitmap = MediaStore
                         .Images
@@ -157,7 +160,7 @@ public class AddPlaceActivity extends AppCompatActivity {
             } catch (IOException e) {
                 // exception
                 e.printStackTrace();
-            }
+            }*/
         }
 
     }
@@ -168,42 +171,48 @@ public class AddPlaceActivity extends AppCompatActivity {
         return mime.getExtensionFromMimeType(cR.getType(filePath));
     }
 
-    private void uploadFile(){
+    /*private void uploadFile(){
         if(filePath !=null){
-            StorageReference fileRef = storageReference.child(System.currentTimeMillis() + "." + getFileExtension(filePath));
+            StorageReference storage = storageReference.child("Name of the image." + getFileExtension(filePath));
         }
         else {
             Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
         }
-    }
+    }*/
 
     // UploadImage method
     private void uploadImage() {
         if (filePath != null) {
             // progress popup
-            ProgressDialog progressDialog
-                    = new ProgressDialog(this);
+            ProgressDialog progressDialog = new ProgressDialog(this);
             progressDialog.setTitle("Uploading...");
             progressDialog.show();
 
             // child for storageReference
 
-            StorageReference ref = storageReference.child("images/" + UUID.randomUUID().toString());
+            StorageReference storage = storageReference.child("Name of the image." + getFileExtension(filePath));
 
             // adding listeners on upload
             // or failure of image
-            ref.putFile(filePath).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            storageReference.putFile(filePath).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
-                        public void onSuccess(
-                                UploadTask.TaskSnapshot taskSnapshot) {
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             // Image uploaded successfully
                             // Dismiss dialog
                             progressDialog.dismiss();
-                            Toast
-                                    .makeText(AddPlaceActivity.this,
-                                            "Image Uploaded!!",
-                                            Toast.LENGTH_SHORT)
-                                    .show();
+                            Toast.makeText(AddPlaceActivity.this, "Image Uploaded!!", Toast.LENGTH_SHORT).show();
+
+                            storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    FoodPlace foodPlace = new FoodPlace(name, localisation,description, vegan, uri.toString());
+
+
+                                    String id = fDatabaseRef.push().getKey();
+                                    fDatabaseRef.child(id).setValue(foodPlace);
+
+                                }
+                            });
                         }
                     })
 
@@ -249,6 +258,9 @@ public class AddPlaceActivity extends AppCompatActivity {
 
 
 
+
+
+
             String Vfriends = "";
 
             if (isVegan == true) {
@@ -282,7 +294,7 @@ public class AddPlaceActivity extends AppCompatActivity {
             } else {
                 // tu powinna  byc jeszcze jakas validacja czy to istnieje, albo wybor czy to knajpa czy catering
 
-                FoodPlace foodPlace = new FoodPlace(placeName, placeLoc, placeDesc, "5", Vfriends, filePath);
+                FoodPlace foodPlace = new FoodPlace(placeName, placeLoc, placeDesc, "5", Vfriends, url);
 
                 FirebaseDatabase.getInstance().getReference(option).push().setValue(foodPlace);
                 Toast.makeText(AddPlaceActivity.this, "New food Place added", Toast.LENGTH_SHORT).show();

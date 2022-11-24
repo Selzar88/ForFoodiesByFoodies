@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailsView">
+
+    <TextView
+        android:id="@+id/bannerUserDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/monoton"
+        android:text="USER DETAILS"
+        android:textColor="@color/red_700"
+        android:textSize="25sp"
+        app:layout_constraintStart_toEndOf="@+id/logoDetails"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/logoDetails"
+        android:layout_width="61dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="3dp"
+        android:contentDescription="@string/logoMenu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo1" />
+
+    <ImageView
+        android:id="@+id/settingsDrawDetails"
+        android:layout_width="66dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/bannerUserDetails"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_menu_24" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleViewUserDetails"
+        android:layout_width="403dp"
+        android:layout_height="627dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bannerUserDetails" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
