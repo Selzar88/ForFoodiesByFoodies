@@ -77,7 +77,7 @@ public class DetailsView extends AppCompatActivity implements RecycleViewInterfa
         bookking= findViewById(R.id.make_booking);
         dataPlaces = FirebaseDatabase.getInstance().getReference();
         recyclerView=findViewById(R.id.recycleViewDetails);
-        databaseReference= FirebaseDatabase.getInstance().getReference("Comments");
+        databaseReference= FirebaseDatabase.getInstance().getReference("Comments").child(name);
 
         commentlist = new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -92,13 +92,6 @@ public class DetailsView extends AppCompatActivity implements RecycleViewInterfa
                 for(DataSnapshot dataSnapshot: snapshot.getChildren()){
                     Comment comment =dataSnapshot.getValue(Comment.class);
                     commentlist.add(comment);
-                }
-                for(int i =0; i<commentlist.size(); i++){
-                    Comment c1 = commentlist.get(i);
-                    if(c1.getPlace()!=name)
-                    {
-                        commentlist.remove(i);
-                    }
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -123,7 +116,7 @@ public class DetailsView extends AppCompatActivity implements RecycleViewInterfa
                 String commention = FirebaseAuth.getInstance().getCurrentUser().getEmail();
                 Comment comment = new Comment(commention, commenttext.getText().toString(), name);
 
-                FirebaseDatabase.getInstance().getReference("Comments").push().setValue(comment);
+                databaseReference.push().setValue(comment);
                 Toast.makeText(DetailsView.this, "New comment added", Toast.LENGTH_SHORT).show();
 
             }
