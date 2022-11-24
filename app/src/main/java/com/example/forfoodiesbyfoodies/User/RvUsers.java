@@ -71,6 +71,7 @@ public class RvUsers extends AppCompatActivity implements RecycleViewInterface {
     @Override
     public void onItemClick(int position) {
 
+
     }
 
     public void DropDownMenu(){

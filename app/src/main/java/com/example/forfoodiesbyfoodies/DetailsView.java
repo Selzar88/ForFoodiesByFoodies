@@ -39,6 +39,8 @@ public class DetailsView extends AppCompatActivity implements RecycleViewInterfa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_view);
 
+        Bundle data = Intent
+
         commenttext = findViewById(R.id.editTextTextMultiLine);
         Btncomment = findViewById(R.id.AddCommentBtn);
         bookking= findViewById(R.id.make_booking);
