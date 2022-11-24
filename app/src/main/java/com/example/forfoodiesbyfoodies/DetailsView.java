@@ -7,13 +7,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.forfoodiesbyfoodies.Entities.Comment;
 import com.example.forfoodiesbyfoodies.User.CommentAdapter;
+import com.example.forfoodiesbyfoodies.User.RvUsers;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -91,11 +95,6 @@ public class DetailsView extends AppCompatActivity implements RecycleViewInterfa
         });
 
 
-
-
-
-
-
         bookking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -114,10 +113,57 @@ public class DetailsView extends AppCompatActivity implements RecycleViewInterfa
 
             }
         });
+
+        DropDownMenu();
     }
+
+
     @Override
     public void onItemClick(int position) {
 
+    }
+
+    public void DropDownMenu(){
+        ImageView imageView = findViewById(R.id.settingsDrawerDetails);
+        registerForContextMenu(imageView);
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu popupMenu = new PopupMenu(DetailsView.this, v);
+                popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()) {
+                            case R.id.btnProfile:
+                                Intent intent1 = new Intent(DetailsView.this, ProfileActivity.class);
+                                startActivity(intent1);
+                                return true;
+                            case R.id.btnMenu:
+                                Intent intent5 = new Intent(DetailsView.this, MenuActivity.class);
+                                startActivity(intent5);
+                                return true;
+                            case R.id.btnUserList:
+                                Intent intent2 = new Intent(DetailsView.this, RvUsers.class);
+                                startActivity(intent2);
+                                return true;
+                            case R.id.btnAddPlace:
+                                Intent intent3 = new Intent(DetailsView.this, AddPlaceActivity.class);
+                                startActivity(intent3);
+                                return true;
+                            case R.id.btnLogout:
+                                Intent intent4 = new Intent(DetailsView.this, MainActivity.class);
+                                startActivity(intent4);
+                                return true;
+
+                        }
+                        return false;
+                    }
+                });
+                popupMenu.show();
+            }
+        });
     }
 
 }
