@@ -283,7 +283,7 @@ public class AddPlaceActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Entry too short", Toast.LENGTH_LONG).show();
             } else if (placeLoc.isEmpty() || placeLoc.length() < 7) {
                 Toast.makeText(getApplicationContext(), "Entry too short, provide at least full post code", Toast.LENGTH_LONG).show();
-            } else if (placeDesc.isEmpty() || placeDesc.length() < 30) {
+            } else if (placeDesc.isEmpty() || placeDesc.length() < 30 && 250 < placeDesc.length()) {
                 Toast.makeText(getApplicationContext(), "Entry too short, please provide more details about the place", Toast.LENGTH_LONG).show();
             } else if (option.equals("empty")) {
                 Toast.makeText(getApplicationContext(), "Choose the food place type", Toast.LENGTH_LONG).show();
