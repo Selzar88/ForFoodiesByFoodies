@@ -1,8 +1,7 @@
 package com.example.forfoodiesbyfoodies.Entities;
 
+import android.net.Uri;
 
-import android.widget.CheckBox;
-import android.widget.EditText;
 
 import com.google.firebase.database.IgnoreExtraProperties;
 
@@ -14,22 +13,26 @@ public class FoodPlace {
     String description;
     String rate;
     String vegan;
-    String url;
+    String filePath;
 
 
 
-    public FoodPlace(String name, String location, String description, String rate, String vegan, String url) {
+
+
+
+
+    public FoodPlace(String name, String location, String description, String rate, String vegan, Uri filePath) {
         this.name = name;
         this.location = location;
         this.description = description;
         this.rate = rate;
         this.vegan = vegan;
-        this.url = url;
+        this.filePath = String.valueOf(filePath);
 
 
     }
 
-    public FoodPlace(EditText name, EditText localisation, EditText description, CheckBox vegan, String s) {
+    public FoodPlace() {
     }
 
     public String getName() {
@@ -50,8 +53,7 @@ public class FoodPlace {
 
     public String getVegan() {return  vegan;}
 
-    public String getImageUrl() {return  url;}
-
+    public String getFilePath() {return  filePath;}
 
 
 }

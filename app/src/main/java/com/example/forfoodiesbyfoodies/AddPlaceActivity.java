@@ -205,11 +205,7 @@ public class AddPlaceActivity extends AppCompatActivity {
                             storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
-                                    FoodPlace foodPlace = new FoodPlace(name, localisation,description, vegan, uri.toString());
 
-
-                                    String id = fDatabaseRef.push().getKey();
-                                    fDatabaseRef.child(id).setValue(foodPlace);
 
                                 }
                             });
@@ -294,7 +290,7 @@ public class AddPlaceActivity extends AppCompatActivity {
             } else {
                 // tu powinna  byc jeszcze jakas validacja czy to istnieje, albo wybor czy to knajpa czy catering
 
-                FoodPlace foodPlace = new FoodPlace(placeName, placeLoc, placeDesc, "5", Vfriends, url);
+                FoodPlace foodPlace = new FoodPlace(placeName, placeLoc, placeDesc, "5", Vfriends, filePath);
 
                 FirebaseDatabase.getInstance().getReference(option).child(placeName).setValue(foodPlace);
                 Toast.makeText(AddPlaceActivity.this, "New food Place added", Toast.LENGTH_SHORT).show();

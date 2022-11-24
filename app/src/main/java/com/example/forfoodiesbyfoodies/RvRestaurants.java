@@ -2,7 +2,6 @@ package com.example.forfoodiesbyfoodies;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -51,9 +50,6 @@ public class RvRestaurants extends AppCompatActivity implements RecycleViewInter
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new MyAdapter(this, list,this);
         recyclerView.setAdapter(adapter);
-
-
-
 
 
         databaseReference.addValueEventListener(new ValueEventListener() {
