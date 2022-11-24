@@ -13,9 +13,6 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import com.example.forfoodiesbyfoodies.Entities.FoodPlace;
-import com.example.forfoodiesbyfoodies.RV.RvCatering;
-import com.example.forfoodiesbyfoodies.RV.RvRestaurants;
-import com.example.forfoodiesbyfoodies.RV.RvStreetFood;
 import com.example.forfoodiesbyfoodies.User.RvUsers;
 import com.google.firebase.database.DatabaseReference;
 
@@ -45,7 +42,21 @@ public class MenuActivity extends AppCompatActivity {
         btnRestaurants.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MenuActivity.this, RvRestaurants.class));
+                Intent intent = new Intent(MenuActivity.this, RvRestaurants.class);
+                intent.putExtra("name", "Restaurant");
+                startActivity(intent);
+            }
+
+        });
+
+
+        TextView txtRestaurants = findViewById(R.id.txtRestaurantMenu);
+        txtRestaurants.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this, RvRestaurants.class);
+                intent.putExtra("name", "Restaurant");
+                startActivity(intent);
             }
         });
 
@@ -53,25 +64,9 @@ public class MenuActivity extends AppCompatActivity {
         btnStreetFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MenuActivity.this, RvStreetFood.class));
-            }
-        });
-
-        ImageView btnCatering = findViewById(R.id.btnCatering);
-        btnCatering.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this, RvCatering.class);
-                intent.putExtra("name","Restaurant");
-                startActivity(intent);
-            }
-        });
-
-        TextView txtRestaurants = findViewById(R.id.txtRestaurantMenu);
-        txtRestaurants.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MenuActivity.this, RvRestaurants.class));
+                Intent intent = new Intent(MenuActivity.this, RvRestaurants.class);
+                intent.putExtra("name", "StreetFood");
+                startActivity(intent);;
             }
         });
 
@@ -79,7 +74,9 @@ public class MenuActivity extends AppCompatActivity {
         txtStreetFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MenuActivity.this, RvStreetFood.class));
+                Intent intent = new Intent(MenuActivity.this, RvRestaurants.class);
+                intent.putExtra("name", "StreetFood");
+                startActivity(intent);
             }
         });
 
@@ -87,7 +84,18 @@ public class MenuActivity extends AppCompatActivity {
         txtCatering.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MenuActivity.this, RvCatering.class));
+                Intent intent = new Intent(MenuActivity.this, RvRestaurants.class);
+                intent.putExtra("name", "Catering");
+                startActivity(intent);
+            }
+        });
+        ImageView btnCatering = findViewById(R.id.btnCatering);
+        btnCatering.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this, RvRestaurants.class);
+                intent.putExtra("name", "Catering");
+                startActivity(intent);
             }
         });
 

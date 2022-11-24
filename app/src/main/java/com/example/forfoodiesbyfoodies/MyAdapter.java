@@ -10,9 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.forfoodiesbyfoodies.Entities.FoodPlace;
-import com.example.forfoodiesbyfoodies.RV.RecycleViewInterface;
 
-import java.text.BreakIterator;
 import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {

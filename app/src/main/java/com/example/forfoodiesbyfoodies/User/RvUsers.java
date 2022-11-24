@@ -5,14 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 
-import com.example.forfoodiesbyfoodies.Entities.FoodPlace;
 import com.example.forfoodiesbyfoodies.Entities.User;
-import com.example.forfoodiesbyfoodies.MyAdapter;
 import com.example.forfoodiesbyfoodies.R;
-import com.example.forfoodiesbyfoodies.RV.RecycleViewInterface;
+import com.example.forfoodiesbyfoodies.RecycleViewInterface;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
