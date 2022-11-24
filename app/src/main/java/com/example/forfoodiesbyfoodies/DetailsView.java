@@ -93,6 +93,13 @@ public class DetailsView extends AppCompatActivity implements RecycleViewInterfa
                     Comment comment =dataSnapshot.getValue(Comment.class);
                     commentlist.add(comment);
                 }
+                for(int i =0; i<commentlist.size(); i++){
+                    Comment c1 = commentlist.get(i);
+                    if(c1.getPlace()!=name)
+                    {
+                        commentlist.remove(i);
+                    }
+                }
                 adapter.notifyDataSetChanged();
             }
 
@@ -114,7 +121,7 @@ public class DetailsView extends AppCompatActivity implements RecycleViewInterfa
             @Override
             public void onClick(View view) {
                 String commention = FirebaseAuth.getInstance().getCurrentUser().getEmail();
-                Comment comment = new Comment(commention, commenttext.getText().toString());
+                Comment comment = new Comment(commention, commenttext.getText().toString(), name);
 
                 FirebaseDatabase.getInstance().getReference("Comments").push().setValue(comment);
                 Toast.makeText(DetailsView.this, "New comment added", Toast.LENGTH_SHORT).show();

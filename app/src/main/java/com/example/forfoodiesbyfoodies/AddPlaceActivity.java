@@ -112,8 +112,8 @@ public class AddPlaceActivity extends AppCompatActivity {
         btnUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                uploadImage();
-                //AddPlace();
+//                uploadImage();
+                AddPlace();
             }
         });
 
@@ -252,10 +252,6 @@ public class AddPlaceActivity extends AppCompatActivity {
 
 
 
-
-
-
-
             String Vfriends = "";
 
             if (isVegan == true) {
@@ -287,7 +283,6 @@ public class AddPlaceActivity extends AppCompatActivity {
             } else if (option.equals("empty")) {
                 Toast.makeText(getApplicationContext(), "Choose the food place type", Toast.LENGTH_LONG).show();
             } else {
-                // tu powinna  byc jeszcze jakas validacja czy to istnieje, albo wybor czy to knajpa czy catering
 
                 FoodPlace foodPlace = new FoodPlace(placeName, placeLoc, placeDesc, "5", Vfriends, filePath);
 

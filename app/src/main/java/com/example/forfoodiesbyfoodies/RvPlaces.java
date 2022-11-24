@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -18,8 +17,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 
-public class RvRestaurants extends AppCompatActivity implements RecycleViewInterface
+public class RvPlaces extends AppCompatActivity implements RecycleViewInterface
 {
 
 
@@ -33,11 +35,10 @@ public class RvRestaurants extends AppCompatActivity implements RecycleViewInter
 
 
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.rv_restaurants);
+        setContentView(R.layout.rv_places);
 
         Bundle x=getIntent().getExtras();
         if (x!=null) {
@@ -65,6 +66,12 @@ public class RvRestaurants extends AppCompatActivity implements RecycleViewInter
                     FoodPlace foodPlace =dataSnapshot.getValue(FoodPlace.class);
                     list.add(foodPlace);
                 }
+                Collections.sort(list, new Comparator<FoodPlace>() {
+                    @Override
+                    public int compare(FoodPlace foodPlace, FoodPlace t1) {
+                        return String.valueOf(foodPlace.getName()).compareTo(String.valueOf(t1.getName()));
+                    }
+                });
                 adapter.notifyDataSetChanged();
             }
 
@@ -79,7 +86,7 @@ public class RvRestaurants extends AppCompatActivity implements RecycleViewInter
 
     @Override
     public void onItemClick(int position) {
-        Intent intent = new Intent(RvRestaurants.this, DetailsView.class);
+        Intent intent = new Intent(RvPlaces.this, DetailsView.class);
         FoodPlace x = list.get(position);
         String name = x.getName();
         String desc = x.getDescription();

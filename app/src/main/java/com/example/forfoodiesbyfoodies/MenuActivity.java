@@ -42,7 +42,7 @@ public class MenuActivity extends AppCompatActivity {
         btnRestaurants.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this, RvRestaurants.class);
+                Intent intent = new Intent(MenuActivity.this, RvPlaces.class);
                 intent.putExtra("name", "Restaurant");
                 startActivity(intent);
             }
@@ -54,7 +54,7 @@ public class MenuActivity extends AppCompatActivity {
         txtRestaurants.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this, RvRestaurants.class);
+                Intent intent = new Intent(MenuActivity.this, RvPlaces.class);
                 intent.putExtra("name", "Restaurant");
                 startActivity(intent);
             }
@@ -64,7 +64,7 @@ public class MenuActivity extends AppCompatActivity {
         btnStreetFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this, RvRestaurants.class);
+                Intent intent = new Intent(MenuActivity.this, RvPlaces.class);
                 intent.putExtra("name", "StreetFood");
                 startActivity(intent);;
             }
@@ -74,7 +74,7 @@ public class MenuActivity extends AppCompatActivity {
         txtStreetFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this, RvRestaurants.class);
+                Intent intent = new Intent(MenuActivity.this, RvPlaces.class);
                 intent.putExtra("name", "StreetFood");
                 startActivity(intent);
             }
@@ -84,7 +84,7 @@ public class MenuActivity extends AppCompatActivity {
         txtCatering.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this, RvRestaurants.class);
+                Intent intent = new Intent(MenuActivity.this, RvPlaces.class);
                 intent.putExtra("name", "Catering");
                 startActivity(intent);
             }
@@ -93,7 +93,7 @@ public class MenuActivity extends AppCompatActivity {
         btnCatering.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MenuActivity.this, RvRestaurants.class);
+                Intent intent = new Intent(MenuActivity.this, RvPlaces.class);
                 intent.putExtra("name", "Catering");
                 startActivity(intent);
             }

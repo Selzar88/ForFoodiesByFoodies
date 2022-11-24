@@ -15,7 +15,6 @@ import android.widget.PopupMenu;
 import com.example.forfoodiesbyfoodies.AddPlaceActivity;
 import com.example.forfoodiesbyfoodies.Entities.User;
 import com.example.forfoodiesbyfoodies.MainActivity;
-import com.example.forfoodiesbyfoodies.MakeBooking;
 import com.example.forfoodiesbyfoodies.ProfileActivity;
 import com.example.forfoodiesbyfoodies.R;
 import com.example.forfoodiesbyfoodies.RecycleViewInterface;
@@ -37,7 +36,7 @@ public class RvUsers extends AppCompatActivity implements RecycleViewInterface {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rv_users);
+        setContentView(R.layout.rv_users);
 
         ImageView imageView = findViewById(R.id.settingsDrawerUsers);
         registerForContextMenu(imageView);
