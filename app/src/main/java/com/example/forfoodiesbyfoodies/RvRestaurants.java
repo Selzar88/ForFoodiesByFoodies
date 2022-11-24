@@ -74,7 +74,9 @@ public class RvRestaurants extends AppCompatActivity implements RecycleViewInter
     @Override
     public void onItemClick(int position) {
         Intent intent = new Intent(RvRestaurants.this, DetailsView.class);
+//        intent.putExtra("id",)
         startActivity(intent);
+
 
     }
 }
