@@ -206,7 +206,6 @@ public class AddPlaceActivity extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(Uri uri) {
 
-
                                 }
                             });
                         }

@@ -29,7 +29,6 @@ public class RvRestaurants extends AppCompatActivity implements RecycleViewInter
     String place;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +73,8 @@ public class RvRestaurants extends AppCompatActivity implements RecycleViewInter
     @Override
     public void onItemClick(int position) {
         Intent intent = new Intent(RvRestaurants.this, DetailsView.class);
+
+
         startActivity(intent);
 
     }
