@@ -34,8 +34,8 @@ public class DetailsView extends AppCompatActivity implements RecycleViewInterfa
     private ArrayList<Comment> commentlist;
     private DatabaseReference databaseReference;
     private CommentAdapter adapter;
-    private TextView commenttext, Placename, Placelocation, Placedesc;
-    private String name, desc, location;
+    private TextView commenttext, Placename, Placelocation, Placedesc,PlaceVegan,PlaceRate;
+    private String name, desc, location, rate, veg;
 
     private Button bookking, Btncomment;
 
@@ -48,21 +48,29 @@ public class DetailsView extends AppCompatActivity implements RecycleViewInterfa
         Placename = findViewById(R.id.DetailsPlaceName);
         Placelocation = findViewById(R.id.DetailsPlaceLocation);
         Placedesc= findViewById(R.id.DetailsPlaceDescription);
+        PlaceVegan= findViewById(R.id.DetailsVegan);
+        PlaceRate = findViewById(R.id.DetailsRate);
 
         Bundle data = getIntent().getExtras();
         if (data!=null) {
              name= data.getString("name");
              desc= data.getString("desc");
              location= data.getString("location");
+             rate= data.getString("rate");
+             veg= data.getString("vegan");
         } else{
             name= "name";
             desc= "desc";
             location= "location";
+            rate ="rate";
+            veg = "Vegan Friendly";
         }
 
         Placename.setText(name);
         Placedesc.setText(desc);
         Placelocation.setText(location);
+        PlaceVegan.setText(veg);
+        PlaceRate.setText(rate);
 
         commenttext = findViewById(R.id.editTextTextMultiLine);
         Btncomment = findViewById(R.id.AddCommentBtn);

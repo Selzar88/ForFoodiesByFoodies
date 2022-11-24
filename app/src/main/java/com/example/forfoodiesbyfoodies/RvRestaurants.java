@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.example.forfoodiesbyfoodies.Entities.FoodPlace;
 import com.google.firebase.database.DataSnapshot;
@@ -27,9 +29,11 @@ public class RvRestaurants extends AppCompatActivity implements RecycleViewInter
     DatabaseReference databaseReference;
     MyAdapter adapter;
     String place;
+    TextView banner;
 
 
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +49,8 @@ public class RvRestaurants extends AppCompatActivity implements RecycleViewInter
         dataPlaces = FirebaseDatabase.getInstance().getReference();
         recyclerView=findViewById(R.id.recycle_restaurants);
         databaseReference= FirebaseDatabase.getInstance().getReference(place);
+        banner = findViewById(R.id.banner);
+        banner.setText(place);
 
         list = new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
