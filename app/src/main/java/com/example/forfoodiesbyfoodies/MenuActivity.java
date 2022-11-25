@@ -31,13 +31,11 @@ public class MenuActivity extends AppCompatActivity {
     String place= "place";
     private boolean doubleBackToExitPressedOnce;
 
-
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-
 
         ImageView imageView = findViewById(R.id.settingsDrawer);
         registerForContextMenu(imageView);
@@ -52,7 +50,6 @@ public class MenuActivity extends AppCompatActivity {
             }
 
         });
-
 
         TextView txtRestaurants = findViewById(R.id.txtRestaurantMenu);
         txtRestaurants.setOnClickListener(new View.OnClickListener() {
@@ -103,14 +100,11 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
-
         DropDownMenu();
 
         boolean doubleBackToExitPressedOnce = false;
 
-
     }
-
 
     public void DropDownMenu(){
         ImageView imageView = findViewById(R.id.settingsDrawer);
@@ -141,7 +135,6 @@ public class MenuActivity extends AppCompatActivity {
                                 Intent intent4 = new Intent(MenuActivity.this, MainActivity.class);
                                 startActivity(intent4);
                                 return true;
-
                         }
                         return false;
                     }
@@ -150,11 +143,5 @@ public class MenuActivity extends AppCompatActivity {
 
             }
         });
-
-
     }
-
-
-
-
 }

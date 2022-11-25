@@ -26,13 +26,11 @@ public class RegisterActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private EditText email, password, rePassword, surname, name;
 
-
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -42,9 +40,6 @@ public class RegisterActivity extends AppCompatActivity {
         surname = findViewById(R.id.txtSurnameReg);
         name = findViewById(R.id.txtFirstReg);
 
-
-
-
         Button regBut = findViewById(R.id.btnRegister);
         regBut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,10 +47,6 @@ public class RegisterActivity extends AppCompatActivity {
                 Register();
             }
         });
-
-
-
-
 }
 
     private void Register() {
