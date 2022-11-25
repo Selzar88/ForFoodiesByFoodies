@@ -13,11 +13,15 @@ import android.widget.ImageView;
 import android.widget.PopupMenu;
 
 import com.example.forfoodiesbyfoodies.AddPlaceActivity;
+import com.example.forfoodiesbyfoodies.DetailsView;
+import com.example.forfoodiesbyfoodies.Entities.FoodPlace;
 import com.example.forfoodiesbyfoodies.Entities.User;
 import com.example.forfoodiesbyfoodies.MainActivity;
+import com.example.forfoodiesbyfoodies.OtherUsers;
 import com.example.forfoodiesbyfoodies.ProfileActivity;
 import com.example.forfoodiesbyfoodies.R;
 import com.example.forfoodiesbyfoodies.RecycleViewInterface;
+import com.example.forfoodiesbyfoodies.RvPlaces;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,6 +36,7 @@ public class RvUsers extends AppCompatActivity implements RecycleViewInterface {
     private ArrayList<User> userlist;
     private DatabaseReference databaseReference;
     private UserAdapter adapter;
+    private String first, last, role, pass, mail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,8 +74,20 @@ public class RvUsers extends AppCompatActivity implements RecycleViewInterface {
 
     @Override
     public void onItemClick(int position) {
+        Intent intent = new Intent(RvUsers.this, OtherUsers.class);
+        User x = userlist.get(position);
+        first = x.getFirstname();
+        last = x.getSurname();
+        mail=  x.getEmail();
+        pass =x.getPassword();
+        role =x.getRole();
 
-
+        intent.putExtra("first", first);
+        intent.putExtra("last", last);
+        intent.putExtra("mail", mail);
+        intent.putExtra("pass", pass);
+        intent.putExtra("role", role);
+        startActivity(intent);
     }
 
     public void DropDownMenu(){
