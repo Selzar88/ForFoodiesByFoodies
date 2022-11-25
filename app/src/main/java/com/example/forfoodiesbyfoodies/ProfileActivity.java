@@ -178,7 +178,7 @@ public class ProfileActivity extends AppCompatActivity {
         User user = new User(newname, newsurname, newemail, newpassword, role);
         updateReferance.setValue(user);
         FBprofile.updatePassword(newpassword);
-        Toast.makeText(getApplicationContext(), "Account " + newemail + "updated!", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "Account " + newemail + " updated!", Toast.LENGTH_LONG).show();
         return true;
     }
 
