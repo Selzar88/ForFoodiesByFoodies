@@ -20,11 +20,10 @@ import com.example.forfoodiesbyfoodies.User.RvUsers;
 public class MakeBooking extends AppCompatActivity {
     private Button book;
     private CalendarView calendarView;
-    private String data, time;
+    private String data,time;
     private RadioButton time18, time19, time20;
 
 
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +60,7 @@ public class MakeBooking extends AppCompatActivity {
                 {time="20";}
 
 
-                Uri uri = Uri.parse("https://www.opentable.com/s?dateTime="+data+"T"+time+"%3A00%3A00&covers=2&metroId=3143&regionIds%5B0%5D=4461&neighborhoodIds%5B0%5D=&term=&originCorrelationId=5cc77d6b-e9b7-4a31-bb7b-133d7c495ca8");
+                Uri uri = Uri.parse("https://www.opentable.com/s?dateTime="+data+"T"+time+"%3A00%3A00&covers=2&metroId=3143&regionIds%5B0%5D=4461&neighborhoodIds%5B0%5D=&term=&originCorrelationId=ec4c6a68-ba69-4691-a4b7-d427be935332");
                 startActivity(new Intent(Intent.ACTION_VIEW, uri));
             }
         });
