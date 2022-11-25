@@ -166,6 +166,7 @@ public class OtherUsers extends AppCompatActivity {
 //        deleteReferance.removeValue();
 //        return true;
 //    }
+        DropDownMenu();
     }
     public void DropDownMenu() {
         ImageView imageView = findViewById(R.id.settingsDraweProfile);

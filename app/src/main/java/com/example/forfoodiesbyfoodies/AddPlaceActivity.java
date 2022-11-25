@@ -189,9 +189,9 @@ public class AddPlaceActivity extends AppCompatActivity {
                             storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
-                                    filePath= Uri.parse(uri.toString());
+                                    /*filePath= Uri.parse(uri.toString());
                                     String id = fDatabaseRef.push().getKey();
-                                    fDatabaseRef.child(id).setValue(filePath);
+                                    fDatabaseRef.child(id).setValue(filePath);*/
 
 
                                 }
