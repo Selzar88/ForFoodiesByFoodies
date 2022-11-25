@@ -127,11 +127,8 @@ public class ProfileActivity extends AppCompatActivity {
                         sub.setVisibility(View.INVISIBLE);
                         flag = 1;
                     }
-
                     int flag = 1;
-
                 }
-
         });
 
         sub.setOnClickListener(new View.OnClickListener() {
@@ -146,24 +143,17 @@ public class ProfileActivity extends AppCompatActivity {
                     role="admin";
                 }
 
-
                 updateUser(username.getText().toString().trim(),
                         surname.getText().toString().trim(),
                         email.getText().toString().trim(),
                         password.getText().toString().trim(),role);
-
-
-
-                username.setEnabled(false);
-                surname.setEnabled(false);
-                password.setEnabled(false);
-                sub.setVisibility(View.INVISIBLE);
-                flag = 1;
+                        username.setEnabled(false);
+                        surname.setEnabled(false);
+                        password.setEnabled(false);
+                        sub.setVisibility(View.INVISIBLE);
+                        flag = 1;
             }
-
         });
-
-
     }
 
     private boolean updateUser(String newname, String newsurname, String newemail, String newpassword, String role) {
@@ -180,15 +170,6 @@ public class ProfileActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Account " + newemail + " updated!", Toast.LENGTH_LONG).show();
         return true;
     }
-
-//    private boolean deleteUser(String id) {
-//        //nahh cannot be current !!!!!!!!!!!!!!
-//        FBprofile = FirebaseAuth.getInstance().getCurrentUser();
-//        UserID = FBprofile.getUid();
-//        DatabaseReference deleteReferance = FirebaseDatabase.getInstance().getReference("Users").child(UserID);
-//        deleteReferance.removeValue();
-//        return true;
-//    }
 
     public void DropDownMenu() {
         ImageView imageView = findViewById(R.id.settingsDraweProfile);
