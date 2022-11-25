@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.forfoodiesbyfoodies.Entities.Comment;
+import com.example.forfoodiesbyfoodies.Entities.FoodPlace;
 import com.example.forfoodiesbyfoodies.User.CommentAdapter;
 import com.example.forfoodiesbyfoodies.User.RvUsers;
 import com.google.firebase.auth.FirebaseAuth;
@@ -136,6 +137,16 @@ public class DetailsView extends AppCompatActivity implements RecycleViewInterfa
 
     @Override
     public void onItemClick(int position) {
+        Intent comment = new Intent(DetailsView.this, CommentUpdate.class);
+        Comment up = commentlist.get(position);
+        String mail = up.getUserName();
+        String text = up.getText();
+        String place = up.getPlace();
+
+        comment.putExtra("mail", mail);
+        comment.putExtra("text", text);
+        comment.putExtra("place", place);
+        startActivity(comment);
 
     }
 
