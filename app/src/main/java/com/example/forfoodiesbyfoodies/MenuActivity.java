@@ -112,9 +112,6 @@ public class MenuActivity extends AppCompatActivity {
     }
 
 
-
-
-
     public void DropDownMenu(){
         ImageView imageView = findViewById(R.id.settingsDrawer);
         registerForContextMenu(imageView);
@@ -150,7 +147,7 @@ public class MenuActivity extends AppCompatActivity {
                     }
                 });
                 popupMenu.show();
-                onBackPressed();
+
             }
         });
 
@@ -158,25 +155,6 @@ public class MenuActivity extends AppCompatActivity {
     }
 
 
-    //Confirm back button pressing
-    @Override
-    public void onBackPressed() {
-        if (doubleBackToExitPressedOnce) {
-            super.onBackPressed();
-            return;
-        }
-
-        this.doubleBackToExitPressedOnce = true;
-        Toast.makeText(this, "      Are you want to log out?\nPlease click BACK again to exit", Toast.LENGTH_SHORT).show();
-
-        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-                doubleBackToExitPressedOnce=false;
-            }
-        }, 2000);
-    }
 
 
 }

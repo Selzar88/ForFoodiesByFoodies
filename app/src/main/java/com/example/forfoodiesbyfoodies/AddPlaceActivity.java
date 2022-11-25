@@ -1,5 +1,6 @@
 package com.example.forfoodiesbyfoodies;
 
+import static com.example.forfoodiesbyfoodies.R.id.btnAddPlace;
 import static com.example.forfoodiesbyfoodies.R.id.checkRestaurant;
 import static com.example.forfoodiesbyfoodies.R.id.imageView;
 import static com.example.forfoodiesbyfoodies.R.id.veganFriendly;
@@ -39,6 +40,7 @@ import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.UUID;
 
 public class AddPlaceActivity extends AppCompatActivity {
@@ -93,17 +95,25 @@ public class AddPlaceActivity extends AppCompatActivity {
         }
 
         storageReference = FirebaseStorage.getInstance().getReference("images");
-        fDatabaseRef = FirebaseDatabase.getInstance().getReference("images");
+        fDatabaseRef = FirebaseDatabase.getInstance().getReference("/image");
 
 
         // get the Firebase  storage reference
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
 
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AddPlace();
+            }
+        });
+
         // on pressing btnSelect SelectImage() is called
         btnBrowseImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 SelectImage();
             }
         });
@@ -112,8 +122,7 @@ public class AddPlaceActivity extends AppCompatActivity {
         btnUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                uploadImage();
-                AddPlace();
+              uploadImage();
             }
         });
 
@@ -128,12 +137,6 @@ public class AddPlaceActivity extends AppCompatActivity {
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(intent, PICK_IMAGE_REQUEST);
 
-
-
-                /*Intent.createChooser(
-                        intent,
-                        "Select Image from here..."),
-                PICK_IMAGE_REQUEST);*/
     }
 
     // Override onActivityResult method
@@ -148,19 +151,7 @@ public class AddPlaceActivity extends AppCompatActivity {
             // Get the Uri of data
             filePath = data.getData();
             Picasso.get().load(filePath).into(imageRestaurantImage);
-            /*try {
-                // Setting image bitmap
-                Bitmap bitmap = MediaStore
-                        .Images
-                        .Media
-                        .getBitmap(
-                                getContentResolver(),
-                                filePath);
-                imageRestaurantImage.setImageBitmap(bitmap);
-            } catch (IOException e) {
-                // exception
-                e.printStackTrace();
-            }*/
+
         }
 
     }
@@ -171,14 +162,7 @@ public class AddPlaceActivity extends AppCompatActivity {
         return mime.getExtensionFromMimeType(cR.getType(filePath));
     }
 
-    /*private void uploadFile(){
-        if(filePath !=null){
-            StorageReference storage = storageReference.child("Name of the image." + getFileExtension(filePath));
-        }
-        else {
-            Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
-        }
-    }*/
+
 
     // UploadImage method
     private void uploadImage() {
@@ -190,7 +174,7 @@ public class AddPlaceActivity extends AppCompatActivity {
 
             // child for storageReference
 
-            StorageReference storage = storageReference.child("Name of the image." + getFileExtension(filePath));
+            StorageReference storage = storageReference.child(UUID.randomUUID() + getFileExtension(filePath));
 
             // adding listeners on upload
             // or failure of image
@@ -205,6 +189,10 @@ public class AddPlaceActivity extends AppCompatActivity {
                             storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
+                                    filePath= Uri.parse(uri.toString());
+                                    String id = fDatabaseRef.push().getKey();
+                                    fDatabaseRef.child(id).setValue(filePath);
+
 
                                 }
                             });
@@ -214,33 +202,20 @@ public class AddPlaceActivity extends AppCompatActivity {
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-
                             // Error, Image not uploaded
-                            progressDialog.dismiss();
-                            Toast
-                                    .makeText(AddPlaceActivity.this,
-                                            "Failed " + e.getMessage(),
-                                            Toast.LENGTH_SHORT)
-                                    .show();
+                            progressDialog.dismiss();Toast.makeText(AddPlaceActivity.this, "Failed " + e.getMessage(),
+                                            Toast.LENGTH_SHORT).show();
                         }
                     })
-                    .addOnProgressListener(
-                            new OnProgressListener<UploadTask.TaskSnapshot>() {
-
-                                // Progress Listener for loading
-                                // percentage on the dialog box
-                                @Override
-                                public void onProgress(
-                                        UploadTask.TaskSnapshot taskSnapshot) {
-                                    double progress
-                                            = (100.0
-                                            * taskSnapshot.getBytesTransferred()
-                                            / taskSnapshot.getTotalByteCount());
-                                    progressDialog.setMessage(
-                                            "Uploaded "
-                                                    + (int) progress + "%");
-                                }
-                            });
+                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        // Progress Listener for loading
+                        // percentage on the dialog box
+                        @Override
+                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                            double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
+                            progressDialog.setMessage("Uploaded " + (int) progress + "%");
+                        }
+                    });
         }}
 
         private void AddPlace () {
