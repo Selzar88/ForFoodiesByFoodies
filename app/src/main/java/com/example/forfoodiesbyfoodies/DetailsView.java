@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,18 +25,20 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class DetailsView extends AppCompatActivity implements RecycleViewInterface {
 
+    private ImageView picture;
     private DatabaseReference dataPlaces;
     private RecyclerView recyclerView;
     private ArrayList<Comment> commentlist;
     private DatabaseReference databaseReference;
     private CommentAdapter adapter;
     private TextView commenttext, Placename, Placelocation, Placedesc,PlaceVegan,PlaceRate;
-    private String name, desc, location, rate, veg;
+    private String name, desc, location, rate, veg, path;
 
     private Button bookking, Btncomment;
 
@@ -50,6 +53,7 @@ public class DetailsView extends AppCompatActivity implements RecycleViewInterfa
         Placedesc= findViewById(R.id.DetailsPlaceDescription);
         PlaceVegan= findViewById(R.id.DetailsVegan);
         PlaceRate = findViewById(R.id.DetailsRate);
+        picture = findViewById(R.id.DetailsView);
 
         Bundle data = getIntent().getExtras();
         if (data!=null) {
@@ -58,6 +62,7 @@ public class DetailsView extends AppCompatActivity implements RecycleViewInterfa
              location= data.getString("location");
              rate= data.getString("rate");
              veg= data.getString("vegan");
+             path =data.getString("path");
         } else{
             name= "name";
             desc= "desc";
@@ -71,6 +76,9 @@ public class DetailsView extends AppCompatActivity implements RecycleViewInterfa
         Placelocation.setText(location);
         PlaceVegan.setText(veg);
         PlaceRate.setText(rate);
+        Uri uri = Uri.parse(path);
+        Picasso.get().load(uri).into(picture);
+
 
         commenttext = findViewById(R.id.editTextTextMultiLine);
         Btncomment = findViewById(R.id.AddCommentBtn);

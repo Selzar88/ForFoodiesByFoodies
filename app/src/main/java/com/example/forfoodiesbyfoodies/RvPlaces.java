@@ -93,12 +93,14 @@ public class RvPlaces extends AppCompatActivity implements RecycleViewInterface
         String rate = x.getRate();
         String vegan =x.getVegan();
         String location = x.getLocation();
+        String path = x.getFilePath();
 
         intent.putExtra("name", name);
         intent.putExtra("desc", desc);
         intent.putExtra("rate", rate);
         intent.putExtra("vegan", vegan);
         intent.putExtra("location", location);
+        intent.putExtra("path", path );
         startActivity(intent);
 
     }

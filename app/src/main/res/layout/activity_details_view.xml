@@ -152,7 +152,6 @@
         android:layout_height="78dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="5dp"
-        android:background="@drawable/indian_moment"
         app:layout_constraintEnd_toStartOf="@+id/DetailsPlaceLocation"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bannerDetails"
