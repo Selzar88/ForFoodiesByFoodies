@@ -58,6 +58,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             rate= itemView.findViewById(R.id.placeRate);
             vegan =itemView.findViewById(R.id.placeVegan);
 
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

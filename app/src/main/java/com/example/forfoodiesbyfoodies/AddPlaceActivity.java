@@ -88,7 +88,6 @@ public class AddPlaceActivity extends AppCompatActivity {
         imageRestaurantImage = findViewById(R.id.imageRestaurantImage);
 
 
-
         //only admin can add restaurants
         if (admin.equals(UserID)){
             restaurant.setEnabled(true);
@@ -102,12 +101,12 @@ public class AddPlaceActivity extends AppCompatActivity {
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
 
-        /*add.setOnClickListener(new View.OnClickListener() {
+        add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AddPlace();
+                addPlace(imageUri);
             }
-        });*/
+        });
 
         // on pressing btnSelect SelectImage() is called
         btnBrowseImage.setOnClickListener(new View.OnClickListener() {
@@ -117,47 +116,27 @@ public class AddPlaceActivity extends AppCompatActivity {
                 SelectImage();
             }
         });
-
-        // on pressing btnUpload uploadImage() is called
-        btnUpload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-              if(imageUri != null){
-                  uploadToFirebase(imageUri);
-              }
-
-            }
-        });
-
     }
 
     // Select Image method
     private void SelectImage() {
-
         // Defining Implicit Intent to mobile gallery
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(intent, PICK_IMAGE_REQUEST);
-
     }
 
     // Override onActivityResult method
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-
         super.onActivityResult(requestCode, resultCode, data);
-
         //Checking for request code
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
-
             // Get the Uri of data
             imageUri = data.getData();
             imageRestaurantImage.setImageURI(imageUri);
-            //Picasso.get().load(filePath).into(imageRestaurantImage);
-
         }
-
     }
 
 
@@ -265,7 +244,7 @@ public class AddPlaceActivity extends AppCompatActivity {
             }
         }*/
 
-        private void uploadToFirebase(Uri uri){
+        private void addPlace(Uri uri){
                 StorageReference fileRef = storageReference.child(System.currentTimeMillis() + "." + getFileExtension(uri));
                 fileRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -299,7 +278,6 @@ public class AddPlaceActivity extends AppCompatActivity {
                                     Toast.makeText(getApplicationContext(), "Choose the food place type", Toast.LENGTH_LONG).show();
                                 }
 
-
                                 if (placeName.isEmpty() || placeName.length() < 4) {
                                     Toast.makeText(getApplicationContext(), "Entry too short", Toast.LENGTH_LONG).show();
                                 } else if (placeLoc.isEmpty() || placeLoc.length() < 7) {
@@ -314,7 +292,7 @@ public class AddPlaceActivity extends AppCompatActivity {
 
                                     FoodPlace foodPlace = new FoodPlace(placeName, placeLoc, placeDesc, "5", Vfriends, uri.toString());
                                     String foodPlaceId = fDatabaseRef.push().getKey();
-                                    fDatabaseRef.child(foodPlaceId).setValue(foodPlace);
+                                    fDatabaseRef.child(option).setValue(foodPlace);
 
                                     FirebaseDatabase.getInstance().getReference(option).child(placeName).setValue(foodPlace);
                                     Toast.makeText(AddPlaceActivity.this, "New food Place added", Toast.LENGTH_SHORT).show();

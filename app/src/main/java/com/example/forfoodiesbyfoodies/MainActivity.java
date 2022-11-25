@@ -19,8 +19,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
-    //encapsulacja zeby nie dalo sie dostac z zewnatrz klasy do danychr
-    // !!!ROB KOMENTY PO ANGIELSKU NIE BEDZIEMY MUSIELI ICH ZMIENIAC DO SNIPOW!!!
+    //encapsulation of variables to prevent access form the outside of the class
     private EditText username, password;
     private TextView recover;
     private Button btnLogin;
@@ -39,14 +38,12 @@ public class MainActivity extends AppCompatActivity {
         btnNoLogin = findViewById(R.id.btnNoLogin);
         recover = findViewById(R.id.recover);
 
-
         recover.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, PasswordRecovery.class));
             }
         });
-
 
         Button noLogin = findViewById(R.id.btnNoLogin);
         noLogin.setOnClickListener(new View.OnClickListener() {
@@ -57,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//jakas zmiena
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -90,8 +86,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this,RegisterActivity.class));
             }
         });
-
-
 
     }
 }
