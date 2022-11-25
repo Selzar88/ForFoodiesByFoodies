@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,13 +32,11 @@ public class ProfileActivity extends AppCompatActivity {
     private DatabaseReference reference;
     private Button sub;
     private int flag = 1;
+    private RadioButton adminRB, criticRB, userRB;
+    private String UserID, role;
 
 
-    private String UserID;
 
-
-
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +54,11 @@ public class ProfileActivity extends AppCompatActivity {
         final TextView surname = (TextView) findViewById(R.id.userSurname);
         final TextView email = (TextView) findViewById(R.id.userEmail);
         final TextView password = (TextView) findViewById(R.id.userPassword);
-        final TextView role = (TextView) findViewById(R.id.userRole);
+        userRB = findViewById(R.id.checkUser);
+        adminRB = findViewById(R.id.checkAdmin);
+        criticRB = findViewById(R.id.checkCritic);
+
+
 
        DropDownMenu();
 
@@ -79,7 +82,19 @@ public class ProfileActivity extends AppCompatActivity {
                         surname.setText(surn);
                         email.setText(mail);
                         password.setText(pass);
-                        role.setText(Urole);
+                        if(Urole.equals("user")) {
+                            userRB.setEnabled(true);
+                            userRB.toggle();
+                        }
+                        else if(Urole.equals("critic")){
+                            criticRB.setEnabled(true);
+                            criticRB.toggle();
+                        }
+                        else if(Urole.equals("admin")){
+                            adminRB.setEnabled(true);
+                            adminRB.toggle();
+
+                        }
                     }
                 }
 
@@ -110,7 +125,6 @@ public class ProfileActivity extends AppCompatActivity {
                         username.setEnabled(false);
                         surname.setEnabled(false);
                         password.setEnabled(false);
-                        role.setEnabled(false);
                         sub.setVisibility(View.INVISIBLE);
                         flag = 1;
                     }
@@ -125,11 +139,19 @@ public class ProfileActivity extends AppCompatActivity {
             //submit changes
             @Override
             public void onClick(View view) {
+                if(userRB.isChecked()){
+                    role="user";
+                }else if(criticRB.isChecked()){
+                    role="critic";
+                }else if(adminRB.isChecked()){
+                    role="admin";
+                }
+
+
                 updateUser(username.getText().toString().trim(),
                         surname.getText().toString().trim(),
                         email.getText().toString().trim(),
-                        password.getText().toString().trim(),
-                        role.getText().toString().trim());
+                        password.getText().toString().trim(),role);
 
 
 
