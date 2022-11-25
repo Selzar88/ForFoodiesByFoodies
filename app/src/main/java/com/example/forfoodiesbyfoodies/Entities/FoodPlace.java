@@ -21,13 +21,13 @@ public class FoodPlace {
 
 
 
-    public FoodPlace(String name, String location, String description, String rate, String vegan, Uri filePath) {
+    public FoodPlace(String name, String location, String description, String rate, String vegan, String filePath) {
         this.name = name;
         this.location = location;
         this.description = description;
         this.rate = rate;
         this.vegan = vegan;
-        this.filePath = String.valueOf(filePath);
+        this.filePath = filePath;
 
 
     }

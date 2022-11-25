@@ -55,7 +55,7 @@ public class AddPlaceActivity extends AppCompatActivity {
     private Button add;
     private ImageView imageRestaurantView;
     private final int PICK_IMAGE_REQUEST = 22;
-    private Uri filePath;
+    private String filePath;
     private RadioGroup radioGroup;
     private RadioButton restaurant, caterning, street;
     private FirebaseStorage storage;
@@ -63,7 +63,7 @@ public class AddPlaceActivity extends AppCompatActivity {
     private DatabaseReference fDatabaseRef;
     private String admin;
     private String UserID;
-    private String url;
+    private Uri imageUri;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,19 +95,19 @@ public class AddPlaceActivity extends AppCompatActivity {
         }
 
         storageReference = FirebaseStorage.getInstance().getReference("images");
-        fDatabaseRef = FirebaseDatabase.getInstance().getReference("/image");
+        fDatabaseRef = FirebaseDatabase.getInstance().getReference().child("Image");
 
 
         // get the Firebase  storage reference
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
 
-        add.setOnClickListener(new View.OnClickListener() {
+        /*add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AddPlace();
             }
-        });
+        });*/
 
         // on pressing btnSelect SelectImage() is called
         btnBrowseImage.setOnClickListener(new View.OnClickListener() {
@@ -122,7 +122,10 @@ public class AddPlaceActivity extends AppCompatActivity {
         btnUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              uploadImage();
+              if(imageUri != null){
+                  uploadToFirebase(imageUri);
+              }
+
             }
         });
 
@@ -149,24 +152,21 @@ public class AddPlaceActivity extends AppCompatActivity {
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
 
             // Get the Uri of data
-            filePath = data.getData();
-            Picasso.get().load(filePath).into(imageRestaurantImage);
+            imageUri = data.getData();
+            imageRestaurantImage.setImageURI(imageUri);
+            //Picasso.get().load(filePath).into(imageRestaurantImage);
 
         }
 
     }
 
-    private String getFileExtension(Uri filePath){
-        ContentResolver cR = getContentResolver();
-        MimeTypeMap mime = MimeTypeMap.getSingleton();
-        return mime.getExtensionFromMimeType(cR.getType(filePath));
-    }
+
 
 
 
     // UploadImage method
-    private void uploadImage() {
-        if (filePath != null) {
+    /*private void uploadImage() {
+        if (imageUri != null) {
             // progress popup
             ProgressDialog progressDialog = new ProgressDialog(this);
             progressDialog.setTitle("Uploading...");
@@ -191,9 +191,7 @@ public class AddPlaceActivity extends AppCompatActivity {
                                 public void onSuccess(Uri uri) {
                                     /*filePath= Uri.parse(uri.toString());
                                     String id = fDatabaseRef.push().getKey();
-                                    fDatabaseRef.child(id).setValue(filePath);*/
-
-
+                                    fDatabaseRef.child(id).setValue(filePath);
                                 }
                             });
                         }
@@ -216,16 +214,14 @@ public class AddPlaceActivity extends AppCompatActivity {
                             progressDialog.setMessage("Uploaded " + (int) progress + "%");
                         }
                     });
-        }}
+        }}*/
 
-        private void AddPlace () {
+        /*private void AddPlace () {
 
             String placeName = name.getText().toString().trim();
             String placeLoc = localisation.getText().toString().trim();
             String placeDesc = description.getText().toString().trim();
             Boolean isVegan = vegan.isChecked();
-
-
 
             String Vfriends = "";
 
@@ -266,12 +262,86 @@ public class AddPlaceActivity extends AppCompatActivity {
                 FirebaseDatabase.getInstance().getReference(option).child(placeName).setValue(foodPlace);
                 Toast.makeText(AddPlaceActivity.this, "New food Place added", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(AddPlaceActivity.this, MenuActivity.class));
-
-
             }
+        }*/
+
+        private void uploadToFirebase(Uri uri){
+                StorageReference fileRef = storageReference.child(System.currentTimeMillis() + "." + getFileExtension(uri));
+                fileRef.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                String placeName = name.getText().toString().trim();
+                                String placeLoc = localisation.getText().toString().trim();
+                                String placeDesc = description.getText().toString().trim();
+                                Boolean isVegan = vegan.isChecked();
+
+                                String Vfriends = "";
+
+                                if (isVegan == true) {
+                                    Vfriends = "Vegan Friendly";
+                                }
+                                String option;
+
+                                caterning = findViewById(R.id.checkCatering);
+                                street = findViewById(R.id.checkStreetFood);
+
+                                if (restaurant.isChecked()) {
+                                    option = "Restaurant";
+                                } else if (caterning.isChecked()) {
+                                    option = "Catering";
+                                } else if (street.isChecked()) {
+                                    option = "StreetFood";
+                                } else {
+                                    option = "empty";
+                                    Toast.makeText(getApplicationContext(), "Choose the food place type", Toast.LENGTH_LONG).show();
+                                }
 
 
+                                if (placeName.isEmpty() || placeName.length() < 4) {
+                                    Toast.makeText(getApplicationContext(), "Entry too short", Toast.LENGTH_LONG).show();
+                                } else if (placeLoc.isEmpty() || placeLoc.length() < 7) {
+                                    Toast.makeText(getApplicationContext(), "Entry too short, provide at least full post code", Toast.LENGTH_LONG).show();
+                                } else if (placeDesc.isEmpty() || placeDesc.length() < 30) {
+                                    Toast.makeText(getApplicationContext(), "Entry too short, please provide more details about the place", Toast.LENGTH_LONG).show();
+                                }else if(placeDesc.length() > 100){
+                                    Toast.makeText(getApplicationContext(), "Entry too long, please provide less details", Toast.LENGTH_LONG).show();
+                                } else if (option.equals("empty")) {
+                                    Toast.makeText(getApplicationContext(), "Choose the food place type", Toast.LENGTH_LONG).show();
+                                } else {
+
+                                    FoodPlace foodPlace = new FoodPlace(placeName, placeLoc, placeDesc, "5", Vfriends, uri.toString());
+                                    String foodPlaceId = fDatabaseRef.push().getKey();
+                                    fDatabaseRef.child(foodPlaceId).setValue(foodPlace);
+
+                                    FirebaseDatabase.getInstance().getReference(option).child(placeName).setValue(foodPlace);
+                                    Toast.makeText(AddPlaceActivity.this, "New food Place added", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(AddPlaceActivity.this, MenuActivity.class));
+                                }
+                                Toast.makeText(AddPlaceActivity.this, "Upload Successful", Toast.LENGTH_LONG).show();
+                            }
+                        });
+                    }
+                }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(AddPlaceActivity.this, "Upload failed!", Toast.LENGTH_SHORT).show();
+                    }
+                });
         }
+
+    private String getFileExtension(Uri mUri){
+        ContentResolver cR = getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+        return mime.getExtensionFromMimeType(cR.getType(mUri));
+    }
     }
 
 
