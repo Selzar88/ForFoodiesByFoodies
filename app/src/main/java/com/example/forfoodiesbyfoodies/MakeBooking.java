@@ -13,15 +13,18 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
+import android.widget.RadioButton;
 
 import com.example.forfoodiesbyfoodies.User.RvUsers;
 
 public class MakeBooking extends AppCompatActivity {
-    Button book;
-    CalendarView calendarView;
-    String data;
+    private Button book;
+    private CalendarView calendarView;
+    private String data, time;
+    private RadioButton time18, time19, time20;
 
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +35,12 @@ public class MakeBooking extends AppCompatActivity {
 
         book = findViewById(R.id.book);
         calendarView=findViewById(R.id.calendarView);
+        time18 = findViewById(R.id.th18);
+        time19 = findViewById(R.id.th19);
+        time20 = findViewById(R.id.th20);
+
+
+
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -39,12 +48,20 @@ public class MakeBooking extends AppCompatActivity {
                 data = year+"-"+(month+1)+"-"+day;
             }
         });
+
+
         book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(time18.isChecked())
+                {time = "18";}
+                if (time19.isChecked())
+                {time ="19";}
+                if(time19.isChecked())
+                {time="20";}
 
 
-                Uri uri = Uri.parse("https://www.opentable.com/s?dateTime="+data+"T19%3A00%3A00&covers=2&metroId=3143&regionIds%5B0%5D=4461&neighborhoodIds%5B0%5D=&term=&originCorrelationId=5cc77d6b-e9b7-4a31-bb7b-133d7c495ca8");
+                Uri uri = Uri.parse("https://www.opentable.com/s?dateTime="+data+"T"+time+"%3A00%3A00&covers=2&metroId=3143&regionIds%5B0%5D=4461&neighborhoodIds%5B0%5D=&term=&originCorrelationId=5cc77d6b-e9b7-4a31-bb7b-133d7c495ca8");
                 startActivity(new Intent(Intent.ACTION_VIEW, uri));
             }
         });

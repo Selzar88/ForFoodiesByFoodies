@@ -1,6 +1,5 @@
 package com.example.forfoodiesbyfoodies;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,17 +11,9 @@ import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.forfoodiesbyfoodies.Entities.User;
 import com.example.forfoodiesbyfoodies.User.RvUsers;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class OtherUsers extends AppCompatActivity {
 
@@ -43,9 +34,9 @@ public class OtherUsers extends AppCompatActivity {
         final TextView surname = (TextView) findViewById(R.id.userSurname);
         final TextView email = (TextView) findViewById(R.id.userEmail);
         final TextView password = (TextView) findViewById(R.id.userPassword);
-        userRB = findViewById(R.id.checkUser);
-        adminRB = findViewById(R.id.checkAdmin);
-        criticRB = findViewById(R.id.checkCritic);
+        userRB = findViewById(R.id.th20);
+        adminRB = findViewById(R.id.th18);
+        criticRB = findViewById(R.id.th19);
 
 
         Bundle userProfile = getIntent().getExtras();

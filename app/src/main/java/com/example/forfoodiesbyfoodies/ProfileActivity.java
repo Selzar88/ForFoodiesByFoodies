@@ -4,7 +4,6 @@ package com.example.forfoodiesbyfoodies;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -54,9 +53,9 @@ public class ProfileActivity extends AppCompatActivity {
         final TextView surname = (TextView) findViewById(R.id.userSurname);
         final TextView email = (TextView) findViewById(R.id.userEmail);
         final TextView password = (TextView) findViewById(R.id.userPassword);
-        userRB = findViewById(R.id.checkUser);
-        adminRB = findViewById(R.id.checkAdmin);
-        criticRB = findViewById(R.id.checkCritic);
+        userRB = findViewById(R.id.th20);
+        adminRB = findViewById(R.id.th18);
+        criticRB = findViewById(R.id.th19);
 
 
 

@@ -6,17 +6,75 @@
     android:layout_height="match_parent"
     tools:context=".MakeBooking">
 
+    <RadioButton
+        android:id="@+id/checkAdmin3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:text="Admin" />
+
+    <RadioGroup
+        android:id="@+id/bookingbuttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+        <RadioButton
+            android:id="@+id/th18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:enabled="true"
+            android:text="18:00" />
+
+        <RadioButton
+            android:id="@+id/th19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:enabled="true"
+            android:text="19:00" />
+
+        <RadioButton
+            android:id="@+id/th20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:enabled="true"
+            android:text="20:00" />
+
+
+    </RadioGroup>
+
+    <RadioButton
+        android:id="@+id/checkCritic3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:text="Critic" />
+
+    <RadioButton
+        android:id="@+id/checkUser3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:text="User" />
+
     <CalendarView
         android:id="@+id/calendarView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="212dp"
+        android:layout_marginTop="35dp"
         android:layout_marginEnd="33dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/bookingbuttons" />
 
     <Button
         android:id="@+id/book"
@@ -62,4 +120,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_menu_24" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
