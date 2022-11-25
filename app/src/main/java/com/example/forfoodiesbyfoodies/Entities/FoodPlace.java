@@ -1,8 +1,5 @@
 package com.example.forfoodiesbyfoodies.Entities;
 
-import android.net.Uri;
-
-
 import com.google.firebase.database.IgnoreExtraProperties;
 
 @IgnoreExtraProperties

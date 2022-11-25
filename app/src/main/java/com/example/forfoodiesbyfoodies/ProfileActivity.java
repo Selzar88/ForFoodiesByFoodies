@@ -92,11 +92,9 @@ public class ProfileActivity extends AppCompatActivity {
                         else if(Urole.equals("admin")){
                             adminRB.setEnabled(true);
                             adminRB.toggle();
-
                         }
                     }
                 }
-
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
