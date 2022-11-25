@@ -68,6 +68,7 @@ public class OtherUsers extends AppCompatActivity {
             userRB.setEnabled(true);
             criticRB.setEnabled(true);
             adminRB.setEnabled(true);
+            edit.setEnabled(true);
         }
 
 
