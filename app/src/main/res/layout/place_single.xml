@@ -121,7 +121,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/imageRestaurantImage"
+        android:id="@+id/imagePlaceIImage"
         android:layout_width="155dp"
         android:layout_height="165dp"
         android:layout_marginLeft="5dp"

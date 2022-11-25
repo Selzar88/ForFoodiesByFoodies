@@ -1,15 +1,18 @@
 package com.example.forfoodiesbyfoodies;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.forfoodiesbyfoodies.Entities.FoodPlace;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -40,6 +43,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
            holder.description.setText(foodPlace.getDescription());
            holder.rate.setText(foodPlace.getRate());
            holder.vegan.setText(foodPlace.getVegan());
+           Uri imageUri = Uri.parse(foodPlace.getFilePath());
+           Picasso.get().load(imageUri).into(holder.path);
+
     }
 
     @Override
@@ -50,6 +56,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView name, location, description, rate, vegan;
+        ImageView path;
         public MyViewHolder(@NonNull View itemView, RecycleViewInterface recycleViewInterface){
             super(itemView);
             name =itemView.findViewById(R.id.placeName);
@@ -57,6 +64,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             description = itemView.findViewById(R.id.placeDescriprion);
             rate= itemView.findViewById(R.id.placeRate);
             vegan =itemView.findViewById(R.id.placeVegan);
+            path = itemView.findViewById(R.id.imagePlaceIImage);
 
 
             itemView.setOnClickListener(new View.OnClickListener() {
