@@ -48,41 +48,38 @@ public class OtherUsers extends AppCompatActivity {
         criticRB = findViewById(R.id.checkCritic);
 
 
-        Bundle userProfile= getIntent().getExtras();
-                if (userProfile != null) {
-                    fullname = userProfile.getString("first");
-                    surn = userProfile.getString("last");
-                    mail = userProfile.getString("mail");
-                    Urole = userProfile.getString("role");
-                    pass = userProfile.getString("pass");
-                }
-                else {
-                    fullname = "first";
-                    surn ="last";
-                    mail ="mail";
-                    Urole ="role";
-                    pass ="pass";
-                }
+        Bundle userProfile = getIntent().getExtras();
+        if (userProfile != null) {
+            fullname = userProfile.getString("first");
+            surn = userProfile.getString("last");
+            mail = userProfile.getString("mail");
+            Urole = userProfile.getString("role");
+            pass = userProfile.getString("pass");
+        } else {
+            fullname = "first";
+            surn = "last";
+            mail = "mail";
+            Urole = "role";
+            pass = "pass";
+        }
 
 
-                    //assign FB to textboxes
-                    username.setText(fullname);
-                    surname.setText(surn);
-                    email.setText(mail);
-                    password.setText(pass);
-                    if(Urole.equals("user")) {
-                        userRB.setEnabled(true);
-                        userRB.toggle();
-                    }
-                    else if(Urole.equals("critic")){
-                        criticRB.setEnabled(true);
-                        criticRB.toggle();
-                    }
-                    else if(Urole.equals("admin")){
-                        adminRB.setEnabled(true);
-                        adminRB.toggle();
+        //assign FB to textboxes
+        username.setText(fullname);
+        surname.setText(surn);
+        email.setText(mail);
+        password.setText(pass);
+        if (Urole.equals("user")) {
+            userRB.setEnabled(true);
+            userRB.toggle();
+        } else if (Urole.equals("critic")) {
+            criticRB.setEnabled(true);
+            criticRB.toggle();
+        } else if (Urole.equals("admin")) {
+            adminRB.setEnabled(true);
+            adminRB.toggle();
 
-                    }
+        }
 
 
 //        sub = findViewById(R.id.editSub);
@@ -169,7 +166,7 @@ public class OtherUsers extends AppCompatActivity {
 //        deleteReferance.removeValue();
 //        return true;
 //    }
-
+    }
     public void DropDownMenu() {
         ImageView imageView = findViewById(R.id.settingsDraweProfile);
         registerForContextMenu(imageView);
@@ -206,8 +203,6 @@ public class OtherUsers extends AppCompatActivity {
                 popupMenu.show();
             }
         });
-
-
 
     }
 }
