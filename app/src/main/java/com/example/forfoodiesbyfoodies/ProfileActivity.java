@@ -53,9 +53,9 @@ public class ProfileActivity extends AppCompatActivity {
         final TextView surname = (TextView) findViewById(R.id.userSurname);
         final TextView email = (TextView) findViewById(R.id.userEmail);
         final TextView password = (TextView) findViewById(R.id.userPassword);
-        userRB = findViewById(R.id.th20);
-        adminRB = findViewById(R.id.th18);
-        criticRB = findViewById(R.id.th19);
+        userRB = findViewById(R.id.user);
+        adminRB = findViewById(R.id.admin);
+        criticRB = findViewById(R.id.critic);
 
 
 
@@ -181,14 +181,6 @@ public class ProfileActivity extends AppCompatActivity {
         return true;
     }
 
-//    private boolean deleteUser(String id) {
-//        //nahh cannot be current !!!!!!!!!!!!!!
-//        FBprofile = FirebaseAuth.getInstance().getCurrentUser();
-//        UserID = FBprofile.getUid();
-//        DatabaseReference deleteReferance = FirebaseDatabase.getInstance().getReference("Users").child(UserID);
-//        deleteReferance.removeValue();
-//        return true;
-//    }
 
     public void DropDownMenu() {
         ImageView imageView = findViewById(R.id.settingsDraweProfile);
