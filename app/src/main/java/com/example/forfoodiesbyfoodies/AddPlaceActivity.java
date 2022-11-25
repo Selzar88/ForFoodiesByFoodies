@@ -312,9 +312,10 @@ public class AddPlaceActivity extends AppCompatActivity {
                                     Toast.makeText(getApplicationContext(), "Choose the food place type", Toast.LENGTH_LONG).show();
                                 } else {
 
-                                    FoodPlace foodPlace = new FoodPlace(placeName, placeLoc, placeDesc, "5", Vfriends, uri.toString());
                                     String foodPlaceId = fDatabaseRef.push().getKey();
-                                    fDatabaseRef.child(foodPlaceId).setValue(foodPlace);
+                                    FoodPlace foodPlace = new FoodPlace(placeName, placeLoc, placeDesc, "5", Vfriends, foodPlaceId);
+
+                                    fDatabaseRef.child(option).setValue(foodPlace);
 
                                     FirebaseDatabase.getInstance().getReference(option).child(placeName).setValue(foodPlace);
                                     Toast.makeText(AddPlaceActivity.this, "New food Place added", Toast.LENGTH_SHORT).show();
