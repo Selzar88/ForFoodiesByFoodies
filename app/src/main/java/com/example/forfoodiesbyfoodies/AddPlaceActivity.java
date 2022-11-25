@@ -72,7 +72,6 @@ public class AddPlaceActivity extends AppCompatActivity {
         mAth = FirebaseAuth.getInstance();
         add = findViewById(R.id.btnAddPlace);
         btnBrowseImage = findViewById(R.id.btnBrowseImage);
-        btnUpload = findViewById(R.id.btnUpload);
         imageRestaurantImage = findViewById(R.id.imagePlaceIImage);
 
 
