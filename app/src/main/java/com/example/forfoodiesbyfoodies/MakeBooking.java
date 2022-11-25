@@ -3,7 +3,6 @@ package com.example.forfoodiesbyfoodies;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -34,9 +33,9 @@ public class MakeBooking extends AppCompatActivity {
 
         book = findViewById(R.id.book);
         calendarView=findViewById(R.id.calendarView);
-        time18 = findViewById(R.id.th18);
-        time19 = findViewById(R.id.th19);
-        time20 = findViewById(R.id.th20);
+        time18 = findViewById(R.id.admin);
+        time19 = findViewById(R.id.critic);
+        time20 = findViewById(R.id.user);
 
 
 

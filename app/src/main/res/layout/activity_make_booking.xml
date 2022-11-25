@@ -24,7 +24,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4">
 
         <RadioButton
-            android:id="@+id/th18"
+            android:id="@+id/admin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -32,7 +32,7 @@
             android:text="18:00" />
 
         <RadioButton
-            android:id="@+id/th19"
+            android:id="@+id/critic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -40,7 +40,7 @@
             android:text="19:00" />
 
         <RadioButton
-            android:id="@+id/th20"
+            android:id="@+id/user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"

@@ -53,9 +53,9 @@ public class ProfileActivity extends AppCompatActivity {
         final TextView surname = (TextView) findViewById(R.id.userSurname);
         final TextView email = (TextView) findViewById(R.id.userEmail);
         final TextView password = (TextView) findViewById(R.id.userPassword);
-        userRB = findViewById(R.id.th20);
-        adminRB = findViewById(R.id.th18);
-        criticRB = findViewById(R.id.th19);
+        userRB = findViewById(R.id.user);
+        adminRB = findViewById(R.id.admin);
+        criticRB = findViewById(R.id.critic);
 
 
 
@@ -125,8 +125,11 @@ public class ProfileActivity extends AppCompatActivity {
                         sub.setVisibility(View.INVISIBLE);
                         flag = 1;
                     }
+
                     int flag = 1;
+
                 }
+
         });
 
         sub.setOnClickListener(new View.OnClickListener() {
@@ -141,17 +144,24 @@ public class ProfileActivity extends AppCompatActivity {
                     role="admin";
                 }
 
+
                 updateUser(username.getText().toString().trim(),
                         surname.getText().toString().trim(),
                         email.getText().toString().trim(),
                         password.getText().toString().trim(),role);
-                        username.setEnabled(false);
-                        surname.setEnabled(false);
-                        password.setEnabled(false);
-                        sub.setVisibility(View.INVISIBLE);
-                        flag = 1;
+
+
+
+                username.setEnabled(false);
+                surname.setEnabled(false);
+                password.setEnabled(false);
+                sub.setVisibility(View.INVISIBLE);
+                flag = 1;
             }
+
         });
+
+
     }
 
     private boolean updateUser(String newname, String newsurname, String newemail, String newpassword, String role) {
@@ -168,6 +178,7 @@ public class ProfileActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Account " + newemail + " updated!", Toast.LENGTH_LONG).show();
         return true;
     }
+
 
     public void DropDownMenu() {
         ImageView imageView = findViewById(R.id.settingsDraweProfile);
