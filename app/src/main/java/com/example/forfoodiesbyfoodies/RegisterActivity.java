@@ -27,10 +27,13 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText email, password, rePassword, surname, name;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+
 
         mAuth = FirebaseAuth.getInstance();
         email = findViewById(R.id.txtUsernameReg);
@@ -38,6 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
         rePassword = findViewById(R.id.txtRePasswordReg);
         surname = findViewById(R.id.txtSurnameReg);
         name = findViewById(R.id.txtFirstReg);
+
 
 
 
@@ -61,6 +65,7 @@ public class RegisterActivity extends AppCompatActivity {
         String rePass = rePassword.getText().toString().trim();
         String first = name.getText().toString().trim();
         String sur = surname.getText().toString().trim();
+        String role = "user";
 
         if(first.isEmpty()|| first.length()< 2){
             name.setError("Name cannot be empty!");
@@ -75,11 +80,14 @@ public class RegisterActivity extends AppCompatActivity {
             password.setError("Password cannot be empty!");
         }
         else if (pass.equals(rePass)){
+
             mAuth.createUserWithEmailAndPassword(mail, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful()){
-                        User user = new User(first, sur, mail, pass);
+
+                        //creating object with user data
+                        User user = new User(first, sur, mail, pass, role);
 
                         FirebaseDatabase.getInstance().getReference("Users")
                                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid())

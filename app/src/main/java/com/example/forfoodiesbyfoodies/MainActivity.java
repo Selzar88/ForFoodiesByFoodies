@@ -12,14 +12,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
-    //encapsulacja zeby nie dalo sie dostac z zewnatrz klasy do danych
+    //encapsulation of variables to prevent access form the outside of the class
     private EditText username, password;
+    private TextView recover;
     private Button btnLogin;
     private FirebaseAuth mAuth;
     Button btnNoLogin;
@@ -34,6 +36,14 @@ public class MainActivity extends AppCompatActivity {
         btnLogin = (Button) findViewById(R.id.btnRegister);
         mAuth = FirebaseAuth.getInstance();
         btnNoLogin = findViewById(R.id.btnNoLogin);
+        recover = findViewById(R.id.recover);
+
+        recover.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, PasswordRecovery.class));
+            }
+        });
 
         Button noLogin = findViewById(R.id.btnNoLogin);
         noLogin.setOnClickListener(new View.OnClickListener() {
@@ -44,9 +54,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
-//jakas zmina
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 String pass = password.getText().toString().trim();
 
                 if(user.isEmpty()||pass.isEmpty())
-                    Toast.makeText(MainActivity.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
                 else{
                     mAuth.signInWithEmailAndPassword(user,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
@@ -65,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(MainActivity.this, "Welcome "+ user, Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(MainActivity.this,MenuActivity.class));
                             }else{
-                                Toast.makeText(MainActivity.this, "Sorry user "+ user+ " is not active", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, "Wrong credentials, Try again", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
@@ -79,8 +86,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this,RegisterActivity.class));
             }
         });
-
-
 
     }
 }

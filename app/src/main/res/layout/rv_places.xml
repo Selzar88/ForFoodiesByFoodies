@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/banner"
+        android:layout_width="wrap_content"
+        android:layout_height="65dp"
+        android:layout_gravity="right"
+        android:layout_marginRight="75dp"
+        android:layout_marginTop="0dp"
+
+        android:fontFamily="@font/monoton"
+        android:text="RESTAURANTS"
+        android:textColor="@color/red_700"
+        android:textSize="30dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycle_restaurants"
+        android:layout_width="match_parent"
+        android:layout_height="680dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/et_style"
+        android:layout_gravity="bottom"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="63dp"
+        android:layout_height="63dp"
+        android:layout_gravity="left"
+        android:layout_marginTop="0dp"
+        android:contentDescription="@string/logoMenu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo1" />
+
+</FrameLayout>

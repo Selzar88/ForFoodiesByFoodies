@@ -1,62 +1,59 @@
 package com.example.forfoodiesbyfoodies.Entities;
 
-import android.media.Image;
+import android.net.Uri;
 
+
+import com.google.firebase.database.IgnoreExtraProperties;
+
+@IgnoreExtraProperties
 public class FoodPlace {
 
-    private String name, describtion, location;
-    private boolean vegan;
-    private int rate;
-//    private Image picture;
+    String name;
+    String location;
+    String description;
+    String rate;
+    String vegan;
+    String filePath;
 
-    public FoodPlace() {
+
+
+
+
+
+
+    public FoodPlace(String name, String location, String description, String rate, String vegan, String filePath) {
+        this.name = name;
+        this.location = location;
+        this.description = description;
+        this.rate = rate;
+        this.vegan = vegan;
+        this.filePath = filePath;
+
+
     }
 
-    public FoodPlace(String name, String describtion, String location, boolean vegan, int rate) {
-        this.name = name;
-        this.describtion = describtion;
-        this.location = location;
-        this.vegan = vegan;
-        this.rate = rate;
+    public FoodPlace() {
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescribtion() {
-        return describtion;
-    }
-
-    public void setDescribtion(String describtion) {
-        this.describtion = describtion;
-    }
-
     public String getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public String getDescription() {
+        return description;
     }
 
-    public boolean isVegan() {
-        return vegan;
-    }
-
-    public void setVegan(boolean vegan) {
-        this.vegan = vegan;
-    }
-
-    public int getRate() {
+    public String getRate() {
         return rate;
     }
 
-    public void setRate(int rate) {
-        this.rate = rate;
-    }
+    public String getVegan() {return  vegan;}
+
+    public String getFilePath() {return  filePath;}
+
+
 }

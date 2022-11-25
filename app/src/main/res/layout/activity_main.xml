@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -129,52 +130,10 @@
         android:textColor="#B71C1C"
         android:textSize="9sp"
         android:textStyle="italic"
-        app:layout_constraintBottom_toTopOf="@+id/socialIcons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recover"
-        app:layout_constraintVertical_bias="0.638" />
-
-    <LinearLayout
-        android:id="@+id/socialIcons"
-        android:layout_width="412dp"
-        android:layout_height="63dp"
-        android:layout_alignParentBottom="true"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recover"
-        app:layout_constraintVertical_bias="0.803">
-
-        <ImageView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_margin="20dp"
-            android:src="@drawable/google"
-            tools:layout_editor_absoluteX="81dp"
-            tools:layout_editor_absoluteY="665dp" />
-
-        <ImageView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_margin="20dp"
-            android:src="@drawable/facebook"
-            tools:layout_editor_absoluteX="173dp"
-            tools:layout_editor_absoluteY="665dp" />
-
-        <ImageView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_margin="20dp"
-            android:src="@drawable/twitter"
-            tools:ignore="ImageContrastCheck"
-            tools:layout_editor_absoluteX="274dp"
-            tools:layout_editor_absoluteY="665dp" />
-
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/recover" />
 
     <ImageView
         android:id="@+id/logoLogin"

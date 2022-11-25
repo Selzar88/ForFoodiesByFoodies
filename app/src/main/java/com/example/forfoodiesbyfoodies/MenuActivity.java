@@ -1,102 +1,158 @@
 package com.example.forfoodiesbyfoodies;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.forfoodiesbyfoodies.Entities.FoodPlace;
+import com.example.forfoodiesbyfoodies.User.RvUsers;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MenuActivity extends AppCompatActivity {
 
+    DatabaseReference dataPlaces;
     RecyclerView recyclerView;
-    DatabaseReference restaurant, street, catering;
-    MyAdapter myAdapter;
-//    DatabaseReference reference;
-    ArrayList<FoodPlace> restaurantList;
+    ArrayList<FoodPlace> list;
+    DatabaseReference databaseReference;
+    MyAdapter adapter;
+    String place= "place";
+    private boolean doubleBackToExitPressedOnce;
 
-    Button profile;
 
-
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
 
+        ImageView imageView = findViewById(R.id.settingsDrawer);
+        registerForContextMenu(imageView);
 
-
-        ImageView reg = findViewById(R.id.settingsDraw);
-        reg.setOnClickListener(new View.OnClickListener() {
+        ImageView btnRestaurants = findViewById(R.id.btnRestaurants);
+        btnRestaurants.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MenuActivity.this,AddPlaceActivity.class));
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this, RvPlaces.class);
+                intent.putExtra("name", "Restaurant");
+                startActivity(intent);
             }
-        });
 
-        RecyclerView recyclerView = findViewById(R.id.recycleRestaurant);
-        restaurant = FirebaseDatabase.getInstance().getReference("Restaurant");
-        street = FirebaseDatabase.getInstance().getReference("Street");
-        catering = FirebaseDatabase.getInstance().getReference("Catering");
-
-
-
-        ArrayList<FoodPlace> items = new ArrayList<FoodPlace>();
-
-
-        for (int i=0; i < 10; i++){
-
-
-
-            FoodPlace o1 = new FoodPlace("name","desc","local",true,2);
-
-            items.add(o1);
-        }
-
-
-
-
-
-//        items.add(new RestaurantClass("The Ledbury","British",R.drawable.the_ledbury,
-//                R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_half_24,R.drawable.ic_baseline_read_more_24));
-//        items.add(new RestaurantClass("Indian Moment","Great",R.drawable.indian_moment,
-//                R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_half_24,R.drawable.ic_baseline_read_more_24));
-//        items.add(new RestaurantClass("Tapajax","Great",R.drawable.tapajax,
-//                R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_half_24,R.drawable.ic_baseline_read_more_24));
-//        items.add(new RestaurantClass("Palace Spice","Great",R.drawable.palace_spices,
-//                R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_half_24,R.drawable.ic_baseline_read_more_24));
-//        items.add(new RestaurantClass("Palace Spice","Great",R.drawable.palace_spices,
-//                R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_24,R.drawable.ic_baseline_star_half_24,R.drawable.ic_baseline_read_more_24));
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new MyAdapter(getApplicationContext(),items));
-
-
-
-        profile = findViewById(R.id.btnRestaurants);
-        profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MenuActivity.this,ProfileActivity.class));
-
-            }
         });
 
 
+        TextView txtRestaurants = findViewById(R.id.txtRestaurantMenu);
+        txtRestaurants.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this, RvPlaces.class);
+                intent.putExtra("name", "Restaurant");
+                startActivity(intent);
+            }
+        });
+
+        ImageView btnStreetFood = findViewById(R.id.btnStreetFood);
+        btnStreetFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this, RvPlaces.class);
+                intent.putExtra("name", "StreetFood");
+                startActivity(intent);;
+            }
+        });
+
+        TextView txtStreetFood = findViewById(R.id.txtStreetFoodMenu);
+        txtStreetFood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this, RvPlaces.class);
+                intent.putExtra("name", "StreetFood");
+                startActivity(intent);
+            }
+        });
+
+        TextView txtCatering = findViewById(R.id.txtCateringMenu);
+        txtCatering.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this, RvPlaces.class);
+                intent.putExtra("name", "Catering");
+                startActivity(intent);
+            }
+        });
+        ImageView btnCatering = findViewById(R.id.btnCatering);
+        btnCatering.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this, RvPlaces.class);
+                intent.putExtra("name", "Catering");
+                startActivity(intent);
+            }
+        });
+
+
+        DropDownMenu();
+
+        boolean doubleBackToExitPressedOnce = false;
 
 
     }
 
+
+    public void DropDownMenu(){
+        ImageView imageView = findViewById(R.id.settingsDrawer);
+        registerForContextMenu(imageView);
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu popupMenu = new PopupMenu(MenuActivity.this, v);
+                popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()) {
+                            case R.id.btnProfile:
+                                Intent intent1 = new Intent(MenuActivity.this, ProfileActivity.class);
+                                startActivity(intent1);
+                                return true;
+                            case R.id.btnUserList:
+                                Intent intent2 = new Intent(MenuActivity.this, RvUsers.class);
+                                startActivity(intent2);
+                                return true;
+                            case R.id.btnAddPlace:
+                                Intent intent3 = new Intent(MenuActivity.this, AddPlaceActivity.class);
+                                startActivity(intent3);
+                                return true;
+                            case R.id.btnLogout:
+                                Intent intent4 = new Intent(MenuActivity.this, MainActivity.class);
+                                startActivity(intent4);
+                                return true;
+
+                        }
+                        return false;
+                    }
+                });
+                popupMenu.show();
+
+            }
+        });
+
+
+    }
 
 
 
